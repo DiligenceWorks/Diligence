@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.fitness.rule=Host(`fitness.littlefake.com`)"
+      - "traefik.http.routers.fitness.entrypoints=https"
+      - "traefik.http.routers.fitness.tls=true"
+      - "traefik.http.routers.fitness.tls.certresolver=letsencrypt"
+      - "traefik.http.services.fitness.loadbalancer.server.port=80"
+    networks:
+      - default
+      - coolify
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://fitness:${DB_PASSWORD}@db:5432/fitness_rewards
+      - SECRET_KEY=${SECRET_KEY}
+      - STRAVA_CLIENT_ID=${STRAVA_CLIENT_ID:-}
+      - STRAVA_CLIENT_SECRET=${STRAVA_CLIENT_SECRET:-}
+      - POLAR_CLIENT_ID=${POLAR_CLIENT_ID:-}
+      - POLAR_CLIENT_SECRET=${POLAR_CLIENT_SECRET:-}
+      - BASE_URL=https://fitness.littlefake.com
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - default
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=fitness
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=fitness_rewards
+    volumes:
+      - fitness_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fitness -d fitness_rewards"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - default
+
+volumes:
+  fitness_db_data:
+
+networks:
+  coolify:
+    external: true
