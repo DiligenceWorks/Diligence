@@ -16,12 +16,12 @@ services:
     build: ./backend
     restart: unless-stopped
     environment:
-      - DATABASE_URL=postgresql+asyncpg://fitness:${DB_PASSWORD}@db:5432/fitness_rewards
-      - SECRET_KEY=${SECRET_KEY}
-      - STRAVA_CLIENT_ID=${STRAVA_CLIENT_ID:-}
-      - STRAVA_CLIENT_SECRET=${STRAVA_CLIENT_SECRET:-}
-      - POLAR_CLIENT_ID=${POLAR_CLIENT_ID:-}
-      - POLAR_CLIENT_SECRET=${POLAR_CLIENT_SECRET:-}
+      - DATABASE_URL=postgresql+asyncpg://fitness:2fa009531fc3a358dce7c7f672d4edd0@db:5432/fitness_rewards
+      - SECRET_KEY=8915f64daf616b1b1ea5cdc8242ec924adf263c045bef378d9cb880787ba4386
+      - STRAVA_CLIENT_ID=211907
+      - STRAVA_CLIENT_SECRET=d1e48251327a3760acd6dcf4129ec59350dc6b71
+      - POLAR_CLIENT_ID=13c4d547-4056-4b55-8412-a1cce84e887e
+      - POLAR_CLIENT_SECRET=29890119-2267-4a72-8888-e67ab0c0bf60
       - BASE_URL=https://fitness.littlefake.com
     depends_on:
       db:
@@ -38,7 +38,7 @@ services:
     restart: unless-stopped
     environment:
       - POSTGRES_USER=fitness
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_PASSWORD=2fa009531fc3a358dce7c7f672d4edd0
       - POSTGRES_DB=fitness_rewards
     volumes:
       - fitness_db_data:/var/lib/postgresql/data
