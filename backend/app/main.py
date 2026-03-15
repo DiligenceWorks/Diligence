@@ -26,6 +26,14 @@ async def lifespan(app: FastAPI):
             else:
                 logger.error("Could not initialize database after 10 attempts — starting without tables")
 
+
+    # Run lightweight migrations for schema changes
+    try:
+        await run_migrations()
+        logger.info("Migrations completed")
+    except Exception as e:
+        logger.warning(f"Migration failed (non-fatal): {e}")
+
     # Seed resources (non-fatal if it fails)
     try:
         await seed_resources()
@@ -70,6 +78,22 @@ app.include_router(programs_router)
 @app.get("/api/health")
 async def health():
     return {"status": "ok", "version": "0.1.0"}
+
+
+
+async def run_migrations():
+    """Add missing columns to existing tables (lightweight schema migration)."""
+    from app.database import engine
+    from sqlalchemy import text
+
+    async with engine.begin() as conn:
+        # Add equipment_list JSONB column if missing
+        await conn.execute(text("""
+            DO $$ BEGIN
+                ALTER TABLE user_profiles ADD COLUMN IF NOT EXISTS equipment_list JSONB DEFAULT '[]';
+            EXCEPTION WHEN undefined_table THEN NULL;
+            END $$;
+        """))
 
 
 async def seed_resources():
