@@ -89,7 +89,7 @@ export default function LogFood() {
     <div className="page">
       <h1 className="page-title">Food Log</h1>
 
-      {success && <div style={{ padding: '12px', background: 'var(--success-bg)', borderRadius: 'var(--radius-sm)', color: 'var(--success)', textAlign: 'center', marginBottom: '12px', fontWeight: 600 }}>{success}</div>}
+      {success && <div style={{ padding: '12px', background: 'var(--green-ghost)', borderRadius: 'var(--radius-sm)', color: 'var(--green-dark)', textAlign: 'center', marginBottom: '12px', fontWeight: 600 }}>{success}</div>}
 
       {/* Tab bar */}
       <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
@@ -108,7 +108,7 @@ export default function LogFood() {
           <button className="btn-primary btn-full" onClick={handleScan} disabled={loading}>
             {loading ? 'Looking up...' : 'Lookup'}
           </button>
-          <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '8px', textAlign: 'center' }}>
+          <p style={{ fontSize: '0.8rem', color: 'var(--text-3)', marginTop: '8px', textAlign: 'center' }}>
             Powered by Open Food Facts (4M+ products)
           </p>
         </div>
@@ -122,9 +122,9 @@ export default function LogFood() {
             <button className="btn-primary btn-sm" onClick={handleSearch} disabled={loading}>Go</button>
           </div>
           {searchResults.map((r, i) => (
-            <div key={i} style={{ padding: '10px 0', borderBottom: '1px solid var(--border)', cursor: 'pointer' }} onClick={() => fillFromProduct(r)}>
+            <div key={i} style={{ padding: '10px 0', borderBottom: '1px solid var(--divider)', cursor: 'pointer' }} onClick={() => fillFromProduct(r)}>
               <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{r.product_name || 'Unknown'}</div>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+              <div style={{ fontSize: '0.8rem', color: 'var(--text-3)' }}>
                 {r.brand && `${r.brand} · `}{r.calories_100g ? `${Math.round(r.calories_100g)} cal/100g` : ''}
               </div>
             </div>
@@ -186,7 +186,7 @@ export default function LogFood() {
       {/* Today's summary */}
       {todayFood && (
         <div className="card" style={{ marginTop: '8px' }}>
-          <div style={{ fontWeight: 700, marginBottom: '10px' }}>
+          <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, marginBottom: '10px' }}>
             Today: {Math.round(todayFood.total_calories)} cal
           </div>
           {MEALS.map(m => {
@@ -198,7 +198,7 @@ export default function LogFood() {
                 {items.map(item => (
                   <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', fontSize: '0.9rem' }}>
                     <span>{item.food_name}</span>
-                    <span style={{ color: 'var(--text-muted)' }}>{item.calories ? `${Math.round(item.calories)} cal` : ''}</span>
+                    <span style={{ color: 'var(--text-3)' }}>{item.calories ? `${Math.round(item.calories)} cal` : ''}</span>
                   </div>
                 ))}
               </div>

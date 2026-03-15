@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { api } from '../api'
 
 const CATEGORIES = [
-  { value: 'workout', label: 'Workout', icon: '💪', desc: 'Any exercise session' },
-  { value: 'steps_target', label: 'Steps Target', icon: '👟', desc: 'Hit your daily step goal' },
-  { value: 'screen_free', label: 'Screen-Free', icon: '📖', desc: 'Reading, outdoor time, etc.' },
-  { value: 'daily_checkin', label: 'Daily Check-in', icon: '✅', desc: 'Just showing up counts' },
+  { value: 'workout', label: 'Workout', icon: '💪', desc: 'Any exercise session', color: '#FF5722' },
+  { value: 'steps_target', label: 'Steps', icon: '👟', desc: 'Hit your daily goal', color: '#2979FF' },
+  { value: 'screen_free', label: 'Screen-Free', icon: '📖', desc: 'Reading, outdoors', color: '#7C4DFF' },
+  { value: 'daily_checkin', label: 'Check-in', icon: '✅', desc: 'Just show up', color: '#00BCD4' },
 ]
 
 export default function LogActivity() {
@@ -31,9 +31,9 @@ export default function LogActivity() {
         duration_minutes: duration ? parseInt(duration) : null,
         activity_date: today,
       })
-      setSuccess(`+${result.points_earned} points earned!`)
+      setSuccess(`+${result.points_earned} points!`)
       setCategory(''); setTitle(''); setDuration(''); setDescription('')
-      setTimeout(() => navigate('/'), 1500)
+      setTimeout(() => navigate('/'), 1200)
     } catch (err) { alert(err.message) }
     finally { setLoading(false) }
   }
@@ -43,27 +43,32 @@ export default function LogActivity() {
       <h1 className="page-title">Log Activity</h1>
 
       {success && (
-        <div style={{ textAlign: 'center', padding: '24px', background: 'var(--success-bg)', borderRadius: 'var(--radius)', marginBottom: '16px', border: '1px solid rgba(34, 197, 94, 0.15)' }}>
-          <div style={{ fontSize: '1.8rem', marginBottom: '4px' }}>🎉</div>
-          <div style={{ color: 'var(--success)', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.1rem' }}>{success}</div>
+        <div style={{
+          textAlign: 'center', padding: '24px', marginBottom: '14px',
+          background: 'var(--green-ghost)', borderRadius: 'var(--r-lg)', border: '2px solid rgba(0,200,83,0.15)',
+        }}>
+          <div style={{ fontSize: '2rem', marginBottom: '4px' }}>🎉</div>
+          <div style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '1.3rem', color: 'var(--green-dark)' }}>{success}</div>
         </div>
       )}
 
-      <div style={{ marginBottom: '20px' }}>
-        <div className="form-label">What did you do?</div>
+      <div style={{ marginBottom: '18px' }}>
+        <div className="section-label">What did you do?</div>
         <div className="option-grid">
           {CATEGORIES.map(c => (
-            <div key={c.value} className={`option-btn ${category === c.value ? 'selected' : ''}`} onClick={() => setCategory(c.value)}>
-              <div style={{ fontSize: '1.4rem', marginBottom: '6px' }}>{c.icon}</div>
-              <div style={{ fontWeight: 700, fontSize: '0.85rem' }}>{c.label}</div>
-              <div style={{ fontSize: '0.73rem', color: 'var(--text-muted)', marginTop: '3px', fontWeight: 400 }}>{c.desc}</div>
+            <div key={c.value} className={`option-btn ${category === c.value ? 'selected' : ''}`}
+              onClick={() => setCategory(c.value)}
+              style={category === c.value ? { borderColor: c.color, background: c.color + '0A' } : {}}>
+              <div style={{ fontSize: '1.5rem', marginBottom: '6px' }}>{c.icon}</div>
+              <div style={{ fontWeight: 800, fontSize: '0.85rem' }}>{c.label}</div>
+              <div style={{ fontSize: '0.72rem', color: 'var(--text-3)', marginTop: '2px', fontWeight: 400 }}>{c.desc}</div>
             </div>
           ))}
         </div>
       </div>
 
       {category && (
-        <form onSubmit={handleSubmit} className="card">
+        <form onSubmit={handleSubmit} className="card" style={{ animation: 'fadeUp 0.25s ease-out' }}>
           <div className="form-group">
             <label className="form-label">Title (optional)</label>
             <input value={title} onChange={e => setTitle(e.target.value)} placeholder="e.g. Morning run, StrongLifts Day 12" />
@@ -78,7 +83,7 @@ export default function LogActivity() {
             <label className="form-label">Notes (optional)</label>
             <textarea value={description} onChange={e => setDescription(e.target.value)} rows={2} placeholder="How did it go?" />
           </div>
-          <button type="submit" className="btn-primary btn-full" disabled={loading}>
+          <button type="submit" className="btn-primary btn-full" disabled={loading} style={{ borderRadius: 'var(--r)' }}>
             {loading ? 'Saving...' : 'Log Activity'}
           </button>
         </form>

@@ -8,19 +8,14 @@ export default function Dashboard() {
   const navigate = useNavigate()
 
   useEffect(() => { loadStatus() }, [])
-
   async function loadStatus() {
-    try {
-      const data = await api.today()
-      setStatus(data)
-    } catch (err) { console.error(err) }
+    try { setStatus(await api.today()) }
+    catch (err) { console.error(err) }
     finally { setLoading(false) }
   }
-
   async function handleSync(provider) {
     try {
-      const fn = provider === 'strava' ? api.stravaSync : api.polarSync
-      await fn()
+      await (provider === 'strava' ? api.stravaSync : api.polarSync)()
       await loadStatus()
     } catch (err) { alert(`Sync failed: ${err.message}`) }
   }
@@ -30,96 +25,128 @@ export default function Dashboard() {
 
   const pct = status.daily_minimum > 0 ? Math.min(100, Math.round((status.points_earned / status.daily_minimum) * 100)) : 0
   const weekPct = status.weekly_target > 0 ? Math.min(100, Math.round((status.week_points / status.weekly_target) * 100)) : 0
-
-  const categories = {
-    workout: { label: 'Workout', icon: '💪', pts: 50 },
-    food_log: { label: 'Food logged', icon: '🥗', pts: 30 },
-    steps_target: { label: 'Steps target', icon: '👟', pts: 20 },
-    screen_free: { label: 'Screen-free time', icon: '📖', pts: '20/hr' },
-    daily_checkin: { label: 'Daily check-in', icon: '✅', pts: 10 },
-  }
   const doneCats = new Set(status.activities_today.map(a => a.category))
+
+  const activities = [
+    { key: 'workout', label: 'Workout', icon: '💪', pts: 50, color: '#FF5722' },
+    { key: 'food_log', label: 'Food logged', icon: '🥗', pts: 30, color: '#4CAF50' },
+    { key: 'steps_target', label: 'Steps target', icon: '👟', pts: 20, color: '#2979FF' },
+    { key: 'screen_free', label: 'Screen-free', icon: '📖', pts: '20/hr', color: '#7C4DFF' },
+    { key: 'daily_checkin', label: 'Check-in', icon: '✅', pts: 10, color: '#00BCD4' },
+  ]
 
   return (
     <div className="page">
-      {/* Program progress */}
+      {/* Program bar */}
       {status.program_name && (
-        <div className="card" style={{ textAlign: 'center', padding: '16px 20px', background: 'var(--blue-bg)', borderColor: 'rgba(59, 130, 246, 0.15)' }}>
-          <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-            {status.program_name}
+        <div style={{
+          background: 'var(--blue-ghost)', borderRadius: 'var(--r)', padding: '12px 16px',
+          marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '12px',
+          border: '1px solid rgba(41,121,255,0.1)',
+        }}>
+          <div style={{ fontSize: '1.1rem' }}>📋</div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--blue)' }}>{status.program_name}</div>
+            <div className="progress-bar" style={{ height: '5px', marginTop: '4px' }}>
+              <div className="progress-bar-fill" style={{
+                width: `${Math.round((status.program_day / status.program_total_days) * 100)}%`,
+                background: 'var(--blue)',
+              }} />
+            </div>
           </div>
-          <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.1rem', margin: '4px 0', color: 'var(--blue)' }}>
-            Day {status.program_day} of {status.program_total_days}
-          </div>
-          <div className="progress-bar" style={{ height: '6px' }}>
-            <div className="progress-bar-fill" style={{
-              width: `${Math.round((status.program_day / status.program_total_days) * 100)}%`,
-              background: 'linear-gradient(90deg, #3b82f6, #60a5fa)'
-            }} />
+          <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.85rem', color: 'var(--blue)', whiteSpace: 'nowrap' }}>
+            {status.program_day}/{status.program_total_days}
           </div>
         </div>
       )}
 
-      {/* Gate banner */}
+      {/* === HERO: Today's Points === */}
       <div className={`gate-banner ${status.gate_passed ? 'gate-earned' : 'gate-locked'}`}>
-        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Today</div>
+        <div className="section-label" style={{ marginBottom: '4px' }}>Today</div>
         <div className="gate-pts">
-          <span style={{ color: status.gate_passed ? 'var(--success)' : 'var(--danger)' }}>
+          <span style={{ color: status.gate_passed ? 'var(--green)' : 'var(--orange)' }}>
             {status.points_earned}
           </span>
-          <span style={{ color: 'var(--text-muted)', fontSize: '1rem', fontFamily: 'var(--font-body)', fontWeight: 500 }}> / {status.daily_minimum} pts</span>
+          <span style={{ fontFamily: 'var(--font)', fontSize: '1rem', fontWeight: 600, color: 'var(--text-3)' }}>
+            /{status.daily_minimum}
+          </span>
         </div>
-        <div className="progress-bar" style={{ marginTop: '10px', height: '8px' }}>
+        <div className="progress-bar" style={{ marginTop: '12px', height: '12px' }}>
           <div className="progress-bar-fill" style={{
             width: `${pct}%`,
             background: status.gate_passed
-              ? 'linear-gradient(90deg, #22c55e, #4ade80)'
-              : 'linear-gradient(90deg, #ff6b35, #ff8f5e)',
+              ? 'linear-gradient(90deg, #00C853, #69F0AE)'
+              : `linear-gradient(90deg, #FF5722, #FF8A65)`,
           }} />
         </div>
-        <div style={{ marginTop: '10px', fontSize: '0.88rem', fontWeight: 700 }}>
+        <div style={{ marginTop: '12px', fontSize: '0.88rem', fontWeight: 700 }}>
           {status.gate_passed
-            ? <span style={{ color: 'var(--success)' }}>✨ Rewards Unlocked!</span>
-            : <span style={{ color: 'var(--text-secondary)' }}>🔒 {status.points_remaining} more pts to unlock</span>
+            ? <span style={{ color: 'var(--green-dark)' }}>✨ Rewards unlocked!</span>
+            : <span style={{ color: 'var(--text-2)' }}>🔒 {status.points_remaining} more to unlock</span>
           }
         </div>
       </div>
 
-      {/* Week progress */}
+      {/* === Quick Actions === */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '14px' }}>
+        <button className="btn-primary btn-full" onClick={() => navigate('/log')}
+          style={{ padding: '14px', fontSize: '0.9rem' }}>
+          + Log Activity
+        </button>
+        <button className="btn-outline btn-full" onClick={() => navigate('/food')}
+          style={{ padding: '14px', fontSize: '0.9rem' }}>
+          🍽️ Log Food
+        </button>
+      </div>
+
+      {/* === Activity Checklist === */}
       <div className="card">
+        <div className="section-label">Activities</div>
+        {activities.map(a => {
+          const done = doneCats.has(a.key)
+          return (
+            <div className="checklist-item" key={a.key} style={{ opacity: done ? 1 : 0.6 }}>
+              <span style={{
+                width: '32px', height: '32px', borderRadius: '8px',
+                background: done ? a.color : 'rgba(0,0,0,0.04)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: '0.9rem', transition: 'all 0.3s',
+              }}>{done ? '✓' : a.icon}</span>
+              <span style={{ fontWeight: 600, fontSize: '0.88rem' }}>{a.label}</span>
+              <span className="checklist-points">+{a.pts}</span>
+            </div>
+          )
+        })}
+      </div>
+
+      {/* === Week Progress === */}
+      <div className="card" style={{ background: 'var(--purple-ghost)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-          <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.03em' }}>This Week</span>
-          <Link to="/week" style={{ fontSize: '0.82rem', fontWeight: 600 }}>View Details →</Link>
+          <div className="section-label" style={{ margin: 0 }}>This Week</div>
+          <Link to="/week" style={{ fontSize: '0.8rem' }}>Details →</Link>
         </div>
-        <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.1rem', marginBottom: '8px' }}>
-          {status.week_points} <span style={{ fontFamily: 'var(--font-body)', fontWeight: 500, fontSize: '0.85rem', color: 'var(--text-muted)' }}>/ {status.weekly_target} pts</span>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '8px' }}>
+          <span style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '1.4rem' }}>
+            {status.week_points}
+          </span>
+          <span style={{ fontSize: '0.85rem', color: 'var(--text-3)', fontWeight: 600 }}>
+            / {status.weekly_target} pts
+          </span>
         </div>
         <div className="progress-bar">
-          <div className="progress-bar-fill" style={{ width: `${weekPct}%`, background: 'linear-gradient(90deg, #8b5cf6, #a78bfa)' }} />
+          <div className="progress-bar-fill" style={{ width: `${weekPct}%`, background: 'linear-gradient(90deg, #7C4DFF, #B388FF)' }} />
         </div>
       </div>
 
-      {/* Activity checklist */}
-      <div className="card">
-        <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, marginBottom: '8px', fontSize: '1rem' }}>Today's Activities</div>
-        {Object.entries(categories).map(([cat, info]) => (
-          <div className="checklist-item" key={cat}>
-            <span className="checklist-check">{doneCats.has(cat) ? '✅' : '⬜'}</span>
-            <span style={{ fontWeight: 500 }}>{info.icon} {info.label}</span>
-            <span className="checklist-points">+{info.pts}</span>
-          </div>
-        ))}
-      </div>
-
-      {/* Rewards (if gate passed) */}
+      {/* === Rewards === */}
       {status.gate_passed && status.rewards_available.length > 0 && (
-        <div className="card" style={{ background: 'var(--success-bg)', borderColor: 'rgba(34, 197, 94, 0.15)' }}>
-          <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, marginBottom: '10px', fontSize: '1rem', color: 'var(--success)' }}>🎮 Rewards Available</div>
+        <div className="card" style={{ background: 'var(--green-ghost)', border: '2px solid rgba(0,200,83,0.15)' }}>
+          <div className="section-label" style={{ color: 'var(--green-dark)' }}>🎮 Rewards Available</div>
           {status.rewards_available.map(r => (
             <div className="reward-card" key={r.id}>
               <div>
-                <div style={{ fontWeight: 600 }}>{r.name}</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 500 }}>{r.point_cost} pts</div>
+                <div style={{ fontWeight: 700 }}>{r.name}</div>
+                <div style={{ fontSize: '0.78rem', color: 'var(--text-3)', fontWeight: 600 }}>{r.point_cost} pts</div>
               </div>
               <button className="btn-success btn-sm" onClick={async () => {
                 try { await api.redeemReward(r.id); await loadStatus() }
@@ -130,12 +157,10 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* Quick actions */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginTop: '8px' }}>
-        <button className="btn-primary btn-full" onClick={() => navigate('/log')}>+ Log Activity</button>
-        <button className="btn-outline btn-full" onClick={() => navigate('/food')}>🍽️ Log Food</button>
-        <button className="btn-outline btn-full btn-sm" onClick={() => handleSync('strava')} style={{ fontSize: '0.78rem' }}>🔄 Sync Strava</button>
-        <button className="btn-outline btn-full btn-sm" onClick={() => handleSync('polar')} style={{ fontSize: '0.78rem' }}>🔄 Sync Polar</button>
+      {/* === Sync buttons === */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+        <button className="btn-ghost btn-sm btn-full" onClick={() => handleSync('strava')}>🔄 Sync Strava</button>
+        <button className="btn-ghost btn-sm btn-full" onClick={() => handleSync('polar')}>🔄 Sync Polar</button>
       </div>
     </div>
   )

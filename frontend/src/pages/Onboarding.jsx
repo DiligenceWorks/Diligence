@@ -139,14 +139,14 @@ export default function Onboarding() {
   return (
     <div className="page" style={{ paddingTop: '40px' }}>
       <div className="progress-bar" style={{ marginBottom: '24px' }}>
-        <div className="progress-bar-fill" style={{ width: `${progress}%`, background: 'var(--accent)' }} />
+        <div className="progress-bar-fill" style={{ width: `${progress}%`, background: 'var(--orange)' }} />
       </div>
 
       {/* Step 0: Goal */}
       {step === 0 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>What matters most to you?</h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '20px', fontSize: '0.9rem' }}>Pick one — you can change this anytime.</p>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>What matters most to you?</h2>
+          <p style={{ color: 'var(--text-3)', marginBottom: '20px', fontSize: '0.9rem' }}>Pick one — you can change this anytime.</p>
           <div className="option-grid">
             {GOALS.map(g => (
               <div key={g.value} className={`option-btn ${goal === g.value ? 'selected' : ''}`} onClick={() => setGoal(g.value)}>
@@ -162,8 +162,8 @@ export default function Onboarding() {
       {/* Step 1: TTM Stage */}
       {step === 1 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>Where are you now?</h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '20px', fontSize: '0.9rem' }}>Be honest — there's no wrong answer.</p>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>Where are you now?</h2>
+          <p style={{ color: 'var(--text-3)', marginBottom: '20px', fontSize: '0.9rem' }}>Be honest — there's no wrong answer.</p>
           {TTM_STAGES.map(s => (
             <div key={s.value}
               className={`option-btn ${ttm === s.value ? 'selected' : ''}`}
@@ -180,20 +180,20 @@ export default function Onboarding() {
       {/* Step 2: Safety (PAR-Q+) */}
       {step === 2 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>Quick health check</h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '20px', fontSize: '0.9rem' }}>For your safety — this takes 10 seconds.</p>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>Quick health check</h2>
+          <p style={{ color: 'var(--text-3)', marginBottom: '20px', fontSize: '0.9rem' }}>For your safety — this takes 10 seconds.</p>
           {[
             { key: 'heart', label: 'I have a heart condition or high blood pressure' },
             { key: 'joints', label: 'I have bone or joint problems that could worsen with exercise' },
             { key: 'meds', label: 'I take prescription medications for a chronic condition' },
           ].map(q => (
-            <label key={q.key} style={{ display: 'flex', gap: '12px', padding: '12px 0', cursor: 'pointer', borderBottom: '1px solid var(--border)' }}>
+            <label key={q.key} style={{ display: 'flex', gap: '12px', padding: '12px 0', cursor: 'pointer', borderBottom: '1px solid var(--divider)' }}>
               <input type="checkbox" checked={parq[q.key]} onChange={e => setParq({ ...parq, [q.key]: e.target.checked })} style={{ width: 'auto' }} />
               <span style={{ fontSize: '0.9rem' }}>{q.label}</span>
             </label>
           ))}
           {(parq.heart || parq.joints || parq.meds) && (
-            <div style={{ marginTop: '12px', padding: '12px', background: 'var(--warning-bg)', borderRadius: 'var(--radius-sm)', fontSize: '0.85rem', color: 'var(--warning)' }}>
+            <div style={{ marginTop: '12px', padding: '12px', background: '#FFF3E0', borderRadius: 'var(--radius-sm)', fontSize: '0.85rem', color: '#E65100' }}>
               ⚠️ We recommend checking with your doctor before starting. This won't stop you — just be mindful.
             </div>
           )}
@@ -204,8 +204,8 @@ export default function Onboarding() {
       {/* Step 3: Body Metrics */}
       {step === 3 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>About you</h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '20px', fontSize: '0.9rem' }}>Optional — helps estimate nutrition needs.</p>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>About you</h2>
+          <p style={{ color: 'var(--text-3)', marginBottom: '20px', fontSize: '0.9rem' }}>Optional — helps estimate nutrition needs.</p>
           <div className="form-group">
             <label className="form-label">Age</label>
             <input type="number" value={age} onChange={e => setAge(e.target.value)} placeholder="e.g. 35" />
@@ -238,8 +238,8 @@ export default function Onboarding() {
       {/* Step 4: Motivation (BREQ-2) */}
       {step === 4 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>What drives you?</h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '20px', fontSize: '0.9rem' }}>Rate each honestly — helps us calibrate your experience.</p>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>What drives you?</h2>
+          <p style={{ color: 'var(--text-3)', marginBottom: '20px', fontSize: '0.9rem' }}>Rate each honestly — helps us calibrate your experience.</p>
           <Likert label='"People important to me say I should exercise"' value={motivation.ext} onChange={v => setMotivation({ ...motivation, ext: v })} />
           <Likert label='"I feel bad about myself when I skip exercise"' value={motivation.intro} onChange={v => setMotivation({ ...motivation, intro: v })} />
           <Likert label='"I value what exercise does for my health"' value={motivation.ident} onChange={v => setMotivation({ ...motivation, ident: v })} />
@@ -252,8 +252,8 @@ export default function Onboarding() {
       {/* Step 5: Activities + Equipment */}
       {step === 5 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>What sounds fun?</h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '16px', fontSize: '0.9rem' }}>Pick all that interest you.</p>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>What sounds fun?</h2>
+          <p style={{ color: 'var(--text-3)', marginBottom: '16px', fontSize: '0.9rem' }}>Pick all that interest you.</p>
           <div className="chip-grid" style={{ marginBottom: '24px' }}>
             {ACTIVITIES.map(a => (
               <div key={a} className={`chip ${activities.includes(a) ? 'selected' : ''}`} onClick={() => toggleActivity(a)}>{a}</div>
@@ -288,8 +288,8 @@ export default function Onboarding() {
       {/* Step 6: Define Rewards */}
       {step === 6 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>Define your rewards</h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '20px', fontSize: '0.9rem' }}>What guilty pleasures do you want to earn?</p>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>Define your rewards</h2>
+          <p style={{ color: 'var(--text-3)', marginBottom: '20px', fontSize: '0.9rem' }}>What guilty pleasures do you want to earn?</p>
           {rewards.map((r, i) => (
             <div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '10px', marginBottom: '12px' }}>
               <input placeholder="e.g. 1hr gaming" value={r.name} onChange={e => {
@@ -312,12 +312,12 @@ export default function Onboarding() {
       {/* Step 7: Recommendations + Commit */}
       {step === 7 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>Recommended for you</h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '20px', fontSize: '0.9rem' }}>Pick a program and commit to 90 days.</p>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>Recommended for you</h2>
+          <p style={{ color: 'var(--text-3)', marginBottom: '20px', fontSize: '0.9rem' }}>Pick a program and commit to 90 days.</p>
           {recommendations.map(rec => (
             <div className="card" key={rec.id}>
               <div style={{ fontWeight: 700, marginBottom: '4px' }}>{rec.name}</div>
-              <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '8px' }}>
+              <div style={{ fontSize: '0.85rem', color: 'var(--text-3)', marginBottom: '8px' }}>
                 {rec.difficulty} • {rec.duration_days ? `${rec.duration_days} days` : 'Ongoing'} • {rec.source}
               </div>
               <p style={{ fontSize: '0.9rem', marginBottom: '12px' }}>{rec.description}</p>
