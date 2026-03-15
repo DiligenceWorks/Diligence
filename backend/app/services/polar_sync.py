@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Polar AccessLink API client for activity sync."""
 import uuid
 from datetime import datetime, timezone

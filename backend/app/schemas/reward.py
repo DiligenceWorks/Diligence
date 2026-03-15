@@ -1,17 +1,20 @@
+from __future__ import annotations
+
 from datetime import date
-from pydantic import BaseModel
+from typing import Optional
+from pydantic import BaseModel, Field
 
 
 class RewardCreate(BaseModel):
     name: str
-    description: str | None = None
+    description: Optional[str] = None
     point_cost: int
 
 
 class RewardResponse(BaseModel):
     id: str
     name: str
-    description: str | None
+    description: Optional[str] = None
     point_cost: int
     is_active: bool
 
@@ -19,7 +22,7 @@ class RewardResponse(BaseModel):
 
 
 class RewardRedeemRequest(BaseModel):
-    date: date | None = None  # defaults to today
+    redemption_date: Optional[date] = Field(None, alias="date")
 
 
 class RedemptionResponse(BaseModel):

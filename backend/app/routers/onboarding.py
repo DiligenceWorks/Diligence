@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Annotated
 from decimal import Decimal
 from fastapi import APIRouter, Depends

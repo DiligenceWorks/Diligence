@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Strava API client for activity sync."""
 import uuid
 from datetime import datetime, timezone

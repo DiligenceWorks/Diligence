@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Annotated
 from datetime import date
 import uuid as uuid_mod
@@ -141,7 +143,7 @@ async def redeem(
     user: Annotated[User, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(get_db)],
 ):
-    result = await redeem_reward(db, user.id, uuid_mod.UUID(reward_id), req.date)
+    result = await redeem_reward(db, user.id, uuid_mod.UUID(reward_id), req.redemption_date)
     if not result["success"]:
         raise HTTPException(status_code=400, detail=result["reason"])
     return result

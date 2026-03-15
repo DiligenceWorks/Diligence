@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Resource recommendation engine — matches external programs to user profiles."""
 import uuid
 from sqlalchemy import select

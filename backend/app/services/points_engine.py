@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Points calculation engine — the heart of the reward system."""
 import uuid
 from datetime import date, timedelta

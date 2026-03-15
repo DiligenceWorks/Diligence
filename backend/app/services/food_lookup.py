@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Open Food Facts API client for barcode scanning and food search."""
 import httpx
 from app.schemas.food import FoodSearchResult
