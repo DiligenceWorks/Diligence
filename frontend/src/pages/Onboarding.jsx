@@ -145,7 +145,7 @@ export default function Onboarding() {
       {/* Step 0: Goal */}
       {step === 0 && (
         <div>
-          <h2 style={{ marginBottom: '8px' }}>What matters most to you?</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>What matters most to you?</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '20px', fontSize: '0.9rem' }}>Pick one — you can change this anytime.</p>
           <div className="option-grid">
             {GOALS.map(g => (
@@ -162,7 +162,7 @@ export default function Onboarding() {
       {/* Step 1: TTM Stage */}
       {step === 1 && (
         <div>
-          <h2 style={{ marginBottom: '8px' }}>Where are you now?</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>Where are you now?</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '20px', fontSize: '0.9rem' }}>Be honest — there's no wrong answer.</p>
           {TTM_STAGES.map(s => (
             <div key={s.value}
@@ -180,7 +180,7 @@ export default function Onboarding() {
       {/* Step 2: Safety (PAR-Q+) */}
       {step === 2 && (
         <div>
-          <h2 style={{ marginBottom: '8px' }}>Quick health check</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>Quick health check</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '20px', fontSize: '0.9rem' }}>For your safety — this takes 10 seconds.</p>
           {[
             { key: 'heart', label: 'I have a heart condition or high blood pressure' },
@@ -193,7 +193,7 @@ export default function Onboarding() {
             </label>
           ))}
           {(parq.heart || parq.joints || parq.meds) && (
-            <div style={{ marginTop: '12px', padding: '12px', background: 'rgba(251, 191, 36, 0.1)', borderRadius: 'var(--radius-sm)', fontSize: '0.85rem', color: 'var(--warning)' }}>
+            <div style={{ marginTop: '12px', padding: '12px', background: 'var(--warning-bg)', borderRadius: 'var(--radius-sm)', fontSize: '0.85rem', color: 'var(--warning)' }}>
               ⚠️ We recommend checking with your doctor before starting. This won't stop you — just be mindful.
             </div>
           )}
@@ -204,7 +204,7 @@ export default function Onboarding() {
       {/* Step 3: Body Metrics */}
       {step === 3 && (
         <div>
-          <h2 style={{ marginBottom: '8px' }}>About you</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>About you</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '20px', fontSize: '0.9rem' }}>Optional — helps estimate nutrition needs.</p>
           <div className="form-group">
             <label className="form-label">Age</label>
@@ -238,7 +238,7 @@ export default function Onboarding() {
       {/* Step 4: Motivation (BREQ-2) */}
       {step === 4 && (
         <div>
-          <h2 style={{ marginBottom: '8px' }}>What drives you?</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>What drives you?</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '20px', fontSize: '0.9rem' }}>Rate each honestly — helps us calibrate your experience.</p>
           <Likert label='"People important to me say I should exercise"' value={motivation.ext} onChange={v => setMotivation({ ...motivation, ext: v })} />
           <Likert label='"I feel bad about myself when I skip exercise"' value={motivation.intro} onChange={v => setMotivation({ ...motivation, intro: v })} />
@@ -252,7 +252,7 @@ export default function Onboarding() {
       {/* Step 5: Activities + Equipment */}
       {step === 5 && (
         <div>
-          <h2 style={{ marginBottom: '8px' }}>What sounds fun?</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>What sounds fun?</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '16px', fontSize: '0.9rem' }}>Pick all that interest you.</p>
           <div className="chip-grid" style={{ marginBottom: '24px' }}>
             {ACTIVITIES.map(a => (
@@ -288,7 +288,7 @@ export default function Onboarding() {
       {/* Step 6: Define Rewards */}
       {step === 6 && (
         <div>
-          <h2 style={{ marginBottom: '8px' }}>Define your rewards</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>Define your rewards</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '20px', fontSize: '0.9rem' }}>What guilty pleasures do you want to earn?</p>
           {rewards.map((r, i) => (
             <div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '10px', marginBottom: '12px' }}>
@@ -312,7 +312,7 @@ export default function Onboarding() {
       {/* Step 7: Recommendations + Commit */}
       {step === 7 && (
         <div>
-          <h2 style={{ marginBottom: '8px' }}>Recommended for you</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>Recommended for you</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '20px', fontSize: '0.9rem' }}>Pick a program and commit to 90 days.</p>
           {recommendations.map(rec => (
             <div className="card" key={rec.id}>

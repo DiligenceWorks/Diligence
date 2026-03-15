@@ -5,7 +5,7 @@ import { api } from '../api'
 const CATEGORIES = [
   { value: 'workout', label: 'Workout', icon: '💪', desc: 'Any exercise session' },
   { value: 'steps_target', label: 'Steps Target', icon: '👟', desc: 'Hit your daily step goal' },
-  { value: 'screen_free', label: 'Screen-Free', icon: '📚', desc: 'Reading, outdoor time, etc.' },
+  { value: 'screen_free', label: 'Screen-Free', icon: '📖', desc: 'Reading, outdoor time, etc.' },
   { value: 'daily_checkin', label: 'Daily Check-in', icon: '✅', desc: 'Just showing up counts' },
 ]
 
@@ -32,16 +32,10 @@ export default function LogActivity() {
         activity_date: today,
       })
       setSuccess(`+${result.points_earned} points earned!`)
-      setCategory('')
-      setTitle('')
-      setDuration('')
-      setDescription('')
+      setCategory(''); setTitle(''); setDuration(''); setDescription('')
       setTimeout(() => navigate('/'), 1500)
-    } catch (err) {
-      alert(err.message)
-    } finally {
-      setLoading(false)
-    }
+    } catch (err) { alert(err.message) }
+    finally { setLoading(false) }
   }
 
   return (
@@ -49,9 +43,9 @@ export default function LogActivity() {
       <h1 className="page-title">Log Activity</h1>
 
       {success && (
-        <div style={{ textAlign: 'center', padding: '20px', background: 'rgba(74,222,128,0.1)', borderRadius: 'var(--radius)', marginBottom: '16px' }}>
-          <div style={{ fontSize: '1.5rem', marginBottom: '4px' }}>🎉</div>
-          <div style={{ color: 'var(--success)', fontWeight: 700 }}>{success}</div>
+        <div style={{ textAlign: 'center', padding: '24px', background: 'var(--success-bg)', borderRadius: 'var(--radius)', marginBottom: '16px', border: '1px solid rgba(34, 197, 94, 0.15)' }}>
+          <div style={{ fontSize: '1.8rem', marginBottom: '4px' }}>🎉</div>
+          <div style={{ color: 'var(--success)', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.1rem' }}>{success}</div>
         </div>
       )}
 
@@ -60,16 +54,16 @@ export default function LogActivity() {
         <div className="option-grid">
           {CATEGORIES.map(c => (
             <div key={c.value} className={`option-btn ${category === c.value ? 'selected' : ''}`} onClick={() => setCategory(c.value)}>
-              <div style={{ fontSize: '1.3rem', marginBottom: '4px' }}>{c.icon}</div>
-              <div style={{ fontWeight: 600, fontSize: '0.85rem' }}>{c.label}</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '2px' }}>{c.desc}</div>
+              <div style={{ fontSize: '1.4rem', marginBottom: '6px' }}>{c.icon}</div>
+              <div style={{ fontWeight: 700, fontSize: '0.85rem' }}>{c.label}</div>
+              <div style={{ fontSize: '0.73rem', color: 'var(--text-muted)', marginTop: '3px', fontWeight: 400 }}>{c.desc}</div>
             </div>
           ))}
         </div>
       </div>
 
       {category && (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="card">
           <div className="form-group">
             <label className="form-label">Title (optional)</label>
             <input value={title} onChange={e => setTitle(e.target.value)} placeholder="e.g. Morning run, StrongLifts Day 12" />
