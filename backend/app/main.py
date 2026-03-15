@@ -1,22 +1,39 @@
+import asyncio
+import logging
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.database import init_db
-from app.routers.auth import router as auth_router
-from app.routers.onboarding import router as onboarding_router
-from app.routers.activities import router as activities_router
-from app.routers.food import router as food_router
-from app.routers.points import router as points_router, rewards_router
-from app.routers.integrations import router as integrations_router
-from app.routers.programs import router as programs_router
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("fitness-rewards")
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    await init_db()
-    await seed_resources()
+    # Retry DB init — container may start before postgres is fully accepting connections
+    for attempt in range(10):
+        try:
+            from app.database import init_db
+            await init_db()
+            logger.info("Database tables created successfully")
+            break
+        except Exception as e:
+            logger.warning(f"DB init attempt {attempt + 1}/10 failed: {e}")
+            if attempt < 9:
+                await asyncio.sleep(3)
+            else:
+                logger.error("Could not initialize database after 10 attempts — starting without tables")
+
+    # Seed resources (non-fatal if it fails)
+    try:
+        await seed_resources()
+        logger.info("Resource library seeded")
+    except Exception as e:
+        logger.warning(f"Resource seeding failed (non-fatal): {e}")
+
+    logger.info("Fitness Rewards backend started")
     yield
+    logger.info("Fitness Rewards backend shutting down")
 
 
 app = FastAPI(title="Fitness Rewards", version="0.1.0", lifespan=lifespan)
@@ -28,6 +45,15 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Import routers after app creation to avoid circular imports
+from app.routers.auth import router as auth_router
+from app.routers.onboarding import router as onboarding_router
+from app.routers.activities import router as activities_router
+from app.routers.food import router as food_router
+from app.routers.points import router as points_router, rewards_router
+from app.routers.integrations import router as integrations_router
+from app.routers.programs import router as programs_router
 
 app.include_router(auth_router)
 app.include_router(onboarding_router)
