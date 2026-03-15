@@ -30,7 +30,8 @@ class Phase2Request(BaseModel):
 
     # Preferences
     activity_preferences: list[str] = []
-    equipment_access: str | None = None  # none, basic_home, full_gym
+    equipment_access: str | None = None  # legacy single value
+    equipment_list: list[str] = []  # new: list of equipment tags
     days_per_week: int = 3
     minutes_per_session: int = 30
 

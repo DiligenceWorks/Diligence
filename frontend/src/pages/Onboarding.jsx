@@ -2,30 +2,77 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { api } from '../api'
 
+/* === Tooltip Component === */
+function Tip({ text, children }) {
+  const [show, setShow] = useState(false)
+  return (
+    <span style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
+      {children}
+      <span
+        onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}
+        onClick={(e) => { e.stopPropagation(); setShow(s => !s) }}
+        style={{
+          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+          width: '18px', height: '18px', borderRadius: '50%', marginLeft: '6px',
+          background: 'rgba(0,0,0,0.06)', color: 'var(--text-3)', cursor: 'help',
+          fontSize: '0.7rem', fontWeight: 800, flexShrink: 0,
+        }}>?</span>
+      {show && (
+        <span style={{
+          position: 'absolute', bottom: 'calc(100% + 8px)', left: '50%', transform: 'translateX(-50%)',
+          background: 'var(--text)', color: '#fff', padding: '10px 14px', borderRadius: 'var(--r-sm)',
+          fontSize: '0.78rem', lineHeight: 1.45, fontWeight: 500, width: '240px',
+          boxShadow: 'var(--shadow-3)', zIndex: 50, pointerEvents: 'none',
+        }}>{text}</span>
+      )}
+    </span>
+  )
+}
+
 const GOALS = [
-  { value: 'lose_weight', label: 'Lose Weight', icon: '⚖️' },
-  { value: 'build_strength', label: 'Build Strength', icon: '💪' },
-  { value: 'get_active', label: 'Get More Active', icon: '🏃' },
-  { value: 'feel_better', label: 'Feel Better Overall', icon: '😊' },
+  { value: 'lose_weight', label: 'Lose Weight', icon: '⚖️', tip: 'Focus on caloric deficit through cardio and portion-controlled nutrition.' },
+  { value: 'build_strength', label: 'Build Strength', icon: '💪', tip: 'Progressive overload training — gradually increasing weight or resistance.' },
+  { value: 'get_active', label: 'Get More Active', icon: '🏃', tip: 'Building a consistent movement habit. Walking counts!' },
+  { value: 'feel_better', label: 'Feel Better Overall', icon: '😊', tip: 'Mind-body balance — stress relief, sleep quality, energy levels.' },
 ]
 
 const TTM_STAGES = [
-  { value: 'precontemplation', label: "I'm not exercising and haven't thought about starting" },
-  { value: 'contemplation', label: "I've been thinking about getting more active but haven't started" },
-  { value: 'preparation', label: 'I do some exercise but not consistently' },
-  { value: 'action', label: "I've been exercising regularly for a few months" },
-  { value: 'maintenance', label: "I've been exercising regularly for 6+ months" },
+  { value: 'precontemplation', label: "I'm not exercising and haven't thought about starting", tip: 'Pre-contemplation: No intention to act. We\'ll start with awareness and gentle nudges.' },
+  { value: 'contemplation', label: "I've been thinking about getting more active but haven't started", tip: 'Contemplation: Weighing pros and cons. We\'ll help tip the balance toward action.' },
+  { value: 'preparation', label: 'I do some exercise but not consistently', tip: 'Preparation: Ready to commit. We\'ll help you build a sustainable routine.' },
+  { value: 'action', label: "I've been exercising regularly for a few months", tip: 'Action: Building the habit. We\'ll help you stay consistent and avoid burnout.' },
+  { value: 'maintenance', label: "I've been exercising regularly for 6+ months", tip: 'Maintenance: Solid habit. We\'ll help you progress and keep things interesting.' },
 ]
 
 const ACTIVITIES = [
   'Walking', 'Hiking', 'Running', 'Cycling', 'Swimming',
   'Bodyweight', 'Weights', 'Yoga', 'Martial Arts', 'Dance', 'Team Sports',
+  'Pilates', 'Rowing', 'Jump Rope', 'Stretching',
 ]
 
-const EQUIPMENT = [
-  { value: 'none', label: 'Nothing — bodyweight only' },
-  { value: 'basic_home', label: 'Basic home equipment' },
-  { value: 'full_gym', label: 'Full gym access' },
+const EQUIPMENT_OPTIONS = [
+  { value: 'bicycle', label: '🚲 Bicycle' },
+  { value: 'pool', label: '🏊 Pool' },
+  { value: 'free_weights', label: '🏋️ Free Weights' },
+  { value: 'squat_rack', label: '🦵 Squat Rack' },
+  { value: 'bench_press', label: '💺 Bench Press' },
+  { value: 'machines', label: '⚙️ Machines' },
+  { value: 'resistance_bands', label: '🔗 Resistance Bands' },
+  { value: 'pull_up_bar', label: '🔩 Pull-up Bar' },
+  { value: 'kettlebell', label: '🔔 Kettlebell' },
+  { value: 'jump_rope', label: '⏩ Jump Rope' },
+  { value: 'yoga_mat', label: '🧘 Yoga Mat' },
+  { value: 'treadmill', label: '🏃 Treadmill' },
+  { value: 'stationary_bike', label: '🚴 Stationary Bike' },
+  { value: 'rowing_machine', label: '🚣 Rowing Machine' },
+]
+
+const BREQ2_ITEMS = [
+  { key: 'ext', label: '"People important to me say I should exercise"', tip: 'External regulation: exercising because others push you to. Least self-determined motivation.' },
+  { key: 'intro', label: '"I feel bad about myself when I skip exercise"', tip: 'Introjected regulation: guilt or obligation as a driver. Better than external, but still fragile.' },
+  { key: 'ident', label: '"I value what exercise does for my health"', tip: 'Identified regulation: you see exercise as personally important. A strong, durable motivator.' },
+  { key: 'intr', label: '"I find exercise enjoyable and satisfying"', tip: 'Intrinsic motivation: you exercise because it\'s fun. The most sustainable form of motivation.' },
+  { key: 'amot', label: '"I don\'t really see why I should bother"', tip: 'Amotivation: no perceived reason to exercise. If this is high, we\'ll start with very small wins.' },
 ]
 
 export default function Onboarding() {
@@ -39,7 +86,7 @@ export default function Onboarding() {
   const [parq, setParq] = useState({ heart: false, joints: false, meds: false })
   const [motivation, setMotivation] = useState({ ext: 0, intro: 0, ident: 0, intr: 0, amot: 0 })
   const [activities, setActivities] = useState([])
-  const [equipment, setEquipment] = useState('none')
+  const [equipmentList, setEquipmentList] = useState([])
   const [daysPerWeek, setDaysPerWeek] = useState(3)
   const [minsPerSession, setMinsPerSession] = useState(30)
   const [rewards, setRewards] = useState([{ name: '', cost: 100 }])
@@ -49,10 +96,12 @@ export default function Onboarding() {
 
   const totalSteps = 8
 
-  function Likert({ label, value, onChange }) {
+  function Likert({ label, value, onChange, tip }) {
     return (
       <div style={{ marginBottom: '16px' }}>
-        <div style={{ fontSize: '0.9rem', marginBottom: '6px' }}>{label}</div>
+        <div style={{ fontSize: '0.9rem', marginBottom: '6px' }}>
+          {tip ? <Tip text={tip}>{label}</Tip> : label}
+        </div>
         <div className="likert-row">
           {[1, 2, 3, 4, 5].map(n => (
             <button key={n} type="button" className={`likert-btn ${value === n ? 'selected' : ''}`} onClick={() => onChange(n)}>
@@ -77,6 +126,13 @@ export default function Onboarding() {
   async function handlePhase2() {
     setLoading(true)
     try {
+      // Derive legacy equipment_access from equipment list
+      let equipAccess = 'none'
+      const gym = ['squat_rack', 'bench_press', 'machines']
+      const basic = ['free_weights', 'resistance_bands', 'pull_up_bar', 'kettlebell', 'yoga_mat', 'jump_rope']
+      if (equipmentList.some(e => gym.includes(e))) equipAccess = 'full_gym'
+      else if (equipmentList.some(e => basic.includes(e))) equipAccess = 'basic_home'
+
       await api.savePhase2({
         age: age ? parseInt(age) : null,
         height_cm: heightCm ? parseFloat(heightCm) : null,
@@ -91,19 +147,18 @@ export default function Onboarding() {
         motivation_intrinsic: motivation.intr || null,
         motivation_amotivation: motivation.amot || null,
         activity_preferences: activities.map(a => a.toLowerCase().replace(/ /g, '_')),
-        equipment_access: equipment,
+        equipment_access: equipAccess,
+        equipment_list: equipmentList,
         days_per_week: daysPerWeek,
         minutes_per_session: minsPerSession,
       })
 
-      // Create rewards
       for (const r of rewards) {
         if (r.name.trim()) {
           await api.createReward({ name: r.name, point_cost: r.cost || 100 })
         }
       }
 
-      // Get recommendations
       const recs = await api.getRecommendations()
       setRecommendations(recs.recommendations || [])
       setStep(7)
@@ -133,8 +188,12 @@ export default function Onboarding() {
     setActivities(prev => prev.includes(a) ? prev.filter(x => x !== a) : [...prev, a])
   }
 
-  // Progress bar
+  function toggleEquipment(val) {
+    setEquipmentList(prev => prev.includes(val) ? prev.filter(x => x !== val) : [...prev, val])
+  }
+
   const progress = Math.round(((step + 1) / totalSteps) * 100)
+  const h2Style = { fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }
 
   return (
     <div className="page" style={{ paddingTop: '40px' }}>
@@ -145,13 +204,17 @@ export default function Onboarding() {
       {/* Step 0: Goal */}
       {step === 0 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>What matters most to you?</h2>
+          <h2 style={h2Style}>
+            <Tip text="Your primary goal shapes which programs we recommend, how we structure your points, and what success looks like for you.">
+              What matters most to you?
+            </Tip>
+          </h2>
           <p style={{ color: 'var(--text-3)', marginBottom: '20px', fontSize: '0.9rem' }}>Pick one — you can change this anytime.</p>
           <div className="option-grid">
             {GOALS.map(g => (
               <div key={g.value} className={`option-btn ${goal === g.value ? 'selected' : ''}`} onClick={() => setGoal(g.value)}>
                 <div style={{ fontSize: '1.5rem', marginBottom: '6px' }}>{g.icon}</div>
-                {g.label}
+                <Tip text={g.tip}>{g.label}</Tip>
               </div>
             ))}
           </div>
@@ -162,14 +225,20 @@ export default function Onboarding() {
       {/* Step 1: TTM Stage */}
       {step === 1 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>Where are you now?</h2>
+          <h2 style={h2Style}>
+            <Tip text="Based on the Transtheoretical Model (Stages of Change). This helps us match you with the right intensity — pushing too hard too early is the #1 reason people quit.">
+              Where are you now?
+            </Tip>
+          </h2>
           <p style={{ color: 'var(--text-3)', marginBottom: '20px', fontSize: '0.9rem' }}>Be honest — there's no wrong answer.</p>
           {TTM_STAGES.map(s => (
             <div key={s.value}
               className={`option-btn ${ttm === s.value ? 'selected' : ''}`}
               style={{ textAlign: 'left', marginBottom: '10px' }}
               onClick={() => setTtm(s.value)}
-            >{s.label}</div>
+            >
+              <Tip text={s.tip}>{s.label}</Tip>
+            </div>
           ))}
           <button className="btn-primary btn-full" style={{ marginTop: '16px' }} disabled={!ttm || loading} onClick={handlePhase1}>
             {loading ? '...' : 'Continue'}
@@ -180,7 +249,11 @@ export default function Onboarding() {
       {/* Step 2: Safety (PAR-Q+) */}
       {step === 2 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>Quick health check</h2>
+          <h2 style={h2Style}>
+            <Tip text="Based on the PAR-Q+ (Physical Activity Readiness Questionnaire). A standard pre-exercise safety screening used by fitness professionals worldwide.">
+              Quick health check
+            </Tip>
+          </h2>
           <p style={{ color: 'var(--text-3)', marginBottom: '20px', fontSize: '0.9rem' }}>For your safety — this takes 10 seconds.</p>
           {[
             { key: 'heart', label: 'I have a heart condition or high blood pressure' },
@@ -193,7 +266,7 @@ export default function Onboarding() {
             </label>
           ))}
           {(parq.heart || parq.joints || parq.meds) && (
-            <div style={{ marginTop: '12px', padding: '12px', background: '#FFF3E0', borderRadius: 'var(--radius-sm)', fontSize: '0.85rem', color: '#E65100' }}>
+            <div style={{ marginTop: '12px', padding: '12px', background: '#FFF3E0', borderRadius: 'var(--r-sm)', fontSize: '0.85rem', color: '#E65100' }}>
               ⚠️ We recommend checking with your doctor before starting. This won't stop you — just be mindful.
             </div>
           )}
@@ -204,7 +277,7 @@ export default function Onboarding() {
       {/* Step 3: Body Metrics */}
       {step === 3 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>About you</h2>
+          <h2 style={h2Style}>About you</h2>
           <p style={{ color: 'var(--text-3)', marginBottom: '20px', fontSize: '0.9rem' }}>Optional — helps estimate nutrition needs.</p>
           <div className="form-group">
             <label className="form-label">Age</label>
@@ -238,13 +311,21 @@ export default function Onboarding() {
       {/* Step 4: Motivation (BREQ-2) */}
       {step === 4 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>What drives you?</h2>
+          <h2 style={h2Style}>
+            <Tip text="Based on BREQ-2 (Behavioural Regulation in Exercise Questionnaire). Measures your motivation type from external pressure to intrinsic enjoyment. Your Relative Autonomy Index (RAI) score helps us calibrate how much we push vs. encourage.">
+              What drives you?
+            </Tip>
+          </h2>
           <p style={{ color: 'var(--text-3)', marginBottom: '20px', fontSize: '0.9rem' }}>Rate each honestly — helps us calibrate your experience.</p>
-          <Likert label='"People important to me say I should exercise"' value={motivation.ext} onChange={v => setMotivation({ ...motivation, ext: v })} />
-          <Likert label='"I feel bad about myself when I skip exercise"' value={motivation.intro} onChange={v => setMotivation({ ...motivation, intro: v })} />
-          <Likert label='"I value what exercise does for my health"' value={motivation.ident} onChange={v => setMotivation({ ...motivation, ident: v })} />
-          <Likert label='"I find exercise enjoyable and satisfying"' value={motivation.intr} onChange={v => setMotivation({ ...motivation, intr: v })} />
-          <Likert label={'"I don\'t really see why I should bother"'} value={motivation.amot} onChange={v => setMotivation({ ...motivation, amot: v })} />
+          {BREQ2_ITEMS.map(item => (
+            <Likert
+              key={item.key}
+              label={item.label}
+              tip={item.tip}
+              value={motivation[item.key]}
+              onChange={v => setMotivation({ ...motivation, [item.key]: v })}
+            />
+          ))}
           <button className="btn-primary btn-full" onClick={() => setStep(5)}>Continue</button>
         </div>
       )}
@@ -252,22 +333,36 @@ export default function Onboarding() {
       {/* Step 5: Activities + Equipment */}
       {step === 5 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>What sounds fun?</h2>
+          <h2 style={h2Style}>What sounds fun?</h2>
           <p style={{ color: 'var(--text-3)', marginBottom: '16px', fontSize: '0.9rem' }}>Pick all that interest you.</p>
           <div className="chip-grid" style={{ marginBottom: '24px' }}>
             {ACTIVITIES.map(a => (
               <div key={a} className={`chip ${activities.includes(a) ? 'selected' : ''}`} onClick={() => toggleActivity(a)}>{a}</div>
             ))}
           </div>
+
           <div className="form-group">
-            <label className="form-label">Equipment access</label>
-            {EQUIPMENT.map(e => (
-              <div key={e.value} className={`option-btn ${equipment === e.value ? 'selected' : ''}`} style={{ textAlign: 'left', marginBottom: '8px' }} onClick={() => setEquipment(e.value)}>
-                {e.label}
-              </div>
-            ))}
+            <label className="form-label">
+              <Tip text="Select everything you have access to. This helps us recommend programs that match your available equipment — no point suggesting barbell work if you don't have a rack.">
+                Equipment you have access to
+              </Tip>
+            </label>
+            <div className="chip-grid">
+              {EQUIPMENT_OPTIONS.map(e => (
+                <div key={e.value} className={`chip ${equipmentList.includes(e.value) ? 'selected' : ''}`}
+                  onClick={() => toggleEquipment(e.value)}>
+                  {e.label}
+                </div>
+              ))}
+            </div>
+            {equipmentList.length === 0 && (
+              <p style={{ color: 'var(--text-3)', fontSize: '0.8rem', marginTop: '8px', fontStyle: 'italic' }}>
+                No selection = bodyweight only. That's perfectly fine!
+              </p>
+            )}
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginTop: '16px', marginBottom: '16px' }}>
             <div className="form-group">
               <label className="form-label">Days/week</label>
               <select value={daysPerWeek} onChange={e => setDaysPerWeek(parseInt(e.target.value))}>
@@ -288,7 +383,11 @@ export default function Onboarding() {
       {/* Step 6: Define Rewards */}
       {step === 6 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>Define your rewards</h2>
+          <h2 style={h2Style}>
+            <Tip text="The reward gate is the core mechanic: you can't access your rewards until you hit your daily point minimum. This creates a behavioral contract — earn first, enjoy second.">
+              Define your rewards
+            </Tip>
+          </h2>
           <p style={{ color: 'var(--text-3)', marginBottom: '20px', fontSize: '0.9rem' }}>What guilty pleasures do you want to earn?</p>
           {rewards.map((r, i) => (
             <div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '10px', marginBottom: '12px' }}>
@@ -312,7 +411,7 @@ export default function Onboarding() {
       {/* Step 7: Recommendations + Commit */}
       {step === 7 && (
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: '1.4rem' }}>Recommended for you</h2>
+          <h2 style={h2Style}>Recommended for you</h2>
           <p style={{ color: 'var(--text-3)', marginBottom: '20px', fontSize: '0.9rem' }}>Pick a program and commit to 90 days.</p>
           {recommendations.map(rec => (
             <div className="card" key={rec.id}>

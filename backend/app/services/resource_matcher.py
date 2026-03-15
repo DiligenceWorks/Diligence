@@ -8,6 +8,14 @@ from app.models.resource import Resource
 from app.models.profile import UserProfile
 
 
+# Equipment categories that satisfy each resource requirement
+EQUIPMENT_SATISFIES = {
+    "none": set(),  # bodyweight — always available
+    "basic_home": {"dumbbells", "resistance_bands", "pull_up_bar", "kettlebell"},
+    "full_gym": {"barbell", "squat_rack", "bench_press", "machines", "cable_machine", "dumbbells"},
+}
+
+
 async def get_recommendations(db: AsyncSession, user_id: uuid.UUID) -> list[dict]:
     profile_result = await db.execute(
         select(UserProfile).where(UserProfile.user_id == user_id)
@@ -17,10 +25,21 @@ async def get_recommendations(db: AsyncSession, user_id: uuid.UUID) -> list[dict
         return []
 
     query = select(Resource).where(Resource.is_active == True)
-    if profile.equipment_access == "none":
+
+    # Filter by equipment: if user has specific equipment, determine what resource levels they can do
+    user_equipment = set(profile.equipment_list or [])
+    if not user_equipment:
+        # No equipment selected — only show bodyweight programs
         query = query.where(Resource.equipment_needed == "none")
-    elif profile.equipment_access == "basic_home":
+    elif user_equipment & EQUIPMENT_SATISFIES["full_gym"]:
+        # Has gym-level equipment — show everything
+        pass
+    elif user_equipment & EQUIPMENT_SATISFIES["basic_home"]:
+        # Has some home equipment — show none + basic_home
         query = query.where(Resource.equipment_needed.in_(["none", "basic_home"]))
+    else:
+        # Only has non-gym items (bicycle, pool, etc.) — show bodyweight
+        query = query.where(Resource.equipment_needed == "none")
 
     result = await db.execute(query)
     resources = result.scalars().all()

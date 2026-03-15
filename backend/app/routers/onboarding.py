@@ -119,6 +119,7 @@ async def save_phase2(
     # Preferences
     profile.activity_preferences = req.activity_preferences
     profile.equipment_access = req.equipment_access
+    profile.equipment_list = req.equipment_list
     profile.days_per_week = req.days_per_week
     profile.minutes_per_session = req.minutes_per_session
     profile.phase2_completed = True

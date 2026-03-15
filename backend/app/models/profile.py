@@ -42,7 +42,8 @@ class UserProfile(Base):
 
     # Preferences
     activity_preferences: Mapped[dict] = mapped_column(JSONB, default=list)
-    equipment_access: Mapped[str | None] = mapped_column(String(50))
+    equipment_access: Mapped[str | None] = mapped_column(String(50))  # legacy — kept for compat
+    equipment_list: Mapped[dict] = mapped_column(JSONB, default=list)  # new: list of equipment strings
     days_per_week: Mapped[int] = mapped_column(Integer, default=3)
     minutes_per_session: Mapped[int] = mapped_column(Integer, default=30)
 
