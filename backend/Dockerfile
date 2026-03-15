@@ -9,9 +9,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Hardcode DB connection - trust auth, no password
-# This ensures correct connection regardless of Coolify env var handling
-ENV DATABASE_URL=postgresql+asyncpg://fitness@db:5432/fitness_rewards
+ENV DATABASE_URL=postgresql+asyncpg://fitness@fitness-db:5432/fitness_rewards
 ENV SECRET_KEY=8915f64daf616b1b1ea5cdc8242ec924adf263c045bef378d9cb880787ba4386
 ENV STRAVA_CLIENT_ID=211907
 ENV STRAVA_CLIENT_SECRET=d1e48251327a3760acd6dcf4129ec59350dc6b71

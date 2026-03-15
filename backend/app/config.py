@@ -5,8 +5,8 @@ from functools import lru_cache
 
 
 class Settings(BaseSettings):
-    # Database - default uses trust auth (no password) matching Coolify's postgres setup
-    database_url: str = "postgresql+asyncpg://fitness@db:5432/fitness_rewards"
+    # Database - hostname 'fitness-db' avoids collision with other 'db' containers on Coolify network
+    database_url: str = "postgresql+asyncpg://fitness@fitness-db:5432/fitness_rewards"
 
     # Auth
     secret_key: str = "change-me-in-production"
