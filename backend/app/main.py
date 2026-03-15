@@ -209,26 +209,3 @@ async def seed_resources():
         for r in resources:
             db.add(r)
         await db.commit()
-
-
-@app.get("/api/debug/env")
-async def debug_env():
-    import os
-    db_url = os.environ.get("DATABASE_URL", "NOT SET")
-    # Mask the password
-    if "@" in db_url:
-        parts = db_url.split("@")
-        pre = parts[0]
-        if ":" in pre:
-            user_part = pre.rsplit(":", 1)[0]
-            masked = user_part + ":****@" + parts[1]
-        else:
-            masked = db_url
-    else:
-        masked = db_url
-    return {
-        "DATABASE_URL": masked,
-        "SECRET_KEY_SET": bool(os.environ.get("SECRET_KEY")),
-        "STRAVA_CLIENT_ID": os.environ.get("STRAVA_CLIENT_ID", "NOT SET"),
-        "all_env_keys": [k for k in os.environ.keys() if k.startswith(("DATA", "SEC", "STRA", "POLAR", "BASE", "COOL"))],
-    }

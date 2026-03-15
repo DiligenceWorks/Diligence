@@ -16,7 +16,7 @@ services:
     build: ./backend
     restart: unless-stopped
     environment:
-      - DATABASE_URL=postgresql+asyncpg://fitness:2fa009531fc3a358dce7c7f672d4edd0@db:5432/fitness_rewards
+      - DATABASE_URL=postgresql+asyncpg://fitness@db:5432/fitness_rewards
       - SECRET_KEY=8915f64daf616b1b1ea5cdc8242ec924adf263c045bef378d9cb880787ba4386
       - STRAVA_CLIENT_ID=211907
       - STRAVA_CLIENT_SECRET=d1e48251327a3760acd6dcf4129ec59350dc6b71
@@ -38,8 +38,8 @@ services:
     restart: unless-stopped
     environment:
       - POSTGRES_USER=fitness
-      - POSTGRES_PASSWORD=2fa009531fc3a358dce7c7f672d4edd0
       - POSTGRES_DB=fitness_rewards
+      - POSTGRES_HOST_AUTH_METHOD=trust
     volumes:
       - fitness_db_data:/var/lib/postgresql/data
     healthcheck:
