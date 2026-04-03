@@ -22,6 +22,7 @@ services:
       - STRAVA_CLIENT_SECRET=d1e48251327a3760acd6dcf4129ec59350dc6b71
       - POLAR_CLIENT_ID=13c4d547-4056-4b55-8412-a1cce84e887e
       - POLAR_CLIENT_SECRET=29890119-2267-4a72-8888-e67ab0c0bf60
+      - GROQ_API_KEY=${GROQ_API_KEY}
       - BASE_URL=https://fitness.littlefake.com
     depends_on:
       fitness-db:

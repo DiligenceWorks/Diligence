@@ -21,6 +21,9 @@ class Settings(BaseSettings):
     polar_client_id: str = ""
     polar_client_secret: str = ""
 
+    # Groq (program extraction)
+    groq_api_key: str = ""
+
     # App
     base_url: str = "https://fitness.littlefake.com"
     timezone: str = "Asia/Bangkok"
@@ -31,3 +34,7 @@ class Settings(BaseSettings):
 @lru_cache
 def get_settings() -> Settings:
     return Settings()
+
+
+# Module-level shortcut used by services
+settings = get_settings()

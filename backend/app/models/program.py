@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import uuid
 from datetime import datetime, date, timezone
-from sqlalchemy import String, Text, Date, DateTime, ForeignKey
+from sqlalchemy import String, Integer, Text, Date, DateTime, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.dialects.postgresql import UUID
 from app.database import Base
@@ -21,5 +21,12 @@ class Program(Base):
     status: Mapped[str] = mapped_column(String(20), default="active")
     notes: Mapped[str | None] = mapped_column(Text)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
+
+    # v2: Link to catalog program
+    catalog_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("program_catalog.id"), nullable=True
+    )
+    current_week: Mapped[int] = mapped_column(Integer, default=1)
+    current_day: Mapped[int] = mapped_column(Integer, default=1)
 
     user: Mapped["User"] = relationship(back_populates="programs")

@@ -41,12 +41,29 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.warning(f"Resource seeding failed (non-fatal): {e}")
 
+    # Start background crawl queue scheduler
+    crawl_task = None
+    try:
+        from app.services.crawl_scheduler import crawl_queue_loop
+        crawl_task = asyncio.create_task(crawl_queue_loop())
+        logger.info("Crawl queue scheduler started")
+    except Exception as e:
+        logger.warning(f"Crawl scheduler failed to start (non-fatal): {e}")
+
     logger.info("Fitness Rewards backend started")
     yield
+
+    # Shutdown
+    if crawl_task:
+        crawl_task.cancel()
+        try:
+            await crawl_task
+        except asyncio.CancelledError:
+            pass
     logger.info("Fitness Rewards backend shutting down")
 
 
-app = FastAPI(title="Fitness Rewards", version="0.1.0", lifespan=lifespan)
+app = FastAPI(title="Fitness Rewards", version="0.2.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -64,6 +81,7 @@ from app.routers.food import router as food_router
 from app.routers.points import router as points_router, rewards_router
 from app.routers.integrations import router as integrations_router
 from app.routers.programs import router as programs_router
+from app.routers.catalog import router as catalog_router
 
 app.include_router(auth_router)
 app.include_router(onboarding_router)
@@ -73,11 +91,12 @@ app.include_router(points_router)
 app.include_router(rewards_router)
 app.include_router(integrations_router)
 app.include_router(programs_router)
+app.include_router(catalog_router)
 
 
 @app.get("/api/health")
 async def health():
-    return {"status": "ok", "version": "0.1.0"}
+    return {"status": "ok", "version": "0.2.0"}
 
 
 
@@ -87,10 +106,20 @@ async def run_migrations():
     from sqlalchemy import text
 
     async with engine.begin() as conn:
-        # Add equipment_list JSONB column if missing
+        # v1: Add equipment_list JSONB column if missing
         await conn.execute(text("""
             DO $$ BEGIN
                 ALTER TABLE user_profiles ADD COLUMN IF NOT EXISTS equipment_list JSONB DEFAULT '[]';
+            EXCEPTION WHEN undefined_table THEN NULL;
+            END $$;
+        """))
+
+        # v2: Add catalog columns to programs table
+        await conn.execute(text("""
+            DO $$ BEGIN
+                ALTER TABLE programs ADD COLUMN IF NOT EXISTS catalog_id UUID REFERENCES program_catalog(id);
+                ALTER TABLE programs ADD COLUMN IF NOT EXISTS current_week INTEGER DEFAULT 1;
+                ALTER TABLE programs ADD COLUMN IF NOT EXISTS current_day INTEGER DEFAULT 1;
             EXCEPTION WHEN undefined_table THEN NULL;
             END $$;
         """))

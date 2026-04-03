@@ -64,10 +64,29 @@ export const api = {
   createReward: (data) => request('/rewards', { method: 'POST', body: JSON.stringify(data) }),
   redeemReward: (id, date) => request(`/rewards/${id}/redeem`, { method: 'POST', body: JSON.stringify({ date }) }),
 
-  // Programs
+  // Programs (v1 — existing)
   listPrograms: () => request('/programs'),
   createProgram: (data) => request('/programs', { method: 'POST', body: JSON.stringify(data) }),
   getProgram: (id) => request(`/programs/${id}`),
+
+  // Program Catalog (v2 — new)
+  searchCatalog: (q) => request(`/programs/catalog${q ? `?q=${encodeURIComponent(q)}` : ''}`),
+  getCatalogProgram: (id) => request(`/programs/catalog/${id}`),
+  researchProgram: (name) =>
+    request('/programs/research', { method: 'POST', body: JSON.stringify({ name }) }),
+  adoptProgram: (catalogId, startDate) =>
+    request(`/programs/catalog/${catalogId}/adopt`, {
+      method: 'POST', body: JSON.stringify({ start_date: startDate }),
+    }),
+
+  // Program Tracking (v2 — new)
+  getProgramSchedule: (id) => request(`/programs/${id}/schedule`),
+  getWorkoutDetail: (progId, workoutId) => request(`/programs/${progId}/workout/${workoutId}`),
+  completeWorkout: (progId, workoutId, data) =>
+    request(`/programs/${progId}/workout/${workoutId}/complete`, {
+      method: 'POST', body: JSON.stringify(data),
+    }),
+  getProgramProgress: (id) => request(`/programs/${id}/progress`),
 
   // Integrations
   integrationStatus: () => request('/integrations'),
@@ -78,7 +97,7 @@ export const api = {
   disconnect: (provider) => request(`/integrations/${provider}`, { method: 'DELETE' }),
 
   // Resources
-  getRecommendations: () => request('/onboarding/recommendations'),
+  getResourceRecommendations: () => request('/onboarding/recommendations'),
 };
 
 export function setToken(token) {

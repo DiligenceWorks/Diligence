@@ -7,9 +7,11 @@ from app.models.points import PointRule, DailyTarget
 from app.models.reward import Reward, RewardRedemption
 from app.models.oauth import OAuthToken
 from app.models.resource import Resource
+from app.models.catalog import ProgramCatalog, CatalogWorkout, CrawlQueue, WorkoutLog
 
 __all__ = [
     "User", "UserProfile", "Program", "ActivityLog", "FoodLog",
     "PointRule", "DailyTarget", "Reward", "RewardRedemption",
     "OAuthToken", "Resource",
+    "ProgramCatalog", "CatalogWorkout", "CrawlQueue", "WorkoutLog",
 ]
