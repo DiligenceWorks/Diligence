@@ -90,8 +90,8 @@ app.include_router(food_router)
 app.include_router(points_router)
 app.include_router(rewards_router)
 app.include_router(integrations_router)
-app.include_router(programs_router)
 app.include_router(catalog_router)
+app.include_router(programs_router)
 
 
 @app.get("/api/health")
