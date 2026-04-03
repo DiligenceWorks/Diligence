@@ -126,7 +126,7 @@ async def extract_with_groq(crawled_content: str) -> dict[str, Any]:
         resp = await client.post(
             "https://api.groq.com/openai/v1/chat/completions",
             headers={
-                "Authorization": f"Bearer {settings.GROQ_API_KEY}",
+                "Authorization": f"Bearer {settings.groq_api_key}",
                 "Content-Type": "application/json",
             },
             json={
