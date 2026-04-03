@@ -33,6 +33,11 @@ KNOWN_SOURCES: dict[str, list[str]] = {
     "wendler 531": ["https://www.jimwendler.com/blogs/jimwendler-com/101065094-5-3-1-for-a-beginner"],
     "push pull legs": ["https://www.muscleandstrength.com/workouts/6-day-push-pull-legs-planet-fitness-workout"],
     "ppl": ["https://www.muscleandstrength.com/workouts/6-day-push-pull-legs-planet-fitness-workout"],
+    "phul": ["https://www.muscleandstrength.com/workouts/phul-workout"],
+    "power hypertrophy upper lower": ["https://www.muscleandstrength.com/workouts/phul-workout"],
+    "darebee foundation": ["https://darebee.com/programs/foundation-light-program.html"],
+    "foundation light": ["https://darebee.com/programs/foundation-light-program.html"],
+    "darebee 30 days of change": ["https://darebee.com/programs/30-days-of-change.html"],
 }
 
 
