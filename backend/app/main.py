@@ -82,6 +82,7 @@ from app.routers.points import router as points_router, rewards_router
 from app.routers.integrations import router as integrations_router
 from app.routers.programs import router as programs_router
 from app.routers.catalog import router as catalog_router
+from app.routers.support import router as support_router
 
 app.include_router(auth_router)
 app.include_router(onboarding_router)
@@ -91,6 +92,7 @@ app.include_router(points_router)
 app.include_router(rewards_router)
 app.include_router(integrations_router)
 app.include_router(catalog_router)
+app.include_router(support_router)
 app.include_router(programs_router)
 
 

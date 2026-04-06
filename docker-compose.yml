@@ -23,6 +23,8 @@ services:
       - POLAR_CLIENT_ID=13c4d547-4056-4b55-8412-a1cce84e887e
       - POLAR_CLIENT_SECRET=29890119-2267-4a72-8888-e67ab0c0bf60
       - GROQ_API_KEY=${GROQ_API_KEY}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
       - BASE_URL=https://fitness.littlefake.com
     depends_on:
       fitness-db:

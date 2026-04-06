@@ -64,12 +64,12 @@ export const api = {
   createReward: (data) => request('/rewards', { method: 'POST', body: JSON.stringify(data) }),
   redeemReward: (id, date) => request(`/rewards/${id}/redeem`, { method: 'POST', body: JSON.stringify({ date }) }),
 
-  // Programs (v1 — existing)
+  // Programs (v1)
   listPrograms: () => request('/programs'),
   createProgram: (data) => request('/programs', { method: 'POST', body: JSON.stringify(data) }),
   getProgram: (id) => request(`/programs/${id}`),
 
-  // Program Catalog (v2 — new)
+  // Program Catalog (v2)
   searchCatalog: (q) => request(`/programs/catalog${q ? `?q=${encodeURIComponent(q)}` : ''}`),
   getCatalogProgram: (id) => request(`/programs/catalog/${id}`),
   researchProgram: (name) =>
@@ -79,7 +79,7 @@ export const api = {
       method: 'POST', body: JSON.stringify({ start_date: startDate }),
     }),
 
-  // Program Tracking (v2 — new)
+  // Program Tracking (v2)
   getProgramSchedule: (id) => request(`/programs/${id}/schedule`),
   getWorkoutDetail: (progId, workoutId) => request(`/programs/${progId}/workout/${workoutId}`),
   completeWorkout: (progId, workoutId, data) =>
@@ -87,6 +87,20 @@ export const api = {
       method: 'POST', body: JSON.stringify(data),
     }),
   getProgramProgress: (id) => request(`/programs/${id}/progress`),
+
+  // Support (user)
+  getThread: () => request('/support/thread'),
+  sendSupportMessage: (body) =>
+    request('/support/messages', { method: 'POST', body: JSON.stringify({ body }) }),
+  getUnreadCount: () => request('/support/unread'),
+
+  // Support (admin)
+  listSupportThreads: () => request('/support/admin/threads'),
+  getAdminThread: (threadId) => request(`/support/admin/threads/${threadId}`),
+  replySupportThread: (threadId, body) =>
+    request(`/support/admin/threads/${threadId}/reply`, {
+      method: 'POST', body: JSON.stringify({ body }),
+    }),
 
   // Integrations
   integrationStatus: () => request('/integrations'),

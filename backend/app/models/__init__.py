@@ -8,10 +8,12 @@ from app.models.reward import Reward, RewardRedemption
 from app.models.oauth import OAuthToken
 from app.models.resource import Resource
 from app.models.catalog import ProgramCatalog, CatalogWorkout, CrawlQueue, WorkoutLog
+from app.models.support import SupportThread, SupportMessage
 
 __all__ = [
     "User", "UserProfile", "Program", "ActivityLog", "FoodLog",
     "PointRule", "DailyTarget", "Reward", "RewardRedemption",
     "OAuthToken", "Resource",
     "ProgramCatalog", "CatalogWorkout", "CrawlQueue", "WorkoutLog",
+    "SupportThread", "SupportMessage",
 ]

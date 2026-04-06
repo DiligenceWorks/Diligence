@@ -24,6 +24,10 @@ class Settings(BaseSettings):
     # Groq (program extraction)
     groq_api_key: str = ""
 
+    # Telegram (support notifications — outbound only)
+    telegram_bot_token: str = ""
+    telegram_chat_id: str = ""
+
     # App
     base_url: str = "https://fitness.littlefake.com"
     timezone: str = "Asia/Bangkok"
