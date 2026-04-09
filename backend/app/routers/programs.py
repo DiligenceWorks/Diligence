@@ -44,6 +44,8 @@ async def list_programs(
             "id": str(p.id), "name": p.name, "source": p.source, "source_url": p.source_url,
             "start_date": p.start_date.isoformat(), "end_date": p.end_date.isoformat(),
             "status": p.status, "current_day": min(day_num, total), "total_days": total,
+            "catalog_id": str(p.catalog_id) if p.catalog_id else None,
+            "current_week": p.current_week,
         })
     return out
 
