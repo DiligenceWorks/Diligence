@@ -11,6 +11,7 @@ import Onboarding from './pages/Onboarding'
 import WeekView from './pages/WeekView'
 import ProgramSearch from './pages/ProgramSearch'
 import ProgramDetail from './pages/ProgramDetail'
+import CatalogDetail from './pages/CatalogDetail'
 import Support from './pages/Support'
 import SupportAdmin from './pages/SupportAdmin'
 
@@ -104,6 +105,7 @@ export default function App() {
         <Route path="/food" element={<ProtectedRoute><LogFood /></ProtectedRoute>} />
         <Route path="/programs" element={<ProtectedRoute><ProgramSearch /></ProtectedRoute>} />
         <Route path="/programs/:id" element={<ProtectedRoute><ProgramDetail /></ProtectedRoute>} />
+        <Route path="/catalog/:id" element={<ProtectedRoute><CatalogDetail /></ProtectedRoute>} />
         <Route path="/rewards" element={<ProtectedRoute><Rewards /></ProtectedRoute>} />
         <Route path="/week" element={<ProtectedRoute><WeekView /></ProtectedRoute>} />
         <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
