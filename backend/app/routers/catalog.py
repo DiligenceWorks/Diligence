@@ -231,7 +231,65 @@ async def adopt_program(
     }
 
 
-# ── Program Tracking Endpoints ─────────────────────────────────────────────
+# ── Program Tracking Endpoints ────────────────────────────────────────────────
+#
+# Workout ID encoding:
+#   The catalog stores a TEMPLATE (typically week 1 only), and the program
+#   rotates that template across `duration_weeks` real weeks. To allow the same
+#   template workout to be completed once per real week, schedule entries use
+#   a synthetic ID format: "{template_uuid}::{real_week}".
+#
+#   Frontend treats the ID as opaque. Backend parses it on every workout
+#   endpoint to recover (template_workout_id, real_week_number).
+
+def _make_workout_id(template_id: uuid_mod.UUID, real_week: int) -> str:
+    return f"{template_id}::{real_week}"
+
+def _parse_workout_id(workout_id: str) -> tuple[uuid_mod.UUID, int]:
+    """Parse a synthetic workout ID. Falls back to (uuid, 1) for legacy IDs."""
+    if "::" in workout_id:
+        uuid_part, week_part = workout_id.split("::", 1)
+        return uuid_mod.UUID(uuid_part), int(week_part)
+    return uuid_mod.UUID(workout_id), 1
+
+
+async def _load_template_workouts(db: AsyncSession, catalog_id: uuid_mod.UUID):
+    """Returns (template_workouts_list, template_weeks_count)."""
+    result = await db.execute(
+        select(CatalogWorkout)
+        .where(CatalogWorkout.catalog_id == catalog_id)
+        .order_by(CatalogWorkout.week_number, CatalogWorkout.day_number)
+    )
+    workouts = result.scalars().all()
+    template_weeks = max((w.week_number for w in workouts), default=1)
+    return workouts, template_weeks
+
+
+def _build_rotated_schedule(template_workouts, template_weeks, total_weeks, completed_keys):
+    """
+    Generate the full rotated schedule across `total_weeks` real program weeks.
+    `completed_keys` is a set of (catalog_workout_id, week_number) tuples.
+    Returns list of schedule entry dicts.
+    """
+    schedule = []
+    for real_week in range(1, total_weeks + 1):
+        template_week = ((real_week - 1) % template_weeks) + 1
+        for w in template_workouts:
+            if w.week_number != template_week:
+                continue
+            schedule.append({
+                "id": _make_workout_id(w.id, real_week),
+                "template_id": str(w.id),
+                "week_number": real_week,
+                "day_number": w.day_number,
+                "workout_name": w.workout_name,
+                "exercises": w.exercises,
+                "rest_day": w.rest_day,
+                "notes": w.notes,
+                "completed": (w.id, real_week) in completed_keys,
+            })
+    return schedule
+
 
 @router.get("/{program_id}/schedule")
 async def get_program_schedule(
@@ -250,53 +308,50 @@ async def get_program_schedule(
     if not program or not program.catalog_id:
         raise HTTPException(status_code=404)
 
-    # Get all catalog workouts
-    result = await db.execute(
-        select(CatalogWorkout)
-        .where(CatalogWorkout.catalog_id == program.catalog_id)
-        .order_by(CatalogWorkout.week_number, CatalogWorkout.day_number)
-    )
-    workouts = result.scalars().all()
-
-    # Get completed workout IDs
-    result = await db.execute(
-        select(WorkoutLog.catalog_workout_id).where(
-            WorkoutLog.program_id == program.id,
-            WorkoutLog.user_id == user.id,
-        )
-    )
-    completed_ids = {row[0] for row in result.all()}
-
-    # Calculate current position based on start date
-    today = date.today()
-    days_elapsed = (today - program.start_date).days
-    current_week = (days_elapsed // 7) + 1
-    current_day_of_week = (days_elapsed % 7) + 1  # 1=Mon, 7=Sun
-
-    schedule = []
-    today_workout = None
-
-    for w in workouts:
-        entry = {
-            "id": str(w.id),
-            "week_number": w.week_number,
-            "day_number": w.day_number,
-            "workout_name": w.workout_name,
-            "exercises": w.exercises,
-            "rest_day": w.rest_day,
-            "notes": w.notes,
-            "completed": w.id in completed_ids,
-        }
-        schedule.append(entry)
-
-        if w.week_number == current_week and w.day_number == current_day_of_week:
-            today_workout = entry
-
-    # Get catalog details for progression rules
+    # Load catalog + template workouts
     result = await db.execute(
         select(ProgramCatalog).where(ProgramCatalog.id == program.catalog_id)
     )
     catalog = result.scalar_one_or_none()
+    if not catalog:
+        raise HTTPException(status_code=404, detail="Catalog program missing")
+
+    template_workouts, template_weeks = await _load_template_workouts(db, program.catalog_id)
+    if not template_workouts:
+        raise HTTPException(status_code=404, detail="No workouts in catalog yet")
+
+    total_weeks = catalog.duration_weeks or template_weeks
+
+    # Completed (catalog_workout_id, week_number) pairs
+    result = await db.execute(
+        select(WorkoutLog.catalog_workout_id, WorkoutLog.week_number).where(
+            WorkoutLog.program_id == program.id,
+            WorkoutLog.user_id == user.id,
+        )
+    )
+    completed_keys = {(row[0], row[1]) for row in result.all()}
+
+    # Build full rotated schedule
+    schedule = _build_rotated_schedule(
+        template_workouts, template_weeks, total_weeks, completed_keys
+    )
+
+    # Calculate current real week from start date
+    today = date.today()
+    days_elapsed = max(0, (today - program.start_date).days)
+    current_week = min(total_weeks, (days_elapsed // 7) + 1)
+
+    # Today's workout: the first uncompleted, non-rest entry in the current real week.
+    # This is more flexible than literal day-of-week matching — the user can do
+    # any of the week's workouts on any calendar day.
+    today_workout = None
+    for entry in schedule:
+        if entry["week_number"] == current_week and not entry["rest_day"] and not entry["completed"]:
+            today_workout = entry
+            break
+
+    total_workouts = sum(1 for e in schedule if not e["rest_day"])
+    completed_workouts = sum(1 for e in schedule if e["completed"] and not e["rest_day"])
 
     return {
         "program_id": str(program.id),
@@ -304,12 +359,12 @@ async def get_program_schedule(
         "start_date": program.start_date.isoformat(),
         "end_date": program.end_date.isoformat(),
         "current_week": current_week,
-        "current_day_of_week": current_day_of_week,
+        "total_weeks": total_weeks,
         "today_workout": today_workout,
         "schedule": schedule,
-        "total_workouts": len([w for w in workouts if not w.rest_day]),
-        "completed_workouts": len(completed_ids),
-        "progression_rules": catalog.progression_rules if catalog else None,
+        "total_workouts": total_workouts,
+        "completed_workouts": completed_workouts,
+        "progression_rules": catalog.progression_rules,
     }
 
 
@@ -320,8 +375,9 @@ async def get_workout_detail(
     user: Annotated[User, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(get_db)],
 ):
-    """Get a specific workout's full exercise details."""
-    # Verify program belongs to user
+    """Get a specific workout's full exercise details (parses synthetic ID)."""
+    template_id, real_week = _parse_workout_id(workout_id)
+
     result = await db.execute(
         select(Program).where(
             Program.id == uuid_mod.UUID(program_id),
@@ -334,7 +390,7 @@ async def get_workout_detail(
 
     result = await db.execute(
         select(CatalogWorkout).where(
-            CatalogWorkout.id == uuid_mod.UUID(workout_id),
+            CatalogWorkout.id == template_id,
             CatalogWorkout.catalog_id == program.catalog_id,
         )
     )
@@ -342,19 +398,21 @@ async def get_workout_detail(
     if not workout:
         raise HTTPException(status_code=404)
 
-    # Check if already completed
+    # Check completed for this specific real week
     result = await db.execute(
         select(WorkoutLog).where(
             WorkoutLog.program_id == program.id,
             WorkoutLog.catalog_workout_id == workout.id,
+            WorkoutLog.week_number == real_week,
             WorkoutLog.user_id == user.id,
         )
     )
     log = result.scalar_one_or_none()
 
     return {
-        "id": str(workout.id),
-        "week_number": workout.week_number,
+        "id": _make_workout_id(workout.id, real_week),
+        "template_id": str(workout.id),
+        "week_number": real_week,
         "day_number": workout.day_number,
         "workout_name": workout.workout_name,
         "exercises": workout.exercises,
@@ -374,7 +432,9 @@ async def complete_workout(
     user: Annotated[User, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(get_db)],
 ):
-    """Mark a program workout as complete. Awards bonus points."""
+    """Mark a program workout as complete (parses synthetic ID). Awards bonus points."""
+    template_id, real_week = _parse_workout_id(workout_id)
+
     # Verify program
     result = await db.execute(
         select(Program).where(
@@ -390,7 +450,7 @@ async def complete_workout(
     # Verify workout belongs to program's catalog
     result = await db.execute(
         select(CatalogWorkout).where(
-            CatalogWorkout.id == uuid_mod.UUID(workout_id),
+            CatalogWorkout.id == template_id,
             CatalogWorkout.catalog_id == program.catalog_id,
         )
     )
@@ -398,25 +458,28 @@ async def complete_workout(
     if not workout:
         raise HTTPException(status_code=404, detail="Workout not found")
 
-    # Check not already completed
+    if workout.rest_day:
+        raise HTTPException(status_code=400, detail="Cannot complete a rest day")
+
+    # Check not already completed for THIS real week
     result = await db.execute(
         select(WorkoutLog).where(
             WorkoutLog.program_id == program.id,
             WorkoutLog.catalog_workout_id == workout.id,
+            WorkoutLog.week_number == real_week,
             WorkoutLog.user_id == user.id,
         )
     )
     if result.scalar_one_or_none():
-        raise HTTPException(status_code=409, detail="Workout already completed")
+        raise HTTPException(status_code=409, detail="Workout already completed for this week")
 
-    # Award points — program workouts get 75 pts (vs 50 for generic)
     PROGRAM_WORKOUT_POINTS = 75
 
-    # Log the workout completion
     log = WorkoutLog(
         user_id=user.id,
         program_id=program.id,
         catalog_workout_id=workout.id,
+        week_number=real_week,
         exercises_completed=req.exercises_completed,
         points_earned=PROGRAM_WORKOUT_POINTS,
         notes=req.notes,
@@ -429,24 +492,25 @@ async def complete_workout(
         user_id=user.id,
         category="workout",
         activity_date=date.today(),
-        title=f"{program.name}: {workout.workout_name or f'Week {workout.week_number} Day {workout.day_number}'}",
+        title=f"{program.name}: Wk{real_week} {workout.workout_name or f'Day {workout.day_number}'}",
         description=f"Completed program workout ({len(workout.exercises)} exercises)",
         source="program",
         program_id=program.id,
         program_day=workout.day_number,
-        metadata={"catalog_workout_id": str(workout.id), "program_points": True},
+        metadata={
+            "catalog_workout_id": str(workout.id),
+            "real_week": real_week,
+            "program_points": True,
+        },
     )
 
-    # Override points with program bonus if higher
     if activity.points_earned < PROGRAM_WORKOUT_POINTS:
         activity.points_earned = PROGRAM_WORKOUT_POINTS
 
     await db.flush()
 
-    # Check for weekly bonus (all workouts in current week completed)
-    weekly_bonus = await check_weekly_bonus(db, user, program, workout.week_number)
-
-    # Check for program completion bonus
+    # Bonuses
+    weekly_bonus = await check_weekly_bonus(db, user, program, real_week)
     completion_bonus = await check_completion_bonus(db, user, program)
 
     total_points = PROGRAM_WORKOUT_POINTS + weekly_bonus + completion_bonus
@@ -462,46 +526,41 @@ async def complete_workout(
 
 
 async def check_weekly_bonus(
-    db: AsyncSession, user: User, program: Program, week_number: int
+    db: AsyncSession, user: User, program: Program, real_week: int
 ) -> int:
-    """Check if all workouts for a week are completed. Returns bonus points."""
+    """Award bonus when all template workouts for the current real week are done."""
     WEEKLY_BONUS = 50
 
-    # Count total non-rest workouts in this week
-    result = await db.execute(
-        select(func.count(CatalogWorkout.id)).where(
-            CatalogWorkout.catalog_id == program.catalog_id,
-            CatalogWorkout.week_number == week_number,
-            CatalogWorkout.rest_day == False,
-        )
-    )
-    total_in_week = result.scalar() or 0
+    # Get template metadata
+    template_workouts, template_weeks = await _load_template_workouts(db, program.catalog_id)
+    template_week = ((real_week - 1) % template_weeks) + 1
+    week_template_workouts = [w for w in template_workouts if w.week_number == template_week and not w.rest_day]
+    total_in_week = len(week_template_workouts)
     if total_in_week == 0:
         return 0
 
-    # Count completed in this week
+    # Count completed workout_logs for this real week
+    template_ids = [w.id for w in week_template_workouts]
     result = await db.execute(
-        select(func.count(WorkoutLog.id))
-        .join(CatalogWorkout, WorkoutLog.catalog_workout_id == CatalogWorkout.id)
-        .where(
+        select(func.count(WorkoutLog.id)).where(
             WorkoutLog.program_id == program.id,
             WorkoutLog.user_id == user.id,
-            CatalogWorkout.week_number == week_number,
+            WorkoutLog.week_number == real_week,
+            WorkoutLog.catalog_workout_id.in_(template_ids),
         )
     )
     completed_in_week = result.scalar() or 0
 
     if completed_in_week >= total_in_week:
-        # Award weekly bonus as an activity
         await log_activity_with_points(
             db=db,
             user_id=user.id,
             category="bonus",
             activity_date=date.today(),
-            title=f"{program.name}: Week {week_number} Complete!",
+            title=f"{program.name}: Week {real_week} Complete!",
             source="program",
             program_id=program.id,
-            metadata={"weekly_bonus": True, "week": week_number},
+            metadata={"weekly_bonus": True, "week": real_week},
         )
         return WEEKLY_BONUS
 
@@ -511,19 +570,21 @@ async def check_weekly_bonus(
 async def check_completion_bonus(
     db: AsyncSession, user: User, program: Program
 ) -> int:
-    """Check if all program workouts are completed. Returns bonus points."""
+    """Award completion bonus when all (template × weeks) workouts done."""
     COMPLETION_BONUS = 200
 
-    # Count total non-rest workouts in program
     result = await db.execute(
-        select(func.count(CatalogWorkout.id)).where(
-            CatalogWorkout.catalog_id == program.catalog_id,
-            CatalogWorkout.rest_day == False,
-        )
+        select(ProgramCatalog).where(ProgramCatalog.id == program.catalog_id)
     )
-    total = result.scalar() or 0
+    catalog = result.scalar_one_or_none()
+    if not catalog:
+        return 0
 
-    # Count completed
+    template_workouts, template_weeks = await _load_template_workouts(db, program.catalog_id)
+    total_weeks = catalog.duration_weeks or template_weeks
+    template_per_week = sum(1 for w in template_workouts if not w.rest_day) // max(1, template_weeks)
+    total = template_per_week * total_weeks
+
     result = await db.execute(
         select(func.count(WorkoutLog.id)).where(
             WorkoutLog.program_id == program.id,
@@ -555,7 +616,7 @@ async def get_program_progress(
     user: Annotated[User, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(get_db)],
 ):
-    """Program progress overview."""
+    """Program progress overview — accounts for full template×weeks total."""
     result = await db.execute(
         select(Program).where(
             Program.id == uuid_mod.UUID(program_id),
@@ -566,16 +627,17 @@ async def get_program_progress(
     if not program or not program.catalog_id:
         raise HTTPException(status_code=404)
 
-    # Total workouts
     result = await db.execute(
-        select(func.count(CatalogWorkout.id)).where(
-            CatalogWorkout.catalog_id == program.catalog_id,
-            CatalogWorkout.rest_day == False,
-        )
+        select(ProgramCatalog).where(ProgramCatalog.id == program.catalog_id)
     )
-    total = result.scalar() or 0
+    catalog = result.scalar_one_or_none()
 
-    # Completed
+    template_workouts, template_weeks = await _load_template_workouts(db, program.catalog_id)
+    total_weeks = (catalog.duration_weeks if catalog else None) or template_weeks
+    template_non_rest = sum(1 for w in template_workouts if not w.rest_day)
+    template_per_week = template_non_rest // max(1, template_weeks)
+    total = template_per_week * total_weeks
+
     result = await db.execute(
         select(func.count(WorkoutLog.id)).where(
             WorkoutLog.program_id == program.id,
@@ -584,7 +646,6 @@ async def get_program_progress(
     )
     completed = result.scalar() or 0
 
-    # Total points from this program
     result = await db.execute(
         select(func.coalesce(func.sum(WorkoutLog.points_earned), 0)).where(
             WorkoutLog.program_id == program.id,
@@ -594,8 +655,8 @@ async def get_program_progress(
     total_points = result.scalar() or 0
 
     today = date.today()
-    days_elapsed = (today - program.start_date).days
-    current_week = (days_elapsed // 7) + 1
+    days_elapsed = max(0, (today - program.start_date).days)
+    current_week = min(total_weeks, (days_elapsed // 7) + 1)
 
     return {
         "program_id": str(program.id),
@@ -604,6 +665,7 @@ async def get_program_progress(
         "start_date": program.start_date.isoformat(),
         "end_date": program.end_date.isoformat(),
         "current_week": current_week,
+        "total_weeks": total_weeks,
         "total_workouts": total,
         "completed_workouts": completed,
         "completion_pct": round((completed / total * 100) if total > 0 else 0, 1),

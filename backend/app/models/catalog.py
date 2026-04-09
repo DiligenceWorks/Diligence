@@ -94,6 +94,7 @@ class WorkoutLog(Base):
     catalog_workout_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), ForeignKey("catalog_workouts.id"), nullable=False
     )
+    week_number: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
     completed_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
     )

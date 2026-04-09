@@ -126,6 +126,14 @@ async def run_migrations():
             END $$;
         """))
 
+        # v2.1: Add week_number to workout_logs for template rotation tracking
+        await conn.execute(text("""
+            DO $$ BEGIN
+                ALTER TABLE workout_logs ADD COLUMN IF NOT EXISTS week_number INTEGER NOT NULL DEFAULT 1;
+            EXCEPTION WHEN undefined_table THEN NULL;
+            END $$;
+        """))
+
 
 async def seed_resources():
     """Seed the resource library with curated fitness programs."""
