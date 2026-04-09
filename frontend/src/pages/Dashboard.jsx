@@ -87,11 +87,15 @@ export default function Dashboard() {
     <div className="page">
       {/* Program bar */}
       {status.program_name && (
-        <div style={{
-          background: 'var(--blue-ghost)', borderRadius: 'var(--r)', padding: '12px 16px',
-          marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '12px',
-          border: '1px solid rgba(41,121,255,0.1)',
-        }}>
+        <div
+          onClick={() => status.program_id && navigate(`/programs/${status.program_id}`)}
+          style={{
+            background: 'var(--blue-ghost)', borderRadius: 'var(--r)', padding: '12px 16px',
+            marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '12px',
+            border: '1px solid rgba(41,121,255,0.1)',
+            cursor: status.program_id ? 'pointer' : 'default',
+          }}
+        >
           <div style={{ fontSize: '1.1rem' }}>📋</div>
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--blue)' }}>{status.program_name}</div>

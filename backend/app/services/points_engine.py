@@ -126,6 +126,7 @@ async def get_today_status(db: AsyncSession, user_id: uuid.UUID) -> dict:
         "rewards_available": rewards,
         "week_points": week_pts,
         "weekly_target": weekly_tgt,
+        "program_id": program["id"] if program else None,
         "program_day": program["day"] if program else None,
         "program_total_days": program["total_days"] if program else None,
         "program_name": program["name"] if program else None,
