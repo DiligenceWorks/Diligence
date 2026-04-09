@@ -95,7 +95,7 @@ export default function ProgramSearch() {
   if (loading) return <div style={{ padding: '2rem', textAlign: 'center', color: 'var(--text-3)' }}>Loading...</div>
 
   return (
-    <div style={{ padding: '1rem', maxWidth: '600px', margin: '0 auto' }}>
+    <div style={{ padding: '1rem', paddingBottom: '96px', maxWidth: '600px', margin: '0 auto' }}>
       {/* Header */}
       <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: 900, marginBottom: '0.5rem' }}>
         Programs

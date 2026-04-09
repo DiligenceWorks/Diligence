@@ -84,7 +84,7 @@ export default function CatalogDetail() {
   const groupedWorkouts = groupByWeek(program.workouts)
 
   return (
-    <div style={{ padding: '1rem', maxWidth: '600px', margin: '0 auto' }}>
+    <div style={{ padding: '1rem', paddingBottom: '96px', maxWidth: '600px', margin: '0 auto' }}>
       {/* Back */}
       <button onClick={() => navigate('/programs')} style={{
         background: 'transparent', color: 'var(--text-3)', padding: '8px 0',

@@ -33,7 +33,7 @@ function AdminThreadList() {
   if (error) return <div style={{ padding: '2rem', textAlign: 'center', color: 'var(--red)' }}>{error}</div>
 
   return (
-    <div style={{ padding: '1rem', maxWidth: '600px', margin: '0 auto' }}>
+    <div style={{ padding: '1rem', paddingBottom: '96px', maxWidth: '600px', margin: '0 auto' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
         <button onClick={() => navigate('/')} style={{
           background: 'transparent', color: 'var(--text-3)', padding: '4px 0', fontSize: '1.2rem',
