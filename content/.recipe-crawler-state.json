@@ -1,0 +1,410 @@
+{
+  "timestamp": "2026-04-12T10:48:06Z",
+  "candidates": 67,
+  "kept": 64,
+  "filtered": 3,
+  "results": [
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-pesto-chicken-casserole",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-pesto-chicken-casserole-with-feta-cheese-and-olives"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-no-noodle-chicken-soup",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-no-noodle-chicken-soup"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-asian-chicken-with-peanut-coleslaw",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-asian-chicken-with-peanut-coleslaw"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/caprese-chicken",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-caprese-chicken"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/chicken-satay-sauce",
+      "success": true,
+      "reason": "ok",
+      "slug": "thai-chicken-with-satay-sauce-and-broccoli"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-curry-chicken-coconut-lime",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-coconut-curry-chicken"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/indian-butter-chicken",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-indian-butter-chicken"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-garlic-mushroom-chicken-thighs",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-garlic-mushroom-chicken-thighs"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-chicken-blt-salad",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-chicken-blt-salad"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/buffalo-chicken-paprika-mayo-butter-fried-cabbage",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-buffalo-chicken-with-paprika-mayo-and-butter-fried-cabbage"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/crispy-chicken-thighs-with-lemon-butter-caper-sauce",
+      "success": true,
+      "reason": "ok",
+      "slug": "crispy-keto-chicken-thighs-with-lemon-butter-caper-sauce"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-crack-chicken",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-crack-chicken"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/low-carb-garlic-chicken",
+      "success": true,
+      "reason": "ok",
+      "slug": "low-carb-garlic-chicken"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-roast-chicken-with-broccoli-and-garlic-butter",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-roast-chicken-with-broccoli-and-garlic-butter"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/indian-keto-chicken-korma",
+      "success": true,
+      "reason": "ok",
+      "slug": "indian-keto-chicken-korma"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/kerala-style-chicken-curry-with-coconut-cream",
+      "success": true,
+      "reason": "ok",
+      "slug": "kerala-style-chicken-curry-with-coconut-cream"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-chicken-cordon-bleu",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-chicken-cordon-bleu"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-cheesy-chicken-spaghetti-squash",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-cheesy-chicken-spaghetti-squash"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-fried-chicken-broccoli-butter",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-fried-chicken-with-broccoli-and-butter"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-chicken-fajita-bowl",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-chicken-fajita-bowl"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-chicken-pesto-stew-with-zoodles",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-chicken-pesto-stew-with-zoodles"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-chicken-wings-creamy-broccoli",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-chicken-wings-with-creamy-broccoli"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-butter-chicken-wings",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-butter-chicken-wings"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-chicken-garam-masala",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-chicken-garam-masala"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/asian-chicken-stir-fry-with-broccoli",
+      "success": true,
+      "reason": "ok",
+      "slug": "asian-keto-chicken-stir-fry-with-broccoli"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-cheese-burger-meatloaf-with-bbq-mayo",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-cheese-burger-meatloaf-with-bbq-mayo"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/classic-keto-hamburger",
+      "success": true,
+      "reason": "ok",
+      "slug": "classic-keto-hamburger"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-asian-beef-salad",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-asian-beef-salad"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-beef-ramen",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-beef-ramen"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-ground-beef-broccoli",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-ground-beef-and-broccoli"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-hamburger-patties-tomato-sauce-cabbage",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-hamburger-patties-with-creamy-tomato-sauce-and-fried-cabbage"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-lasagna",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-lasagna"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/low-carb-beef-stroganoff",
+      "success": true,
+      "reason": "ok",
+      "slug": "low-carb-beef-stroganoff"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-rib-eye-steak-oven-roasted-vegetables",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-ribeye-steak-with-oven-roasted-vegetables"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-bacon-burger-casserole",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-bacon-burger-casserole"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-shepherds-pie",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-shepherds-pie"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-italian-meatballs",
+      "success": true,
+      "reason": "ok",
+      "slug": "italian-keto-meatballs-with-mozzarella-cheese"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-steak-with-bearnaise-sauce",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-steak-with-barnaise-sauce"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/caramelized-onion-bacon-smothered-pork-chops",
+      "success": true,
+      "reason": "ok",
+      "slug": "caramelized-onion-and-bacon-pork-chops"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/crispy-chinese-pork-cabbage",
+      "success": false,
+      "reason": "protein 22.0g < 25g",
+      "slug": null
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-pulled-pork-roasted-tomato-salad",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-pulled-pork-with-roasted-tomato-salad"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-pork-green-pepper-stir-fry",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-pork-and-green-pepper-stir-fry"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-pork-chops-blue-cheese-sauce",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-pork-chops-with-blue-cheese-sauce"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-chinese-pork-brussels-sprouts",
+      "success": false,
+      "reason": "protein 20.0g < 25g",
+      "slug": null
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/cuban-roast-pork-lechon-asado",
+      "success": true,
+      "reason": "ok",
+      "slug": "crispy-cuban-roast-pork-lechon-asado"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-thai-fish-curry-coconut",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-thai-fish-curry"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-baked-salmon-lemon-butter",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-baked-salmon-with-lemon-and-butter"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-coconut-salmon-napa-cabbage",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-coconut-salmon-with-napa-cabbage"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-sesame-salmon-thai-curry-cabbage",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-sesame-salmon-with-thai-curry-cabbage"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-seared-salmon-with-creamy-lemon-sauce",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-seared-salmon-with-creamy-lemon-sauce"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-fried-salmon-broccoli-lemon-mayo",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-fried-salmon-with-broccoli-and-lemon-mayo"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/creamy-tuscan-shrimp",
+      "success": true,
+      "reason": "ok",
+      "slug": "creamy-low-carb-tuscan-shrimp"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/garlic-ginger-stir-fry-with-shrimp-and-cabbage",
+      "success": true,
+      "reason": "ok",
+      "slug": "garlic-ginger-stir-fry-with-shrimp-and-cabbage"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-tuna-salad-boiled-eggs",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-tuna-salad-with-boiled-eggs"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-salmon-burgers-mash-lemon-butter",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-salmon-burgers-with-mash-and-lemon-butter"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-tuna-burgers",
+      "success": true,
+      "reason": "ok",
+      "slug": "crispy-keto-tuna-burgers"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-lemon-garlic-butter-salmon-with-almonds-and-chili",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-lemon-garlic-butter-salmon-with-almonds-and-chili"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-bacon-and-eggs-plate",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-bacon-and-eggs-plate"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-western-omelet",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-western-omelet"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-egg-roll-in-a-bowl",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-egg-roll-in-a-bowl"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-mexican-scrambled-eggs",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-mexican-scrambled-eggs"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-taco-omelet",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-taco-omelet"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-goat-cheese-mushroom-frittata",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-goat-cheese-and-mushroom-frittata"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-scrambled-eggs-halloumi-cheese",
+      "success": false,
+      "reason": "protein 22.0g < 25g",
+      "slug": null
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/crustless-keto-broccoli-and-bacon-quiche",
+      "success": true,
+      "reason": "ok",
+      "slug": "crustless-keto-broccoli-and-bacon-quiche"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/high-protein-turkey-breakfast-burger",
+      "success": true,
+      "reason": "ok",
+      "slug": "high-protein-turkey-breakfast-burger"
+    },
+    {
+      "url": "https://www.dietdoctor.com/recipes/keto-asian-meatballs-thai-basil-sauce",
+      "success": true,
+      "reason": "ok",
+      "slug": "keto-asian-meatballs-with-thai-basil-sauce"
+    }
+  ]
+}
