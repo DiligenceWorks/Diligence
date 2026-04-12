@@ -202,12 +202,48 @@ Quantities assume cooking for one person. If Maleewan is joining, double most pr
 
 ## Estimated cost
 
-Makro wholesale prices (April 2026 approximate):
-- Meat & seafood: ~฿4,500–5,500 (salmon-heavy week bumps this)
-- Eggs, fats, coconut products: ~฿900
-- Vegetables & herbs: ~฿800
-- Nuts & pantry: ~฿1,700 (curry pastes + coconut aminos add cost)
-- Drinks & supplements: ~฿800
-- **Total: ฿8,500–9,500 for the week** (one person)
+Prices verified against Makro Thailand (Apr 2026). Local proteins and veg are much cheaper than Western grocery estimates — imported items (salmon, macadamia, olive oil) are the real cost drivers.
 
-If shopping for two (include Maleewan), roughly 1.7x (not 2x — cooking oil, spices, etc. are shared).
+### Big-ticket items (itemized)
+
+| Item | Qty | Unit price | Line cost |
+|---|---|---|---|
+| Salmon fillet, frozen (Makro house) | 1.6 kg | ~฿380/kg | **~฿610** |
+| Pork shoulder | 2 kg | ~฿100/kg | ~฿200 |
+| Chicken thighs (boneless, trimmed) | 2.5 kg | ~฿40/kg | ~฿100 |
+| Chicken breast (trimmed) | 1 kg | ~฿40/kg | ~฿40 |
+| Ground beef / steak | 1.1 kg | ~฿250/kg | ~฿280 |
+| Ground turkey or pork | 0.5 kg | ~฿130/kg | ~฿65 |
+| Eggs (aro #3, 30-pack) | 1 pack | ฿138 | ~฿138 |
+| Avocados (Thai, in season) | 8 pcs | ~฿25 each | ~฿200 |
+| Macadamia nuts (aro 500g) | 1 | ~฿400 | ~฿400 |
+| Almonds (raw 500g) | 1 | ~฿250 | ~฿250 |
+| Coconut cream UHT 250 ml (Chaokoh/Aroy-D) | 6 | ~฿30 each | ~฿180 |
+| Coconut milk UHT 250 ml | 4 | ~฿25 each | ~฿100 |
+| Coconut oil (1 L) | 1 | ~฿180 | ~฿180 |
+| Olive oil EVOO (750 ml) | 1 | ~฿350 | ~฿350 |
+| Avocado oil (500 ml) | 1 | ~฿300 | ~฿300 |
+| Peanut butter (natural, no sugar) | 1 jar | ~฿180 | ~฿180 |
+
+**Big-ticket subtotal: ~฿3,570**
+
+### Rest of list (estimated)
+
+- Other veg & herbs (cabbages, broccoli, lemongrass, limes, etc.): **~฿400**
+- Spices, pastes, condiments (one-off purchases, last many weeks): **~฿500**
+- Drinks (coffee, tea, mineral water, sparkling): **~฿300**
+- Supplements (magnesium, potassium chloride, baking soda): **~฿400** (mostly a one-time buy — amortize over 2-3 months)
+- Backup/snacks (pork rinds, dark chocolate, olives, bone broth): **~฿350**
+
+### Realistic totals
+
+- **Week 1 out-of-pocket (including one-off pantry buys): ~฿5,500–6,000**
+- **Ongoing weekly cost after pantry is stocked: ~฿3,500–4,500**
+
+Pantry items like spices, oils, curry pastes, and supplements last 4-12 weeks — so week 2+ is significantly cheaper. The real recurring cost is the proteins, eggs, coconut products, and fresh veg, which comes to roughly **฿2,500–3,500/week** for the meat+seafood+eggs+veg+coconut block.
+
+### Comparison — if you skip salmon
+
+Salmon is ~฿610 for the week. Swap both salmon days for chicken or local fish (pla kapong) and you save ~฿450. The trade-off is less variety and less omega-3; the Asian beef salad day covers some of that if you use oily canned mackerel as a sub. Substituting white fish (e.g., cod/pla kapong) for salmon lands at ~฿250/kg — cutting the protein line in half.
+
+If shopping for two (include Maleewan), roughly 1.7× — not 2× — because cooking oil, spices, supplements, and pantry items are shared.
