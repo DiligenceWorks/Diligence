@@ -63,7 +63,7 @@ async def lifespan(app: FastAPI):
     logger.info("Fitness Rewards backend shutting down")
 
 
-app = FastAPI(title="Fitness Rewards", version="0.2.0", lifespan=lifespan)
+app = FastAPI(title="Fitness Rewards", version="0.3.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -83,6 +83,7 @@ from app.routers.integrations import router as integrations_router
 from app.routers.programs import router as programs_router
 from app.routers.catalog import router as catalog_router
 from app.routers.support import router as support_router
+from app.routers.nutrition import router as nutrition_router
 
 app.include_router(auth_router)
 app.include_router(onboarding_router)
@@ -94,11 +95,12 @@ app.include_router(integrations_router)
 app.include_router(catalog_router)
 app.include_router(support_router)
 app.include_router(programs_router)
+app.include_router(nutrition_router)
 
 
 @app.get("/api/health")
 async def health():
-    return {"status": "ok", "version": "0.2.0"}
+    return {"status": "ok", "version": "0.3.0"}
 
 
 
@@ -130,6 +132,27 @@ async def run_migrations():
         await conn.execute(text("""
             DO $$ BEGIN
                 ALTER TABLE workout_logs ADD COLUMN IF NOT EXISTS week_number INTEGER NOT NULL DEFAULT 1;
+            EXCEPTION WHEN undefined_table THEN NULL;
+            END $$;
+        """))
+
+        # v3: Seed keto point rules (fast_completed, keto_day, meal_logged)
+        await conn.execute(text("""
+            DO $$ BEGIN
+                INSERT INTO point_rules (id, user_id, category, points, unit, is_active)
+                SELECT gen_random_uuid(), u.id, 'fast_completed', 200, 'per_event', TRUE
+                FROM users u
+                WHERE NOT EXISTS (
+                    SELECT 1 FROM point_rules pr
+                    WHERE pr.user_id = u.id AND pr.category = 'fast_completed'
+                );
+                INSERT INTO point_rules (id, user_id, category, points, unit, is_active)
+                SELECT gen_random_uuid(), u.id, 'keto_compliant_day', 100, 'per_event', TRUE
+                FROM users u
+                WHERE NOT EXISTS (
+                    SELECT 1 FROM point_rules pr
+                    WHERE pr.user_id = u.id AND pr.category = 'keto_compliant_day'
+                );
             EXCEPTION WHEN undefined_table THEN NULL;
             END $$;
         """))

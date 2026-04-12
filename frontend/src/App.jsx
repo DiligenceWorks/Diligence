@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import LogActivity from './pages/LogActivity'
 import LogFood from './pages/LogFood'
+import Nutrition from './pages/Nutrition'
 import Rewards from './pages/Rewards'
 import Settings from './pages/Settings'
 import Onboarding from './pages/Onboarding'
@@ -80,14 +81,14 @@ function NavBar() {
       <NavLink to="/log" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
         <span className="nav-icon">💪</span> Log
       </NavLink>
+      <NavLink to="/nutrition" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+        <span className="nav-icon">🥑</span> Keto
+      </NavLink>
       <NavLink to="/programs" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
         <span className="nav-icon">📋</span> Programs
       </NavLink>
-      <NavLink to="/rewards" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-        <span className="nav-icon">🎮</span> Rewards
-      </NavLink>
       <NavLink to="/settings" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-        <span className="nav-icon">⚙️</span> Settings
+        <span className="nav-icon">⚙️</span> More
       </NavLink>
     </nav>
   )
@@ -103,6 +104,7 @@ export default function App() {
         <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="/log" element={<ProtectedRoute><LogActivity /></ProtectedRoute>} />
         <Route path="/food" element={<ProtectedRoute><LogFood /></ProtectedRoute>} />
+        <Route path="/nutrition" element={<ProtectedRoute><Nutrition /></ProtectedRoute>} />
         <Route path="/programs" element={<ProtectedRoute><ProgramSearch /></ProtectedRoute>} />
         <Route path="/programs/:id" element={<ProtectedRoute><ProgramDetail /></ProtectedRoute>} />
         <Route path="/catalog/:id" element={<ProtectedRoute><CatalogDetail /></ProtectedRoute>} />

@@ -9,6 +9,7 @@ from app.models.oauth import OAuthToken
 from app.models.resource import Resource
 from app.models.catalog import ProgramCatalog, CatalogWorkout, CrawlQueue, WorkoutLog
 from app.models.support import SupportThread, SupportMessage
+from app.models.nutrition import NutritionGoal, Fast, ElectrolyteLog
 
 __all__ = [
     "User", "UserProfile", "Program", "ActivityLog", "FoodLog",
@@ -16,4 +17,5 @@ __all__ = [
     "OAuthToken", "Resource",
     "ProgramCatalog", "CatalogWorkout", "CrawlQueue", "WorkoutLog",
     "SupportThread", "SupportMessage",
+    "NutritionGoal", "Fast", "ElectrolyteLog",
 ]

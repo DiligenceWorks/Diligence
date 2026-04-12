@@ -59,6 +59,18 @@ export const api = {
   scanBarcode: (barcode) => request(`/food/scan/${barcode}`),
   searchFood: (q) => request(`/food/search?q=${encodeURIComponent(q)}`),
 
+  // Nutrition (v3: keto + fasting)
+  nutritionToday: () => request('/nutrition/today'),
+  getNutritionGoals: () => request('/nutrition/goals'),
+  updateNutritionGoals: (data) => request('/nutrition/goals', { method: 'PATCH', body: JSON.stringify(data) }),
+  startFast: (data) => request('/nutrition/fasts', { method: 'POST', body: JSON.stringify(data) }),
+  endFast: (id, data) => request(`/nutrition/fasts/${id}`, { method: 'PATCH', body: JSON.stringify(data || {}) }),
+  listFasts: (limit) => request(`/nutrition/fasts${limit ? `?limit=${limit}` : ''}`),
+  getActiveFast: () => request('/nutrition/fasts/active'),
+  deleteFast: (id) => request(`/nutrition/fasts/${id}`, { method: 'DELETE' }),
+  logElectrolytes: (data) => request('/nutrition/electrolytes', { method: 'POST', body: JSON.stringify(data) }),
+  getElectrolytesToday: () => request('/nutrition/electrolytes/today'),
+
   // Rewards
   listRewards: () => request('/rewards'),
   createReward: (data) => request('/rewards', { method: 'POST', body: JSON.stringify(data) }),
