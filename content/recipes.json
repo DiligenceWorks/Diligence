@@ -1,0 +1,2861 @@
+{
+  "count": 64,
+  "generated": "2026-04-12",
+  "recipes": [
+    {
+      "slug": "asian-keto-chicken-stir-fry-with-broccoli",
+      "title": "Asian keto chicken stir-fry with broccoli",
+      "source_url": "https://www.dietdoctor.com/recipes/asian-chicken-stir-fry-with-broccoli",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Asian",
+      "servings": 4,
+      "prep_minutes": 5,
+      "cook_minutes": 20,
+      "total_minutes": 25,
+      "macros": {
+        "calories": 613,
+        "protein_g": 43,
+        "fat_g": 46,
+        "net_carbs_g": 3,
+        "total_carbs_g": 5,
+        "fiber_g": 2
+      },
+      "thai_easy": true,
+      "tags": [
+        "5-ingredients-or-less",
+        "mealplan-ready"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "3/4 cup mayonnaise",
+        "2 tbsp hot sauce",
+        "2 tsp garlic powder",
+        "1 3/4 lbs boneless chicken thighs",
+        "2 tbsp olive oil",
+        "1 tsp ground black pepper",
+        "10 oz. broccoli",
+        "2 tbsp tamari soy sauce"
+      ],
+      "num_ingredients": 8
+    },
+    {
+      "slug": "caramelized-onion-and-bacon-pork-chops",
+      "title": "Caramelized onion and bacon pork chops",
+      "source_url": "https://www.dietdoctor.com/recipes/caramelized-onion-bacon-smothered-pork-chops",
+      "meal_type": "dinner",
+      "protein_type": "beef",
+      "cuisine": "American",
+      "servings": 4,
+      "prep_minutes": 5,
+      "cook_minutes": 45,
+      "total_minutes": 50,
+      "macros": {
+        "calories": 680,
+        "protein_g": 56,
+        "fat_g": 46,
+        "net_carbs_g": 4,
+        "total_carbs_g": 5,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "5-ingredients-or-less",
+        "Budget",
+        "instructions-do-not-scale-with-servings"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream"
+      ],
+      "ingredients": [
+        "4 oz. uncooked bacon, chopped",
+        "8 oz. yellow onions, thinly sliced",
+        "1/4 tsp salt",
+        "1/4 tsp pepper",
+        "1 tbsp olive oil, for saut\u00e9eing",
+        "4 pork chops, boneless, center-cut loin",
+        "1/2 cup beef broth",
+        "1/4 cup heavy whipping cream",
+        "salt and ground black pepper, for seasoning"
+      ],
+      "num_ingredients": 9
+    },
+    {
+      "slug": "classic-keto-hamburger",
+      "title": "Classic keto hamburger",
+      "source_url": "https://www.dietdoctor.com/recipes/classic-keto-hamburger",
+      "meal_type": "dinner",
+      "protein_type": "beef",
+      "cuisine": "American",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 70,
+      "total_minutes": 85,
+      "macros": {
+        "calories": 1,
+        "protein_g": 62,
+        "fat_g": 83,
+        "net_carbs_g": -6,
+        "total_carbs_g": 9,
+        "fiber_g": 15
+      },
+      "thai_easy": true,
+      "tags": [
+        "family-friendly",
+        "ground beef",
+        "Hamburger",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "1 1/4 cups almond flour",
+        "5 tbsp ground psyllium husk powder",
+        "2 tsp baking powder",
+        "1 tsp sea salt",
+        "1 1/4 cups water",
+        "2 tsp white wine vinegar",
+        "3 egg whites",
+        "1 tbsp sesame seeds",
+        "1 3/4 lbs ground beef",
+        "2 tbsp butter",
+        "salt",
+        "2 oz. lettuce",
+        "1 tomato",
+        "1 red onion",
+        "1/2 cup mayonnaise",
+        "5 oz. bacon",
+        "pepper"
+      ],
+      "num_ingredients": 17
+    },
+    {
+      "slug": "creamy-low-carb-tuscan-shrimp",
+      "title": "Creamy low carb Tuscan shrimp",
+      "source_url": "https://www.dietdoctor.com/recipes/creamy-tuscan-shrimp",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 20,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 603,
+        "protein_g": 35,
+        "fat_g": 44,
+        "net_carbs_g": 8,
+        "total_carbs_g": 12,
+        "fiber_g": 4
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream",
+        "butter",
+        "cheese",
+        "parmesan"
+      ],
+      "ingredients": [
+        "2 garlic cloves, minced",
+        "1 yellow onion, chopped",
+        "2 oz. butter",
+        "1 1/2 lbs shrimp, peeled",
+        "1 1/4 cups heavy whipping cream",
+        "3 tbsp white wine",
+        "1 oz. sun-dried tomatoes",
+        "1 tbsp Italian seasoning",
+        "2 tbsp fresh parsley",
+        "3/4 cup shredded Parmesan cheese",
+        "3 oz. baby spinach",
+        "salt and ground black pepper",
+        "1 lb green asparagus"
+      ],
+      "num_ingredients": 13
+    },
+    {
+      "slug": "crispy-cuban-roast-pork-lechon-asado",
+      "title": "Crispy Cuban roast pork (Lechon asado)",
+      "source_url": "https://www.dietdoctor.com/recipes/cuban-roast-pork-lechon-asado",
+      "meal_type": "dinner",
+      "protein_type": "pork",
+      "cuisine": "Keto",
+      "servings": 6,
+      "prep_minutes": 10,
+      "cook_minutes": 550,
+      "total_minutes": 560,
+      "macros": {
+        "calories": 912,
+        "protein_g": 59,
+        "fat_g": 70,
+        "net_carbs_g": 4,
+        "total_carbs_g": 6,
+        "fiber_g": 2
+      },
+      "thai_easy": true,
+      "tags": [
+        "Holidays",
+        "instructions-do-not-scale-with-servings"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "4 1/2 lbs boneless pork shoulder",
+        "4 tsp fine salt",
+        "2 tsp ground cumin",
+        "1 tsp ground black pepper",
+        "2 tbsp fresh oregano (5 sprigs)",
+        "1 large red onion, diced",
+        "4 garlic cloves",
+        "1 orange, juiced",
+        "2 lemons, juiced",
+        "1/4 cup olive oil"
+      ],
+      "num_ingredients": 10
+    },
+    {
+      "slug": "crispy-keto-chicken-thighs-with-lemon-butter-caper-sauce",
+      "title": "Crispy keto chicken thighs with lemon butter caper sauce",
+      "source_url": "https://www.dietdoctor.com/recipes/crispy-chicken-thighs-with-lemon-butter-caper-sauce",
+      "meal_type": "side",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 30,
+      "total_minutes": 45,
+      "macros": {
+        "calories": 654,
+        "protein_g": 38,
+        "fat_g": 53,
+        "net_carbs_g": 2,
+        "total_carbs_g": 3,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "2 lbs chicken thighs (bone-in with skin)",
+        "2 tsp sea salt",
+        "1 tsp garlic powder",
+        "1 tsp Italian seasoning",
+        "1/2 tsp ground black pepper",
+        "2 tbsp olive oil",
+        "1 1/2 oz. butter",
+        "2 tbsp lemon juice",
+        "3 tbsp capers",
+        "1 lemon",
+        "2 oz. leafy greens"
+      ],
+      "num_ingredients": 11
+    },
+    {
+      "slug": "crispy-keto-tuna-burgers",
+      "title": "Crispy keto tuna burgers",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-tuna-burgers",
+      "meal_type": "lunch",
+      "protein_type": "beef",
+      "cuisine": "American",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 5,
+      "total_minutes": 15,
+      "macros": {
+        "calories": 722,
+        "protein_g": 39,
+        "fat_g": 58,
+        "net_carbs_g": 6,
+        "total_carbs_g": 8,
+        "fiber_g": 2
+      },
+      "thai_easy": true,
+      "tags": [
+        "5-ingredients-or-less",
+        "family-friendly",
+        "mealplan-ready"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "1 1/4 lbs tuna in water",
+        "1 cup mayonnaise",
+        "2 large eggs",
+        "2 tbsp garlic powder",
+        "2 tbsp onion powder",
+        "1/2 tsp salt",
+        "1/2 tsp ground black pepper",
+        "3 tbsp olive oil",
+        "2 tomatoes",
+        "3 oz. leafy greens"
+      ],
+      "num_ingredients": 10
+    },
+    {
+      "slug": "crustless-keto-broccoli-and-bacon-quiche",
+      "title": "Crustless keto broccoli and bacon quiche",
+      "source_url": "https://www.dietdoctor.com/recipes/crustless-keto-broccoli-and-bacon-quiche",
+      "meal_type": "breakfast",
+      "protein_type": "pork",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 30,
+      "total_minutes": 40,
+      "macros": {
+        "calories": 509,
+        "protein_g": 32,
+        "fat_g": 40,
+        "net_carbs_g": 4,
+        "total_carbs_g": 5,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "instructions-do-not-scale-with-servings",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream",
+        "butter",
+        "cheese",
+        "mozzarella"
+      ],
+      "ingredients": [
+        "1 tsp butter, for greasing",
+        "4 oz. bacon",
+        "8 eggs",
+        "1/2 cup heavy whipping cream",
+        "1/2 tbsp Italian seasoning",
+        "1/2 tbsp onion powder",
+        "1/2 tsp salt",
+        "4 oz. broccoli, cut into florets",
+        "6 oz. mozzarella cheese"
+      ],
+      "num_ingredients": 9
+    },
+    {
+      "slug": "garlic-ginger-stir-fry-with-shrimp-and-cabbage",
+      "title": "Garlic ginger stir-fry with shrimp and cabbage",
+      "source_url": "https://www.dietdoctor.com/recipes/garlic-ginger-stir-fry-with-shrimp-and-cabbage",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "Asian",
+      "servings": 2,
+      "prep_minutes": 15,
+      "cook_minutes": 15,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 389,
+        "protein_g": 38,
+        "fat_g": 20,
+        "net_carbs_g": 5,
+        "total_carbs_g": 12,
+        "fiber_g": 7
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "2 tbsp coconut oil, divided",
+        "1 lb pointed cabbage or Napa cabbage, sliced",
+        "2 garlic cloves, finely chopped",
+        "2 tbsp finely chopped, fresh ginger",
+        "2 tbsp tamari soy sauce",
+        "1 lime, the juice",
+        "1/2 cup chopped, fresh cilantro",
+        "2 tbsp sesame seeds",
+        "11 oz. jumbo shrimps, peeled, deveined, tail on",
+        "ground black pepper and salt"
+      ],
+      "num_ingredients": 10
+    },
+    {
+      "slug": "high-protein-turkey-breakfast-burger",
+      "title": "High protein turkey breakfast burger",
+      "source_url": "https://www.dietdoctor.com/recipes/high-protein-turkey-breakfast-burger",
+      "meal_type": "breakfast",
+      "protein_type": "beef",
+      "cuisine": "American",
+      "servings": 2,
+      "prep_minutes": 5,
+      "cook_minutes": 15,
+      "total_minutes": 20,
+      "macros": {
+        "calories": 647,
+        "protein_g": 59,
+        "fat_g": 44,
+        "net_carbs_g": 1,
+        "total_carbs_g": 2,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "2 oz. uncooked bacon, cut in half",
+        "1 lb ground turkey or ground beef",
+        "salt and ground black pepper",
+        "2 large eggs",
+        "4 butterhead lettuce leaves",
+        "2 tbsp mayonnaise",
+        "1/2 tomato, sliced"
+      ],
+      "num_ingredients": 7
+    },
+    {
+      "slug": "indian-keto-chicken-korma",
+      "title": "Indian keto chicken korma",
+      "source_url": "https://www.dietdoctor.com/recipes/indian-keto-chicken-korma",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 30,
+      "total_minutes": 45,
+      "macros": {
+        "calories": 436,
+        "protein_g": 34,
+        "fat_g": 31,
+        "net_carbs_g": 2,
+        "total_carbs_g": 3,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "Indian"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "yogurt",
+        "ghee"
+      ],
+      "ingredients": [
+        "1/4 cup ghee",
+        "1/2 red onion, thinly sliced",
+        "4 oz. Greek yogurt (4% fat)",
+        "3 whole cloves",
+        "1 bay leaf",
+        "1 cinnamon stick",
+        "1 star anise",
+        "3 green cardamom pods",
+        "8 whole black peppercorns",
+        "1 1/2 lbs chicken drumsticks",
+        "1 tsp ginger garlic paste",
+        "1/2 tsp turmeric",
+        "1 tsp kashmiri red chili powder",
+        "1 tsp ground coriander seed",
+        "1/2 tsp garam masala seasoning",
+        "1 tsp ground cumin",
+        "salt, to taste",
+        "fresh cilantro, for garnish"
+      ],
+      "num_ingredients": 18
+    },
+    {
+      "slug": "italian-keto-meatballs-with-mozzarella-cheese",
+      "title": "Italian keto meatballs with mozzarella cheese",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-italian-meatballs",
+      "meal_type": "dinner",
+      "protein_type": "beef",
+      "cuisine": "Italian",
+      "servings": 4,
+      "prep_minutes": 20,
+      "cook_minutes": 30,
+      "total_minutes": 50,
+      "macros": {
+        "calories": 628,
+        "protein_g": 39,
+        "fat_g": 49,
+        "net_carbs_g": 2,
+        "total_carbs_g": 5,
+        "fiber_g": 3
+      },
+      "thai_easy": true,
+      "tags": [
+        "ground beef",
+        "mealplan-ready",
+        "Mediterranean"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter",
+        "cheese",
+        "parmesan",
+        "mozzarella"
+      ],
+      "ingredients": [
+        "1 lb ground beef or ground turkey",
+        "3/4 cup shredded Parmesan cheese",
+        "1 egg",
+        "1 tsp salt",
+        "1/2 tbsp dried basil",
+        "1/2 tsp onion powder",
+        "1 tsp garlic powder",
+        "1/2 tsp ground black pepper",
+        "3 tbsp olive oil",
+        "1 3/4 cups canned whole tomatoes",
+        "2 tbsp fresh parsley, finely chopped",
+        "7 oz. fresh spinach",
+        "2 oz. butter",
+        "5 oz. fresh mozzarella cheese",
+        "salt and pepper"
+      ],
+      "num_ingredients": 15
+    },
+    {
+      "slug": "kerala-style-chicken-curry-with-coconut-cream",
+      "title": "Kerala style chicken curry with coconut cream",
+      "source_url": "https://www.dietdoctor.com/recipes/kerala-style-chicken-curry-with-coconut-cream",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 20,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 613,
+        "protein_g": 34,
+        "fat_g": 50,
+        "net_carbs_g": 5,
+        "total_carbs_g": 9,
+        "fiber_g": 4
+      },
+      "thai_easy": true,
+      "tags": [
+        "Indian",
+        "mealplan-ready"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "1 1/4 lbs skinless boneless chicken thighs",
+        "1 tsp salt",
+        "1/2 tsp ground black pepper",
+        "1 tsp red chili powder",
+        "2 tsp ground coriander seed",
+        "2 tbsp ginger garlic paste",
+        "2 tbsp coconut oil",
+        "2 bay leaves",
+        "1 cinnamon stick",
+        "1 green chili pepper, chopped",
+        "3 1/2 oz. white onions",
+        "3 1/2 oz. mushrooms",
+        "1 3/4 cups coconut cream",
+        "20 curry leaves",
+        "3/4 cup fresh cilantro, chopped"
+      ],
+      "num_ingredients": 15
+    },
+    {
+      "slug": "keto-asian-beef-salad",
+      "title": "Keto Asian beef salad",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-asian-beef-salad",
+      "meal_type": "lunch",
+      "protein_type": "beef",
+      "cuisine": "Asian",
+      "servings": 2,
+      "prep_minutes": 15,
+      "cook_minutes": 10,
+      "total_minutes": 25,
+      "macros": {
+        "calories": 789,
+        "protein_g": 48,
+        "fat_g": 61,
+        "net_carbs_g": 8,
+        "total_carbs_g": 11,
+        "fiber_g": 3
+      },
+      "thai_easy": true,
+      "tags": [
+        "Asian",
+        "barbecue",
+        "mealplan-ready",
+        "Thai"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "1/3 cup mayonnaise",
+        "1 tsp sesame oil",
+        "1/2 tbsp lime juice",
+        "salt",
+        "pepper",
+        "1 tbsp olive oil",
+        "1 tbsp fish sauce",
+        "1 tbsp fresh ginger",
+        "1 tsp chili flakes",
+        "1 lb ribeye steaks",
+        "6 cherry tomatoes",
+        "2 oz. cucumber",
+        "3 oz. lettuce",
+        "1/2 red onion",
+        "1/2 cup fresh cilantro",
+        "1 tsp sesame seeds",
+        "2 scallions"
+      ],
+      "num_ingredients": 17
+    },
+    {
+      "slug": "keto-asian-chicken-with-peanut-coleslaw",
+      "title": "Keto Asian chicken with peanut coleslaw",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-asian-chicken-with-peanut-coleslaw",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Asian",
+      "servings": 4,
+      "prep_minutes": 20,
+      "cook_minutes": 30,
+      "total_minutes": 50,
+      "macros": {
+        "calories": 987,
+        "protein_g": 44,
+        "fat_g": 84,
+        "net_carbs_g": 4,
+        "total_carbs_g": 10,
+        "fiber_g": 6
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "2 lbs chicken thighs (bone-in with skin)",
+        "1 1/3 tbsp ginger garlic paste",
+        "3 tbsp tamari soy sauce",
+        "1 tbsp coconut oil",
+        "1/4 tsp ground black pepper",
+        "8 oz. red cabbage",
+        "6 oz. bean sprouts",
+        "1/2 + 1 tbsp (optional) red chili pepper",
+        "2 oz. carrots",
+        "1 oz. + 2 tbsp (optional) fresh cilantro",
+        "2 tbsp peanut butter",
+        "3/4 cup mayonnaise",
+        "1/2 tbsp sriracha sauce",
+        "1/4 tsp sesame oil",
+        "1 avocado",
+        "1 lime (optional)"
+      ],
+      "num_ingredients": 16
+    },
+    {
+      "slug": "keto-asian-meatballs-with-thai-basil-sauce",
+      "title": "Keto Asian meatballs with Thai basil sauce",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-asian-meatballs-thai-basil-sauce",
+      "meal_type": "side",
+      "protein_type": "pork",
+      "cuisine": "Asian",
+      "servings": 4,
+      "prep_minutes": 25,
+      "cook_minutes": 15,
+      "total_minutes": 40,
+      "macros": {
+        "calories": 868,
+        "protein_g": 29,
+        "fat_g": 79,
+        "net_carbs_g": 4,
+        "total_carbs_g": 9,
+        "fiber_g": 5
+      },
+      "thai_easy": true,
+      "tags": [
+        "Cabbage",
+        "family-friendly",
+        "ground beef",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "1 tbsp rice vinegar",
+        "2 tbsp water",
+        "1 tsp salt",
+        "1 oz. scallions",
+        "1 red chili pepper",
+        "3/4 cup mayonnaise",
+        "2 oz. radishes",
+        "1 tbsp fresh Thai basil",
+        "pepper",
+        "1 1/4 lbs ground pork",
+        "1/2 yellow onion",
+        "1 tbsp fresh ginger",
+        "1 tbsp fish sauce",
+        "1 1/4 tsp ground black pepper",
+        "1/4 cup coconut oil",
+        "20 oz. green cabbage",
+        "2 oz. butter"
+      ],
+      "num_ingredients": 17
+    },
+    {
+      "slug": "keto-bacon-and-eggs-plate",
+      "title": "Keto bacon and eggs plate",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-bacon-and-eggs-plate",
+      "meal_type": "breakfast",
+      "protein_type": "pork",
+      "cuisine": "Keto",
+      "servings": 2,
+      "prep_minutes": 5,
+      "cook_minutes": 10,
+      "total_minutes": 15,
+      "macros": {
+        "calories": 937,
+        "protein_g": 42,
+        "fat_g": 78,
+        "net_carbs_g": -7,
+        "total_carbs_g": 9,
+        "fiber_g": 16
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "5 oz. bacon",
+        "4 eggs",
+        "2 avocados",
+        "1/4 cup walnuts",
+        "1 green bell pepper",
+        "salt",
+        "1 tbsp fresh chives (optional)",
+        "pepper",
+        "1/2 cup arugula lettuce",
+        "1 tbsp olive oil"
+      ],
+      "num_ingredients": 10
+    },
+    {
+      "slug": "keto-bacon-burger-casserole",
+      "title": "Keto bacon burger casserole",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-bacon-burger-casserole",
+      "meal_type": "dinner",
+      "protein_type": "beef",
+      "cuisine": "American",
+      "servings": 4,
+      "prep_minutes": 20,
+      "cook_minutes": 25,
+      "total_minutes": 45,
+      "macros": {
+        "calories": 936,
+        "protein_g": 57,
+        "fat_g": 74,
+        "net_carbs_g": 6,
+        "total_carbs_g": 7,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "egg-free",
+        "ground beef",
+        "instructions-do-not-scale-with-servings",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream",
+        "cheese",
+        "cheddar"
+      ],
+      "ingredients": [
+        "7 oz. bacon",
+        "1 lb ground beef",
+        "2 dill pickles",
+        "2 tomatoes",
+        "1 garlic clove (optional)",
+        "salt",
+        "2 cups cheddar cheese",
+        "2 eggs",
+        "1 cup heavy whipping cream",
+        "2 tbsp tomato sauce",
+        "pepper",
+        "4 oz. lettuce"
+      ],
+      "num_ingredients": 12
+    },
+    {
+      "slug": "keto-baked-salmon-with-lemon-and-butter",
+      "title": "Keto baked salmon with lemon and butter",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-baked-salmon-lemon-butter",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "Keto",
+      "servings": 6,
+      "prep_minutes": 10,
+      "cook_minutes": 25,
+      "total_minutes": 35,
+      "macros": {
+        "calories": 574,
+        "protein_g": 31,
+        "fat_g": 49,
+        "net_carbs_g": 1,
+        "total_carbs_g": 1,
+        "fiber_g": 0
+      },
+      "thai_easy": true,
+      "tags": [
+        "5-ingredients-or-less",
+        "family-friendly",
+        "Holidays",
+        "instructions-do-not-scale-with-servings",
+        "New Year's"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "1 tbsp olive oil",
+        "2 lbs salmon, boneless fillets",
+        "1 tsp sea salt",
+        "ground black pepper",
+        "7 oz. butter, thinly & equally sliced, divided",
+        "1 lemon, sliced thinly",
+        "2 tbsp lemon juice, or juice from 1 lemon"
+      ],
+      "num_ingredients": 7
+    },
+    {
+      "slug": "keto-beef-ramen",
+      "title": "Keto beef ramen",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-beef-ramen",
+      "meal_type": "dinner",
+      "protein_type": "beef",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 35,
+      "total_minutes": 50,
+      "macros": {
+        "calories": 763,
+        "protein_g": 52,
+        "fat_g": 57,
+        "net_carbs_g": 5,
+        "total_carbs_g": 9,
+        "fiber_g": 4
+      },
+      "thai_easy": true,
+      "tags": [
+        "Asian",
+        "mealplan-ready"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "4 garlic cloves, minced",
+        "2 tbsp sriracha sauce",
+        "1 1/2 lbs ribeye steaks, thinly sliced",
+        "4 eggs",
+        "1/3 cup coconut oil",
+        "salt and pepper, to taste",
+        "1 1/4 lbs bok choy, roughly chopped",
+        "15 oz. shirataki noodles or zucchini noodles",
+        "4 cups beef broth",
+        "1/4 cup sesame oil",
+        "1 cup scallions, chopped",
+        "2 tbsp sesame seeds",
+        "1/2 cup fresh cilantro, chopped",
+        "1 tsp chili flakes (optional)"
+      ],
+      "num_ingredients": 14
+    },
+    {
+      "slug": "keto-buffalo-chicken-with-paprika-mayo-and-butter-fried-cabbage",
+      "title": "Keto Buffalo chicken with paprika mayo and butter-fried cabbage",
+      "source_url": "https://www.dietdoctor.com/recipes/buffalo-chicken-paprika-mayo-butter-fried-cabbage",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 50,
+      "total_minutes": 60,
+      "macros": {
+        "calories": 856,
+        "protein_g": 41,
+        "fat_g": 71,
+        "net_carbs_g": 3,
+        "total_carbs_g": 8,
+        "fiber_g": 5
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "2 tbsp olive oil",
+        "1 tbsp garlic powder",
+        "2 1/4 tbsp hot sauce",
+        "1 tsp salt",
+        "2 lbs chicken thighs (bone-in with skin)",
+        "1 1/2 lbs green cabbage",
+        "1 oz. butter",
+        "pepper",
+        "1/2 cup mayonnaise",
+        "1 tbsp paprika powder"
+      ],
+      "num_ingredients": 10
+    },
+    {
+      "slug": "keto-butter-chicken-wings",
+      "title": "Keto butter chicken wings",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-butter-chicken-wings",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 75,
+      "total_minutes": 85,
+      "macros": {
+        "calories": 687,
+        "protein_g": 44,
+        "fat_g": 53,
+        "net_carbs_g": 4,
+        "total_carbs_g": 5,
+        "fiber_g": 1
+      },
+      "thai_easy": false,
+      "tags": [
+        "Indian",
+        "instructions-do-not-scale-with-servings"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream cheese",
+        "cream",
+        "butter",
+        "cheese",
+        "yogurt",
+        "ghee"
+      ],
+      "ingredients": [
+        "3/4 cup Greek yogurt (4% fat)",
+        "2 tbsp cream cheese",
+        "1/4 tsp garlic powder",
+        "1/4 tsp chaat masala",
+        "3 tbsp fresh cilantro",
+        "2 tsp salt",
+        "2 lbs chicken wings",
+        "1 tsp tandoori seasoning",
+        "1 tbsp ghee",
+        "2 oz. butter",
+        "1 tsp ginger garlic paste",
+        "1/2 tsp chili powder",
+        "1/2 tsp turmeric",
+        "1/2 tsp coriander, ground",
+        "1/2 tsp garam masala seasoning",
+        "1/2 tsp ground cumin",
+        "1/2 cup tomato puree",
+        "1/4 cup water",
+        "1 tsp dried fenugreek (kasoori methi)",
+        "1/4 cup heavy whipping cream"
+      ],
+      "num_ingredients": 20
+    },
+    {
+      "slug": "keto-caprese-chicken",
+      "title": "Keto Caprese chicken",
+      "source_url": "https://www.dietdoctor.com/recipes/caprese-chicken",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 40,
+      "total_minutes": 50,
+      "macros": {
+        "calories": 460,
+        "protein_g": 52,
+        "fat_g": 24,
+        "net_carbs_g": 4,
+        "total_carbs_g": 5,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready",
+        "Mediterranean"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cheese",
+        "mozzarella"
+      ],
+      "ingredients": [
+        "1 1/2 lbs chicken breasts",
+        "2 tbsp olive oil",
+        "1 tsp sea salt",
+        "1 tsp Italian seasoning",
+        "1/2 tsp garlic powder",
+        "1/2 tsp ground black pepper",
+        "8 oz. mozzarella cheese",
+        "2 tomatoes",
+        "1/4 cup fresh basil",
+        "2 tbsp balsamic vinegar",
+        "4 oz. baby spinach"
+      ],
+      "num_ingredients": 11
+    },
+    {
+      "slug": "keto-cheese-burger-meatloaf-with-bbq-mayo",
+      "title": "Keto cheese-burger meatloaf with BBQ mayo",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-cheese-burger-meatloaf-with-bbq-mayo",
+      "meal_type": "dinner",
+      "protein_type": "beef",
+      "cuisine": "American",
+      "servings": 4,
+      "prep_minutes": 20,
+      "cook_minutes": 50,
+      "total_minutes": 70,
+      "macros": {
+        "calories": 913,
+        "protein_g": 58,
+        "fat_g": 69,
+        "net_carbs_g": 7,
+        "total_carbs_g": 10,
+        "fiber_g": 3
+      },
+      "thai_easy": true,
+      "tags": [
+        "ground beef",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cheese",
+        "cheddar"
+      ],
+      "ingredients": [
+        "1 1/2 lbs ground beef",
+        "2 garlic cloves",
+        "1 large egg",
+        "2/3 tbsp onion powder",
+        "1 tsp salt",
+        "1 tsp ground black pepper",
+        "4 oz. cheddar cheese",
+        "6 oz. bacon",
+        "1/4 cup mild chili sauce",
+        "1/2 cup mayonnaise",
+        "1/2 tsp liquid smoke",
+        "1/2 tsp garlic powder",
+        "1/2 tsp smoked paprika powder",
+        "5 oz. lettuce",
+        "5 oz. cucumber",
+        "2 tomatoes",
+        "1/2 red onion",
+        "4 pickles"
+      ],
+      "num_ingredients": 18
+    },
+    {
+      "slug": "keto-cheesy-chicken-spaghetti-squash",
+      "title": "Keto cheesy chicken spaghetti squash",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-cheesy-chicken-spaghetti-squash",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 50,
+      "total_minutes": 65,
+      "macros": {
+        "calories": 679,
+        "protein_g": 36,
+        "fat_g": 57,
+        "net_carbs_g": 6,
+        "total_carbs_g": 7,
+        "fiber_g": 1
+      },
+      "thai_easy": false,
+      "tags": [
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream cheese",
+        "cream",
+        "butter",
+        "cheese",
+        "parmesan",
+        "mozzarella"
+      ],
+      "ingredients": [
+        "2 lbs spaghetti squash",
+        "1 tbsp olive oil",
+        "1 lb ground chicken or ground turkey",
+        "2 tbsp butter",
+        "1 tsp salt",
+        "1/4 tsp ground black pepper",
+        "1/2 tbsp garlic powder or minced garlic cloves",
+        "1 pinch cayenne pepper (optional)",
+        "1 cup heavy whipping cream",
+        "2 oz. cream cheese",
+        "1/4 cup shredded Parmesan cheese",
+        "1 3/4 cups shredded mozzarella cheese",
+        "2 tbsp fresh parsley, finely chopped"
+      ],
+      "num_ingredients": 13
+    },
+    {
+      "slug": "keto-chicken-blt-salad",
+      "title": "Keto chicken BLT salad",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-chicken-blt-salad",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 15,
+      "total_minutes": 25,
+      "macros": {
+        "calories": 702,
+        "protein_g": 43,
+        "fat_g": 56,
+        "net_carbs_g": 2,
+        "total_carbs_g": 4,
+        "fiber_g": 2
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "3/4 cup mayonnaise",
+        "1/2 tbsp garlic powder",
+        "8 oz. bacon",
+        "1 oz. butter (optional)",
+        "1 lb boneless chicken thighs",
+        "salt",
+        "10 oz. Romaine lettuce",
+        "4 oz. cherry tomatoes",
+        "pepper"
+      ],
+      "num_ingredients": 9
+    },
+    {
+      "slug": "keto-chicken-cordon-bleu",
+      "title": "Keto chicken Cordon Bleu",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-chicken-cordon-bleu",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "French",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 20,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 737,
+        "protein_g": 53,
+        "fat_g": 56,
+        "net_carbs_g": 1,
+        "total_carbs_g": 3,
+        "fiber_g": 2
+      },
+      "thai_easy": true,
+      "tags": [
+        "French",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter",
+        "cheese"
+      ],
+      "ingredients": [
+        "1 1/2 lbs chicken breasts",
+        "1 tbsp Dijon mustard",
+        "1/2 tsp dried thyme",
+        "4 oz. smoked deli ham",
+        "4 oz. gruy\u00e8re cheese",
+        "2 oz. butter",
+        "9 tbsp olive oil",
+        "salt",
+        "pepper",
+        "7 oz. lettuce",
+        "1 carrot",
+        "2 1/2 oz. zucchini",
+        "1/2 lemon"
+      ],
+      "num_ingredients": 13
+    },
+    {
+      "slug": "keto-chicken-fajita-bowl",
+      "title": "Keto chicken fajita bowl",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-chicken-fajita-bowl",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 20,
+      "total_minutes": 35,
+      "macros": {
+        "calories": 583,
+        "protein_g": 53,
+        "fat_g": 36,
+        "net_carbs_g": 0,
+        "total_carbs_g": 7,
+        "fiber_g": 7
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready",
+        "Mexican"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter",
+        "cheese",
+        "cheddar"
+      ],
+      "ingredients": [
+        "8 oz. Romaine lettuce",
+        "5 oz. cherry tomatoes",
+        "1 avocado",
+        "4 tbsp fresh cilantro",
+        "1 yellow onion",
+        "1 green bell pepper",
+        "2 lbs boneless chicken thighs",
+        "2 oz. butter",
+        "salt and ground black pepper",
+        "2 tbsp Tex-Mex seasoning",
+        "3/4 cup Mexican cheese or cheddar cheese, shredded"
+      ],
+      "num_ingredients": 11
+    },
+    {
+      "slug": "keto-chicken-garam-masala",
+      "title": "Keto chicken garam masala",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-chicken-garam-masala",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Indian",
+      "servings": 4,
+      "prep_minutes": 30,
+      "cook_minutes": 20,
+      "total_minutes": 50,
+      "macros": {
+        "calories": 471,
+        "protein_g": 29,
+        "fat_g": 38,
+        "net_carbs_g": 2,
+        "total_carbs_g": 5,
+        "fiber_g": 3
+      },
+      "thai_easy": true,
+      "tags": [
+        "Indian",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "1 tsp ground cumin",
+        "1 tsp coriander seed",
+        "1 tsp ground cardamom (green)",
+        "1 tsp turmeric",
+        "1 tsp ground ginger",
+        "1 tsp paprika powder",
+        "1 tsp chili powder",
+        "1 pinch ground nutmeg",
+        "1 lb chicken breasts",
+        "3 tbsp butter",
+        "salt",
+        "1/2 red bell pepper",
+        "1 1/4 cups coconut cream",
+        "1 tbsp fresh parsley"
+      ],
+      "num_ingredients": 14
+    },
+    {
+      "slug": "keto-chicken-pesto-stew-with-zoodles",
+      "title": "Keto chicken pesto stew with zoodles",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-chicken-pesto-stew-with-zoodles",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Mediterranean",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 20,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 546,
+        "protein_g": 38,
+        "fat_g": 40,
+        "net_carbs_g": 5,
+        "total_carbs_g": 7,
+        "fiber_g": 2
+      },
+      "thai_easy": true,
+      "tags": [
+        "5-ingredients-or-less",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream",
+        "butter"
+      ],
+      "ingredients": [
+        "2 tbsp butter",
+        "1 1/2 lbs boneless, skinless boneless chicken thighs, cut into 1\" (3 cm) pieces",
+        "1 1/2 tsp garlic powder",
+        "1 cup heavy whipping cream",
+        "3 tbsp green pesto",
+        "1 lb zucchini, spiralized",
+        "8 oz. tomatoes, diced, or cherry tomatoes cut in half",
+        "salt and ground black pepper, to taste"
+      ],
+      "num_ingredients": 8
+    },
+    {
+      "slug": "keto-chicken-wings-with-creamy-broccoli",
+      "title": "Keto chicken wings with creamy broccoli",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-chicken-wings-creamy-broccoli",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 40,
+      "total_minutes": 50,
+      "macros": {
+        "calories": 858,
+        "protein_g": 55,
+        "fat_g": 65,
+        "net_carbs_g": 4,
+        "total_carbs_g": 9,
+        "fiber_g": 5
+      },
+      "thai_easy": true,
+      "tags": [
+        "Budget",
+        "family-friendly",
+        "mealplan-ready"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "1/2 orange",
+        "2 tbsp olive oil",
+        "2 tsp ground ginger",
+        "1 tsp salt",
+        "1/4 tsp cayenne pepper",
+        "2 1/2 lbs chicken wings",
+        "1 1/2 lbs broccoli",
+        "1/2 cup mayonnaise",
+        "1/4 cup fresh dill",
+        "pepper, to taste"
+      ],
+      "num_ingredients": 10
+    },
+    {
+      "slug": "keto-coconut-curry-chicken",
+      "title": "Keto coconut curry chicken",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-curry-chicken-coconut-lime",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 20,
+      "cook_minutes": 20,
+      "total_minutes": 40,
+      "macros": {
+        "calories": 721,
+        "protein_g": 50,
+        "fat_g": 54,
+        "net_carbs_g": 3,
+        "total_carbs_g": 8,
+        "fiber_g": 5
+      },
+      "thai_easy": true,
+      "tags": [
+        "Asian",
+        "mealplan-ready"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "2 stalks of lemongrass",
+        "3 tbsp coconut oil",
+        "2 tbsp fresh ginger, finely chopped",
+        "2 garlic cloves, finely chopped",
+        "2 tbsp curry powder or green curry paste",
+        "1 red chili pepper, finely chopped",
+        "2 lbs boneless chicken thighs, cut into bite-sized pieces",
+        "salt, to taste",
+        "1 leek, chopped",
+        "1/2 red bell pepper, sliced",
+        "14 oz. coconut cream",
+        "1 lime, the finely grated zest",
+        "1/2 cup fresh cilantro"
+      ],
+      "num_ingredients": 13
+    },
+    {
+      "slug": "keto-coconut-salmon-with-napa-cabbage",
+      "title": "Keto coconut salmon with Napa cabbage",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-coconut-salmon-napa-cabbage",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 20,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 767,
+        "protein_g": 33,
+        "fat_g": 68,
+        "net_carbs_g": 0,
+        "total_carbs_g": 4,
+        "fiber_g": 4
+      },
+      "thai_easy": true,
+      "tags": [
+        "Cabbage",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "1 1/4 lbs salmon, boneless fillets",
+        "1 tbsp olive oil",
+        "2 oz. unsweetened finely shredded coconut",
+        "1 tsp turmeric",
+        "1 tsp kosher or ground sea salt",
+        "1/2 tsp onion powder",
+        "4 tbsp olive oil, for frying",
+        "1 1/4 lbs Napa cabbage",
+        "4 oz. butter",
+        "salt and pepper",
+        "1 lemon, for serving"
+      ],
+      "num_ingredients": 11
+    },
+    {
+      "slug": "keto-crack-chicken",
+      "title": "Keto crack chicken",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-crack-chicken",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 6,
+      "prep_minutes": 10,
+      "cook_minutes": 180,
+      "total_minutes": 190,
+      "macros": {
+        "calories": 537,
+        "protein_g": 50,
+        "fat_g": 35,
+        "net_carbs_g": 4,
+        "total_carbs_g": 4,
+        "fiber_g": 0
+      },
+      "thai_easy": false,
+      "tags": [
+        "mealplan-ready",
+        "Slow cooker"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream cheese",
+        "cream",
+        "cheese",
+        "cheddar"
+      ],
+      "ingredients": [
+        "2 lbs chicken breasts",
+        "10 oz. cream cheese",
+        "2 tbsp ranch seasoning",
+        "1 tsp salt",
+        "5 oz. bacon, diced",
+        "1 cup cheddar cheese",
+        "2 tbsp fresh chives, chopped",
+        "1/4 tsp ground black pepper",
+        "3 cups baby spinach"
+      ],
+      "num_ingredients": 9
+    },
+    {
+      "slug": "keto-egg-roll-in-a-bowl",
+      "title": "Keto egg roll in a bowl",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-egg-roll-in-a-bowl",
+      "meal_type": "dinner",
+      "protein_type": "turkey",
+      "cuisine": "Asian",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 20,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 653,
+        "protein_g": 41,
+        "fat_g": 51,
+        "net_carbs_g": 4,
+        "total_carbs_g": 6,
+        "fiber_g": 2
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "1/2 cup mayonnaise",
+        "1 tbsp chili paste",
+        "3 garlic cloves",
+        "3 tbsp coconut oil",
+        "2 tbsp fresh ginger",
+        "1 oz. scallions",
+        "1 1/2 lbs ground turkey",
+        "2 tbsp tamari soy sauce",
+        "1 tbsp white wine vinegar",
+        "1 tsp sesame oil",
+        "8 oz. green cabbage",
+        "4 oz. red cabbage",
+        "salt",
+        "4 large eggs",
+        "1/2 cup fresh cilantro",
+        "2 limes (optional)",
+        "2 tsp sesame seeds (optional)"
+      ],
+      "num_ingredients": 17
+    },
+    {
+      "slug": "keto-fried-chicken-with-broccoli-and-butter",
+      "title": "Keto fried chicken with broccoli and butter",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-fried-chicken-broccoli-butter",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 25,
+      "total_minutes": 35,
+      "macros": {
+        "calories": 570,
+        "protein_g": 48,
+        "fat_g": 38,
+        "net_carbs_g": 3,
+        "total_carbs_g": 6,
+        "fiber_g": 3
+      },
+      "thai_easy": true,
+      "tags": [
+        "5-ingredients-or-less",
+        "family-friendly",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "5 oz. butter, divided",
+        "2 lbs boneless chicken thighs",
+        "salt and pepper",
+        "1 lb broccoli, chopped into bite-sized pieces (including stem)",
+        "1/2 leek",
+        "1 tsp garlic powder",
+        "1/2 tsp salt",
+        "1/4 ground black pepper"
+      ],
+      "num_ingredients": 8
+    },
+    {
+      "slug": "keto-fried-salmon-with-broccoli-and-lemon-mayo",
+      "title": "Keto fried salmon with broccoli and lemon mayo",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-fried-salmon-broccoli-lemon-mayo",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 15,
+      "total_minutes": 25,
+      "macros": {
+        "calories": 780,
+        "protein_g": 44,
+        "fat_g": 63,
+        "net_carbs_g": 2,
+        "total_carbs_g": 5,
+        "fiber_g": 3
+      },
+      "thai_easy": true,
+      "tags": [
+        "5-ingredients-or-less",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "3/4 cup mayonnaise",
+        "2 tbsp lemon juice",
+        "1 lb broccoli",
+        "1 3/4 lbs salmon, boneless fillets",
+        "salt",
+        "1 oz. butter",
+        "pepper"
+      ],
+      "num_ingredients": 7
+    },
+    {
+      "slug": "keto-garlic-mushroom-chicken-thighs",
+      "title": "Keto garlic mushroom chicken thighs",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-garlic-mushroom-chicken-thighs",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 15,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 704,
+        "protein_g": 44,
+        "fat_g": 56,
+        "net_carbs_g": 4,
+        "total_carbs_g": 6,
+        "fiber_g": 2
+      },
+      "thai_easy": true,
+      "tags": [
+        "instructions-do-not-scale-with-servings",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream",
+        "butter",
+        "cheese",
+        "parmesan"
+      ],
+      "ingredients": [
+        "2 oz. butter",
+        "3 garlic cloves",
+        "1/2 lb mushrooms",
+        "1 1/2 lbs boneless chicken thighs",
+        "1 tsp onion powder",
+        "1 tsp garlic powder",
+        "1 tsp dried thyme",
+        "1/2 tsp dried rosemary",
+        "salt",
+        "2 tbsp olive oil",
+        "1 1/4 cups heavy whipping cream",
+        "2 oz. Parmesan cheese",
+        "pepper",
+        "5 oz. leafy greens"
+      ],
+      "num_ingredients": 14
+    },
+    {
+      "slug": "keto-goat-cheese-and-mushroom-frittata",
+      "title": "Keto goat cheese and mushroom frittata",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-goat-cheese-mushroom-frittata",
+      "meal_type": "breakfast",
+      "protein_type": "egg",
+      "cuisine": "Keto",
+      "servings": 2,
+      "prep_minutes": 10,
+      "cook_minutes": 20,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 774,
+        "protein_g": 35,
+        "fat_g": 67,
+        "net_carbs_g": 1,
+        "total_carbs_g": 6,
+        "fiber_g": 5
+      },
+      "thai_easy": true,
+      "tags": [
+        "instructions-do-not-scale-with-servings",
+        "mealplan-ready",
+        "Mediterranean"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter",
+        "cheese",
+        "goat cheese"
+      ],
+      "ingredients": [
+        "6 eggs",
+        "4 oz. goat cheese",
+        "5 oz. mushrooms",
+        "2 oz. scallions",
+        "3 oz. fresh spinach",
+        "2 oz. butter",
+        "salt",
+        "pepper",
+        "5 oz. leafy greens",
+        "2 tbsp olive oil"
+      ],
+      "num_ingredients": 10
+    },
+    {
+      "slug": "keto-ground-beef-and-broccoli",
+      "title": "Keto ground beef and broccoli",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-ground-beef-broccoli",
+      "meal_type": "dinner",
+      "protein_type": "beef",
+      "cuisine": "Keto",
+      "servings": 2,
+      "prep_minutes": 5,
+      "cook_minutes": 15,
+      "total_minutes": 20,
+      "macros": {
+        "calories": 638,
+        "protein_g": 47,
+        "fat_g": 46,
+        "net_carbs_g": 2,
+        "total_carbs_g": 5,
+        "fiber_g": 3
+      },
+      "thai_easy": true,
+      "tags": [
+        "5-ingredients-or-less",
+        "ground beef",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "1/2 lb broccoli",
+        "1 1/2 oz. butter or light olive oil",
+        "1 lb ground beef or ground turkey",
+        "salt and ground black pepper"
+      ],
+      "num_ingredients": 4
+    },
+    {
+      "slug": "keto-hamburger-patties-with-creamy-tomato-sauce-and-fried-cabbage",
+      "title": "Keto hamburger patties with creamy tomato sauce and fried cabbage",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-hamburger-patties-tomato-sauce-cabbage",
+      "meal_type": "side",
+      "protein_type": "beef",
+      "cuisine": "American",
+      "servings": 4,
+      "prep_minutes": 20,
+      "cook_minutes": 20,
+      "total_minutes": 40,
+      "macros": {
+        "calories": 685,
+        "protein_g": 41,
+        "fat_g": 52,
+        "net_carbs_g": 5,
+        "total_carbs_g": 9,
+        "fiber_g": 4
+      },
+      "thai_easy": true,
+      "tags": [
+        "Cabbage",
+        "family-friendly",
+        "ground beef",
+        "Hamburger",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream",
+        "butter",
+        "cheese",
+        "feta"
+      ],
+      "ingredients": [
+        "1 1/2 lbs ground beef",
+        "1 egg",
+        "3 oz. feta cheese",
+        "1 tsp salt",
+        "1/4 tsp ground black pepper",
+        "2 1/4 oz. fresh parsley",
+        "1 tbsp olive oil",
+        "3/4 cup heavy whipping cream",
+        "2 tbsp tomato paste",
+        "pepper",
+        "1 1/4 lbs green cabbage",
+        "2 tbsp butter"
+      ],
+      "num_ingredients": 12
+    },
+    {
+      "slug": "keto-indian-butter-chicken",
+      "title": "Keto Indian butter chicken",
+      "source_url": "https://www.dietdoctor.com/recipes/indian-butter-chicken",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 6,
+      "prep_minutes": 25,
+      "cook_minutes": 35,
+      "total_minutes": 60,
+      "macros": {
+        "calories": 497,
+        "protein_g": 33,
+        "fat_g": 37,
+        "net_carbs_g": 3,
+        "total_carbs_g": 6,
+        "fiber_g": 3
+      },
+      "thai_easy": true,
+      "tags": [
+        "Cauliflower",
+        "Indian",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream",
+        "butter"
+      ],
+      "ingredients": [
+        "1 tomato",
+        "1 yellow onion",
+        "2 tbsp fresh ginger",
+        "2 garlic cloves",
+        "1/2 tbsp dried coriander (cilantro) leaves",
+        "1 tbsp tomato paste",
+        "1 tbsp garam masala seasoning",
+        "1/2 tbsp chili powder",
+        "1 1/2 tsp salt",
+        "3/4 cup + 1/4 cup (optional) heavy whipping cream",
+        "2 lbs boneless chicken thighs",
+        "5 oz. butter",
+        "1/2 cup fresh cilantro (optional)",
+        "1 lb cauliflower",
+        "1/2 tsp turmeric",
+        "1/2 tbsp coriander seed",
+        "1/4 tsp ground black pepper"
+      ],
+      "num_ingredients": 17
+    },
+    {
+      "slug": "keto-lasagna",
+      "title": "Keto lasagna",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-lasagna",
+      "meal_type": "dinner",
+      "protein_type": "beef",
+      "cuisine": "Italian",
+      "servings": 6,
+      "prep_minutes": 40,
+      "cook_minutes": 70,
+      "total_minutes": 110,
+      "macros": {
+        "calories": 752,
+        "protein_g": 41,
+        "fat_g": 60,
+        "net_carbs_g": 0,
+        "total_carbs_g": 8,
+        "fiber_g": 8
+      },
+      "thai_easy": false,
+      "tags": [
+        "family-friendly",
+        "ground beef",
+        "instructions-do-not-scale-with-servings",
+        "mealplan-ready",
+        "Mediterranean",
+        "pasta"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream cheese",
+        "cream",
+        "cheese",
+        "parmesan",
+        "mozzarella",
+        "sour cream"
+      ],
+      "ingredients": [
+        "8 eggs",
+        "10 oz. cream cheese",
+        "2 1/2 tsp salt",
+        "1/3 cup ground psyllium husk powder",
+        "3 tbsp olive oil",
+        "1/2 yellow onion",
+        "1 garlic clove",
+        "1 1/2 lbs ground beef",
+        "2 tbsp tomato paste",
+        "1/2 tbsp dried basil",
+        "1/2 tsp ground black pepper",
+        "1/2 cup water",
+        "1 1/2 cups sour cream",
+        "1 cup mozzarella cheese",
+        "1/2 cup shredded Parmesan cheese",
+        "1/2 cup fresh parsley"
+      ],
+      "num_ingredients": 16
+    },
+    {
+      "slug": "keto-lemon-garlic-butter-salmon-with-almonds-and-chili",
+      "title": "Keto lemon garlic butter salmon with almonds and chili",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-lemon-garlic-butter-salmon-with-almonds-and-chili",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 40,
+      "total_minutes": 55,
+      "macros": {
+        "calories": 889,
+        "protein_g": 42,
+        "fat_g": 76,
+        "net_carbs_g": 4,
+        "total_carbs_g": 9,
+        "fiber_g": 5
+      },
+      "thai_easy": false,
+      "tags": [
+        "instructions-do-not-scale-with-servings",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream cheese",
+        "cream",
+        "butter",
+        "cheese"
+      ],
+      "ingredients": [
+        "1 1/2 lbs salmon, boneless fillets",
+        "7 oz. butter",
+        "6 garlic cloves",
+        "2 oz. almonds",
+        "1 + 4 (optional) lemon",
+        "1 red chili pepper",
+        "salt",
+        "olive oil",
+        "ground black pepper",
+        "1 lb cauliflower",
+        "2 oz. cream cheese",
+        "1 oz. fresh dill"
+      ],
+      "num_ingredients": 12
+    },
+    {
+      "slug": "keto-mexican-scrambled-eggs",
+      "title": "Keto Mexican scrambled eggs",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-mexican-scrambled-eggs",
+      "meal_type": "breakfast",
+      "protein_type": "egg",
+      "cuisine": "Mexican",
+      "servings": 2,
+      "prep_minutes": 5,
+      "cook_minutes": 5,
+      "total_minutes": 10,
+      "macros": {
+        "calories": 447,
+        "protein_g": 26,
+        "fat_g": 35,
+        "net_carbs_g": 3,
+        "total_carbs_g": 4,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "Brunch",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter",
+        "cheese"
+      ],
+      "ingredients": [
+        "2 tbsp butter",
+        "1 scallion, finely chopped",
+        "2 pickled jalape\u00f1os slices, finely chopped",
+        "1 tomato, finely chopped",
+        "6 large eggs",
+        "1/2 cup Pepper Jack cheese, shredded",
+        "salt and pepper"
+      ],
+      "num_ingredients": 7
+    },
+    {
+      "slug": "keto-no-noodle-chicken-soup",
+      "title": "Keto no-noodle chicken soup",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-no-noodle-chicken-soup",
+      "meal_type": "lunch",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 8,
+      "prep_minutes": 10,
+      "cook_minutes": 20,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 508,
+        "protein_g": 33,
+        "fat_g": 40,
+        "net_carbs_g": 3,
+        "total_carbs_g": 4,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "Cabbage",
+        "egg-free",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "4 oz. butter",
+        "2 tbsp dried minced onion",
+        "2 celery stalks, chopped",
+        "6 oz. mushrooms, sliced",
+        "2 minced garlic cloves",
+        "8 cups chicken broth",
+        "2 oz. carrots, sliced",
+        "2 tsp dried parsley",
+        "1 tsp salt",
+        "1/4 tsp ground black pepper",
+        "1 1/2 rotisserie chicken* , shredded",
+        "5 oz. green cabbage, sliced into strips"
+      ],
+      "num_ingredients": 12
+    },
+    {
+      "slug": "keto-pesto-chicken-casserole-with-feta-cheese-and-olives",
+      "title": "Keto pesto chicken casserole with feta cheese and olives",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-pesto-chicken-casserole",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Mediterranean",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 30,
+      "total_minutes": 45,
+      "macros": {
+        "calories": 737,
+        "protein_g": 43,
+        "fat_g": 60,
+        "net_carbs_g": 4,
+        "total_carbs_g": 6,
+        "fiber_g": 2
+      },
+      "thai_easy": true,
+      "tags": [
+        "family-friendly",
+        "instructions-do-not-scale-with-servings",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream",
+        "butter",
+        "cheese",
+        "feta"
+      ],
+      "ingredients": [
+        "1 1/2 lbs boneless chicken thighs",
+        "salt",
+        "2 tbsp butter",
+        "1/3 cup red pesto",
+        "1 1/4 cups heavy whipping cream",
+        "3 oz. olives",
+        "5 oz. feta cheese",
+        "1 garlic clove",
+        "pepper",
+        "5 oz. leafy greens"
+      ],
+      "num_ingredients": 10
+    },
+    {
+      "slug": "keto-pork-and-green-pepper-stir-fry",
+      "title": "Keto pork and green pepper stir-fry",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-pork-green-pepper-stir-fry",
+      "meal_type": "lunch",
+      "protein_type": "pork",
+      "cuisine": "Asian",
+      "servings": 2,
+      "prep_minutes": 5,
+      "cook_minutes": 15,
+      "total_minutes": 20,
+      "macros": {
+        "calories": 875,
+        "protein_g": 31,
+        "fat_g": 81,
+        "net_carbs_g": 2,
+        "total_carbs_g": 6,
+        "fiber_g": 4
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "4 oz. butter, for frying",
+        "2/3 lb pork shoulder, cut into thin, 1\" (2.5 cm) long slices",
+        "8 oz. green bell peppers, cut in half, seeds removed and sliced",
+        "2 scallions, chopped (both white and green parts)",
+        "3 tsp chili paste",
+        "1 oz. almonds",
+        "salt and pepper, to taste"
+      ],
+      "num_ingredients": 7
+    },
+    {
+      "slug": "keto-pork-chops-with-blue-cheese-sauce",
+      "title": "Keto pork chops with blue cheese sauce",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-pork-chops-blue-cheese-sauce",
+      "meal_type": "lunch",
+      "protein_type": "pork",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 5,
+      "cook_minutes": 15,
+      "total_minutes": 20,
+      "macros": {
+        "calories": 780,
+        "protein_g": 54,
+        "fat_g": 60,
+        "net_carbs_g": 3,
+        "total_carbs_g": 4,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "Budget",
+        "French",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream",
+        "butter",
+        "cheese",
+        "blue cheese"
+      ],
+      "ingredients": [
+        "5 oz. blue cheese",
+        "3/4 cup heavy whipping cream",
+        "4 pork chops",
+        "salt and pepper",
+        "7 oz. fresh green beans",
+        "2 tbsp butter, for frying"
+      ],
+      "num_ingredients": 6
+    },
+    {
+      "slug": "keto-pulled-pork-with-roasted-tomato-salad",
+      "title": "Keto pulled pork with roasted tomato salad",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-pulled-pork-roasted-tomato-salad",
+      "meal_type": "dinner",
+      "protein_type": "pork",
+      "cuisine": "Keto",
+      "servings": 6,
+      "prep_minutes": 30,
+      "cook_minutes": 240,
+      "total_minutes": 270,
+      "macros": {
+        "calories": 788,
+        "protein_g": 32,
+        "fat_g": 68,
+        "net_carbs_g": -3,
+        "total_carbs_g": 7,
+        "fiber_g": 10
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready",
+        "Slow cooker"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "1 tbsp cocoa nibs",
+        "2/3 tbsp ground black pepper",
+        "1/2 tbsp ground ginger",
+        "1/2 tbsp paprika powder",
+        "1/2 tsp anise seeds",
+        "1/2 tsp cayenne pepper",
+        "9 tbsp olive oil",
+        "2 lbs pork shoulder",
+        "1 tbsp salt",
+        "1 1/4 lbs cherry tomatoes",
+        "1 tsp sea salt",
+        "2 scallions",
+        "1 tbsp red wine vinegar",
+        "3 avocados",
+        "1/2 lemon",
+        "1/2 cup fresh cilantro",
+        "1/4 cup sunflower seeds",
+        "2 tbsp tahini (sesame paste)",
+        "1 garlic clove",
+        "1/2 tsp ground cumin",
+        "pepper"
+      ],
+      "num_ingredients": 21
+    },
+    {
+      "slug": "keto-ribeye-steak-with-oven-roasted-vegetables",
+      "title": "Keto ribeye steak with oven-roasted vegetables",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-rib-eye-steak-oven-roasted-vegetables",
+      "meal_type": "dinner",
+      "protein_type": "beef",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 30,
+      "total_minutes": 40,
+      "macros": {
+        "calories": 701,
+        "protein_g": 37,
+        "fat_g": 57,
+        "net_carbs_g": 7,
+        "total_carbs_g": 11,
+        "fiber_g": 4
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "5 oz. butter",
+        "2 garlic cloves",
+        "salt",
+        "pepper",
+        "3/4 lb broccoli",
+        "1/2 whole garlic",
+        "10 oz. cherry tomatoes",
+        "3 tbsp olive oil",
+        "1 tbsp dried thyme",
+        "1 1/2 lbs ribeye steaks"
+      ],
+      "num_ingredients": 10
+    },
+    {
+      "slug": "keto-roast-chicken-with-broccoli-and-garlic-butter",
+      "title": "Keto roast chicken with broccoli and garlic butter",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-roast-chicken-with-broccoli-and-garlic-butter",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 45,
+      "total_minutes": 55,
+      "macros": {
+        "calories": 889,
+        "protein_g": 51,
+        "fat_g": 72,
+        "net_carbs_g": 3,
+        "total_carbs_g": 7,
+        "fiber_g": 4
+      },
+      "thai_easy": true,
+      "tags": [
+        "Budget",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "2 1/2 lbs chicken legs",
+        "1 tsp garlic powder",
+        "1 tbsp olive oil",
+        "1 tbsp Italian seasoning",
+        "1/2 tsp salt",
+        "4 oz. butter",
+        "2 garlic cloves",
+        "1 tbsp fresh parsley (optional)",
+        "ground black pepper",
+        "1 1/4 lbs broccoli"
+      ],
+      "num_ingredients": 10
+    },
+    {
+      "slug": "keto-salmon-burgers-with-mash-and-lemon-butter",
+      "title": "Keto salmon burgers with mash and lemon butter",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-salmon-burgers-mash-lemon-butter",
+      "meal_type": "lunch",
+      "protein_type": "beef",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 25,
+      "total_minutes": 40,
+      "macros": {
+        "calories": 811,
+        "protein_g": 44,
+        "fat_g": 67,
+        "net_carbs_g": 4,
+        "total_carbs_g": 7,
+        "fiber_g": 3
+      },
+      "thai_easy": true,
+      "tags": [
+        "Hamburger",
+        "mealplan-ready",
+        "Packed lunches"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter",
+        "cheese",
+        "parmesan"
+      ],
+      "ingredients": [
+        "1 1/2 lbs salmon, boneless fillets",
+        "1 large egg",
+        "2 oz. yellow onions",
+        "1 tsp salt",
+        "1/2 tsp pepper",
+        "1 cup butter",
+        "1 lb broccoli",
+        "1/2 cup shredded Parmesan cheese",
+        "2 tbsp lemon juice"
+      ],
+      "num_ingredients": 9
+    },
+    {
+      "slug": "keto-seared-salmon-with-creamy-lemon-sauce",
+      "title": "Keto seared salmon with creamy lemon sauce",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-seared-salmon-with-creamy-lemon-sauce",
+      "meal_type": "side",
+      "protein_type": "seafood",
+      "cuisine": "Keto",
+      "servings": 2,
+      "prep_minutes": 10,
+      "cook_minutes": 30,
+      "total_minutes": 40,
+      "macros": {
+        "calories": 976,
+        "protein_g": 56,
+        "fat_g": 80,
+        "net_carbs_g": 2,
+        "total_carbs_g": 7,
+        "fiber_g": 5
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream",
+        "butter"
+      ],
+      "ingredients": [
+        "1/2 cup vegetable stock",
+        "2/3 cup heavy whipping cream",
+        "1 tbsp fresh chives",
+        "2 tbsp fresh parsley",
+        "1/2 lemon",
+        "1/2 tsp salt",
+        "1 pinch ground black pepper",
+        "2 tbsp olive oil",
+        "1 lb salmon, boneless fillets",
+        "pepper",
+        "1 tbsp butter",
+        "1 lb fresh spinach"
+      ],
+      "num_ingredients": 12
+    },
+    {
+      "slug": "keto-sesame-salmon-with-thai-curry-cabbage",
+      "title": "Keto sesame salmon with Thai curry cabbage",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-sesame-salmon-thai-curry-cabbage",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "Thai",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 30,
+      "total_minutes": 45,
+      "macros": {
+        "calories": 986,
+        "protein_g": 52,
+        "fat_g": 79,
+        "net_carbs_g": 3,
+        "total_carbs_g": 10,
+        "fiber_g": 7
+      },
+      "thai_easy": true,
+      "tags": [
+        "Cabbage",
+        "mealplan-ready"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "3/4 cup mayonnaise",
+        "2 limes",
+        "3 tbsp coconut oil",
+        "1 3/4 lbs green cabbage",
+        "2 tbsp red curry paste",
+        "1/3 cup water",
+        "1 tbsp sesame oil",
+        "salt",
+        "pepper",
+        "2 lbs salmon, boneless fillets",
+        "1/4 cup sesame seeds"
+      ],
+      "num_ingredients": 11
+    },
+    {
+      "slug": "keto-shepherds-pie",
+      "title": "Keto shepherd's pie",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-shepherds-pie",
+      "meal_type": "dessert",
+      "protein_type": "lamb",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 30,
+      "total_minutes": 40,
+      "macros": {
+        "calories": 958,
+        "protein_g": 51,
+        "fat_g": 78,
+        "net_carbs_g": 6,
+        "total_carbs_g": 10,
+        "fiber_g": 4
+      },
+      "thai_easy": true,
+      "tags": [
+        "instructions-do-not-scale-with-servings",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream",
+        "butter",
+        "cheese",
+        "cheddar",
+        "sour cream"
+      ],
+      "ingredients": [
+        "1 1/2 lbs cauliflower",
+        "1/2 cup sour cream",
+        "1 egg",
+        "3 tbsp butter",
+        "1/2 leek",
+        "1 cup cheddar cheese",
+        "salt",
+        "ground black pepper",
+        "2 lbs ground lamb",
+        "2 tbsp Worcestershire sauce",
+        "2 tbsp tamari soy sauce",
+        "1/2 tbsp tabasco",
+        "1 tsp onion powder",
+        "pepper",
+        "5 oz. leafy greens (optional)"
+      ],
+      "num_ingredients": 15
+    },
+    {
+      "slug": "keto-steak-with-barnaise-sauce",
+      "title": "Keto steak with b\u00e9arnaise sauce",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-steak-with-bearnaise-sauce",
+      "meal_type": "side",
+      "protein_type": "beef",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 15,
+      "total_minutes": 25,
+      "macros": {
+        "calories": 1,
+        "protein_g": 49,
+        "fat_g": 92,
+        "net_carbs_g": 5,
+        "total_carbs_g": 6,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready",
+        "New Year's"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "2 tsp white wine vinegar",
+        "1/2 tsp onion powder",
+        "2 tbsp fresh tarragon",
+        "4 egg yolks",
+        "11 oz. butter",
+        "salt",
+        "pepper",
+        "2 lbs ribeye steaks",
+        "2 oz. arugula lettuce",
+        "2 oz. lettuce",
+        "8 oz. cherry tomatoes"
+      ],
+      "num_ingredients": 11
+    },
+    {
+      "slug": "keto-taco-omelet",
+      "title": "Keto taco omelet",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-taco-omelet",
+      "meal_type": "breakfast",
+      "protein_type": "beef",
+      "cuisine": "Keto",
+      "servings": 2,
+      "prep_minutes": 10,
+      "cook_minutes": 15,
+      "total_minutes": 25,
+      "macros": {
+        "calories": 790,
+        "protein_g": 44,
+        "fat_g": 63,
+        "net_carbs_g": 0,
+        "total_carbs_g": 8,
+        "fiber_g": 8
+      },
+      "thai_easy": true,
+      "tags": [
+        "Brunch",
+        "ground beef",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cheese",
+        "cheddar"
+      ],
+      "ingredients": [
+        "1/4 tsp onion powder",
+        "1/2 tsp ground cumin",
+        "1/2 tsp paprika powder",
+        "1/2 tsp garlic powder",
+        "1/4 tsp chili flakes",
+        "1/2 tsp salt",
+        "1/2 tsp ground black pepper",
+        "1/2 tsp fresh oregano",
+        "5 oz. ground beef",
+        "4 eggs",
+        "1 tbsp olive oil",
+        "1 lime (optional)",
+        "1 avocado",
+        "1 1/4 cups cheddar cheese",
+        "1 tomato",
+        "1 tsp fresh cilantro",
+        "1/2 tsp sea salt"
+      ],
+      "num_ingredients": 17
+    },
+    {
+      "slug": "keto-thai-fish-curry",
+      "title": "Keto Thai fish curry",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-thai-fish-curry-coconut",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 20,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 614,
+        "protein_g": 40,
+        "fat_g": 47,
+        "net_carbs_g": 5,
+        "total_carbs_g": 8,
+        "fiber_g": 3
+      },
+      "thai_easy": true,
+      "tags": [
+        "Asian",
+        "mealplan-ready",
+        "Thai"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "1 1/2 lbs salmon, boneless fillets or white fish fillets, in pieces",
+        "salt",
+        "2 tbsp red curry paste or green curry paste",
+        "2 cups coconut milk",
+        "1/2 cup fresh cilantro, chopped",
+        "1 lb cauliflower or broccoli"
+      ],
+      "num_ingredients": 6
+    },
+    {
+      "slug": "keto-tuna-salad-with-boiled-eggs",
+      "title": "Keto tuna salad with boiled eggs",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-tuna-salad-boiled-eggs",
+      "meal_type": "lunch",
+      "protein_type": "seafood",
+      "cuisine": "Keto",
+      "servings": 2,
+      "prep_minutes": 5,
+      "cook_minutes": 10,
+      "total_minutes": 15,
+      "macros": {
+        "calories": 614,
+        "protein_g": 33,
+        "fat_g": 50,
+        "net_carbs_g": 2,
+        "total_carbs_g": 6,
+        "fiber_g": 4
+      },
+      "thai_easy": true,
+      "tags": [
+        "mealplan-ready"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "4 oz. celery stalks",
+        "2 scallions",
+        "5 oz. tuna in olive oil",
+        "1/2 lemon, zest and juice",
+        "1/4 cup mayonnaise",
+        "1 tsp Dijon mustard",
+        "4 eggs",
+        "6 oz. Romaine lettuce",
+        "4 oz. cherry tomatoes",
+        "2 tbsp olive oil",
+        "salt and pepper"
+      ],
+      "num_ingredients": 11
+    },
+    {
+      "slug": "keto-western-omelet",
+      "title": "Keto Western omelet",
+      "source_url": "https://www.dietdoctor.com/recipes/keto-western-omelet",
+      "meal_type": "breakfast",
+      "protein_type": "pork",
+      "cuisine": "Keto",
+      "servings": 2,
+      "prep_minutes": 10,
+      "cook_minutes": 5,
+      "total_minutes": 15,
+      "macros": {
+        "calories": 708,
+        "protein_g": 40,
+        "fat_g": 58,
+        "net_carbs_g": 5,
+        "total_carbs_g": 6,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "Brunch",
+        "Budget",
+        "family-friendly",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream",
+        "butter",
+        "cheese",
+        "cheddar",
+        "sour cream"
+      ],
+      "ingredients": [
+        "6 eggs",
+        "2 tbsp heavy whipping cream or sour cream",
+        "salt and pepper",
+        "3 oz. cheddar cheese, shredded and divided",
+        "2 oz. butter",
+        "5 oz. smoked deli ham, diced",
+        "1/2 yellow onion, finely chopped",
+        "1/2 green bell pepper, finely chopped"
+      ],
+      "num_ingredients": 8
+    },
+    {
+      "slug": "low-carb-beef-stroganoff",
+      "title": "Low carb beef stroganoff",
+      "source_url": "https://www.dietdoctor.com/recipes/low-carb-beef-stroganoff",
+      "meal_type": "dinner",
+      "protein_type": "beef",
+      "cuisine": "Keto",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 20,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 770,
+        "protein_g": 40,
+        "fat_g": 63,
+        "net_carbs_g": 9,
+        "total_carbs_g": 11,
+        "fiber_g": 2
+      },
+      "thai_easy": true,
+      "tags": [
+        "family-friendly",
+        "mealplan-ready"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream",
+        "butter",
+        "cheese",
+        "blue cheese",
+        "sour cream"
+      ],
+      "ingredients": [
+        "3 tbsp butter",
+        "1 yellow onion",
+        "1 lb ground beef",
+        "8 oz. mushrooms",
+        "1 tbsp dried thyme",
+        "1/2 tsp salt",
+        "1/2 tsp ground black pepper",
+        "8 oz. blue cheese",
+        "1 1/2 cups sour cream",
+        "2 zucchini",
+        "2 tbsp olive oil",
+        "pepper"
+      ],
+      "num_ingredients": 12
+    },
+    {
+      "slug": "low-carb-garlic-chicken",
+      "title": "Low carb garlic chicken",
+      "source_url": "https://www.dietdoctor.com/recipes/low-carb-garlic-chicken",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Italian",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 35,
+      "total_minutes": 45,
+      "macros": {
+        "calories": 487,
+        "protein_g": 42,
+        "fat_g": 33,
+        "net_carbs_g": 2,
+        "total_carbs_g": 3,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "Budget",
+        "family-friendly",
+        "Mediterranean"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "butter"
+      ],
+      "ingredients": [
+        "1 oz. butter or olive oil, for greasing",
+        "2 lbs chicken drumsticks",
+        "salt and pepper",
+        "1 lemon, the juice",
+        "2 tbsp olive oil",
+        "7 garlic cloves, sliced",
+        "1/2 cup fresh parsley, finely chopped"
+      ],
+      "num_ingredients": 7
+    },
+    {
+      "slug": "thai-chicken-with-satay-sauce-and-broccoli",
+      "title": "Thai chicken with satay sauce and broccoli",
+      "source_url": "https://www.dietdoctor.com/recipes/chicken-satay-sauce",
+      "meal_type": "side",
+      "protein_type": "chicken",
+      "cuisine": "Thai",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 30,
+      "total_minutes": 40,
+      "macros": {
+        "calories": 774,
+        "protein_g": 47,
+        "fat_g": 59,
+        "net_carbs_g": 9,
+        "total_carbs_g": 16,
+        "fiber_g": 7
+      },
+      "thai_easy": true,
+      "tags": [
+        "Asian",
+        "family-friendly",
+        "mealplan-ready"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "1 1/2 lbs boneless chicken thighs",
+        "2 tbsp fresh ginger",
+        "2 garlic cloves",
+        "1 tbsp lime juice",
+        "3 tbsp tamari soy sauce",
+        "1 tsp turmeric",
+        "1 lb broccoli",
+        "1 tbsp coconut oil",
+        "salt",
+        "1 3/4 cups coconut cream",
+        "1 tbsp red curry paste",
+        "1/3 cup peanut butter",
+        "4 tbsp salted peanuts (optional)",
+        "4 tbsp fresh cilantro (optional)",
+        "1/2 red chili pepper (optional)"
+      ],
+      "num_ingredients": 15
+    }
+  ]
+}
