@@ -1,7 +1,54 @@
 {
-  "count": 64,
+  "count": 83,
   "generated": "2026-04-12",
   "recipes": [
+    {
+      "slug": "25-minute-baked-salmon-filets-with-lemon-and-garlic",
+      "title": "25-Minute Baked Salmon Filets with Lemon and Garlic",
+      "source_url": "https://nyssaskitchen.com/baked-salmon-gluten-free-dairy-free-whole30-paleo-keto/",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "American",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 15,
+      "total_minutes": 25,
+      "macros": {
+        "calories": 289,
+        "protein_g": 38.1,
+        "fat_g": 15,
+        "net_carbs_g": 0.7,
+        "total_carbs_g": 0.9,
+        "fiber_g": 0.2
+      },
+      "thai_easy": true,
+      "tags": [
+        "25-minute baked salmon",
+        "lemon garlic salmon fillets",
+        "oven baked salmon without butter",
+        "easy baked salmon recipe",
+        "garlic dairy-free lemon salmon in oven",
+        "quick weeknight salmon dinner",
+        "simple baked salmon fillets",
+        "dairy free baked salmon",
+        "tender flaky oven salmon",
+        "flavorful lemon garlic salmon"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "4 6-ounce salmon filets",
+        "2 tablespoons avocado oil or olive oil",
+        "2 cloves of garlic, grated or pressed",
+        "2 teaspoons fresh lemon juice",
+        "1/2 teaspoon paprika",
+        "1 teaspoon kosher salt",
+        "1/4 teaspoon black pepper",
+        "Fresh parsley and dill for serving",
+        "Lemon wedges for serving"
+      ],
+      "num_ingredients": 9
+    },
     {
       "slug": "asian-keto-chicken-stir-fry-with-broccoli",
       "title": "Asian keto chicken stir-fry with broccoli",
@@ -39,6 +86,53 @@
         "2 tbsp tamari soy sauce"
       ],
       "num_ingredients": 8
+    },
+    {
+      "slug": "bacon-wrapped-pork-tenderloin-no-sugar",
+      "title": "Bacon Wrapped Pork Tenderloin - No Sugar!",
+      "source_url": "https://nyssaskitchen.com/bacon-wrapped-pork-tenderloin-whole30-keto-gluten-free/",
+      "meal_type": "dinner",
+      "protein_type": "pork",
+      "cuisine": "American",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 35,
+      "total_minutes": 50,
+      "macros": {
+        "calories": 338,
+        "protein_g": 37.6,
+        "fat_g": 18.2,
+        "net_carbs_g": 3.2,
+        "total_carbs_g": 3.4,
+        "fiber_g": 0.2
+      },
+      "thai_easy": true,
+      "tags": [
+        "pork",
+        "bacon",
+        "low carb",
+        "keto",
+        "whole30",
+        "paleo",
+        "gluten free"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "1 large pork tenderloin \u2013 about 1 \u2013 1 \u00bd pounds",
+        "8-10 slices thin cut bacon &#8211;\u00a0Regular cut or thin cut bacon is best for this recipe. If the bacon is too thick it won\u2019t have enough time to crisp up in the oven",
+        "1 teaspoon sea salt",
+        "\u00bd teaspoon black pepper",
+        "\u00bc teaspoon paprika",
+        "\u00bc teaspoon chili powder",
+        "\u00bc teaspoon garlic powder",
+        "\u00bd teaspoon dried thyme",
+        "2 tablespoons avocado oil",
+        "1 teaspoon dijon mustard",
+        "2 tablespoons coconut aminos",
+        "black pepper"
+      ],
+      "num_ingredients": 12
     },
     {
       "slug": "caramelized-onion-and-bacon-pork-chops",
@@ -132,6 +226,47 @@
         "pepper"
       ],
       "num_ingredients": 17
+    },
+    {
+      "slug": "coconut-curry-turmeric-chicken-whole30-anti-inflammatory",
+      "title": "Coconut Curry Turmeric Chicken (Whole30, Anti-Inflammatory)",
+      "source_url": "https://40aprons.com/coconut-curry-turmeric-chicken-whole30/",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Asian / American",
+      "servings": 4,
+      "prep_minutes": 5,
+      "cook_minutes": 37,
+      "total_minutes": 42,
+      "macros": {
+        "calories": 591,
+        "protein_g": 26,
+        "fat_g": 49,
+        "net_carbs_g": 9,
+        "total_carbs_g": 12,
+        "fiber_g": 3
+      },
+      "thai_easy": true,
+      "tags": [],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "4  chicken bone-in skin-on thighs",
+        "1 teaspoon coconut oil",
+        "1/2  medium onion (chopped)",
+        "1  yellow bell pepper (seeded and sliced)",
+        "1 tablespoon yellow curry paste",
+        "1 tablespoon lime juice",
+        "1 13.5- ounce can coconut milk",
+        "1 1/2 teaspoons turmeric powder",
+        "1 tablespoon fish sauce",
+        "fresh black pepper",
+        "2 tablespoons coconut aminos",
+        "Salt",
+        "steamed cauliflower rice",
+        "fresh chopped cilantro"
+      ],
+      "num_ingredients": 14
     },
     {
       "slug": "creamy-low-carb-tuscan-shrimp",
@@ -348,6 +483,133 @@
       "num_ingredients": 9
     },
     {
+      "slug": "easiest-ever-slow-cooker-pulled-pork-keto-whole30",
+      "title": "Easiest Ever Slow Cooker Pulled Pork (Keto + Whole30)",
+      "source_url": "https://realsimplegood.com/crock-pot-pulled-pork/",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "American",
+      "servings": 8,
+      "prep_minutes": 5,
+      "cook_minutes": 480,
+      "total_minutes": 485,
+      "macros": {
+        "calories": 315,
+        "protein_g": 43,
+        "fat_g": 13,
+        "net_carbs_g": 2,
+        "total_carbs_g": 3,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "keto pulled pork",
+        "low carb pulled pork",
+        "paleo pulled pork",
+        "pulled pork",
+        "whole30 pulled pork"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "4 lb pork butt ((also known as boston butt. Can also use pork shoulder))",
+        "1 tbsp Salt",
+        "1 tbsp Pepper",
+        "1 tbsp Garlic powder",
+        "1 tbsp Onion powder",
+        "1 tbsp Chili powder",
+        "1 tbsp Smoked paprika",
+        "1 cup Chicken broth"
+      ],
+      "num_ingredients": 8
+    },
+    {
+      "slug": "easy-keto-chicken-piccata-with-lemon-caper-sauce",
+      "title": "Easy Keto Chicken Piccata with Lemon Caper Sauce",
+      "source_url": "https://www.tasteslovely.com/paleo-whole30-chicken-piccata/",
+      "meal_type": "side",
+      "protein_type": "chicken",
+      "cuisine": "Italian",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 15,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 305,
+        "protein_g": 37,
+        "fat_g": 16.3,
+        "net_carbs_g": 1.2,
+        "total_carbs_g": 1.6,
+        "fiber_g": 0.4
+      },
+      "thai_easy": true,
+      "tags": [
+        "chicken piccata no almond flour",
+        "keto chicken piccata",
+        "low carb chicken piccata",
+        "whole30 chicken piccata"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "2  chicken breasts (cut in half horizontally and pounded 1/2&quot; thick)",
+        "2 teaspoons kosher salt",
+        "1 cup pork panko",
+        "1  egg (beaten)",
+        "2 tablespoons avocado oil",
+        "1-1/4 cup chicken stock",
+        "1/4 cup lemon juice",
+        "1/4 cup capers (liquid drained)",
+        "3 tablespoons finely chopped parsley"
+      ],
+      "num_ingredients": 9
+    },
+    {
+      "slug": "easy-paleo-salmon-salad-bowls-whole30-keto",
+      "title": "Easy Paleo Salmon Salad Bowls (Whole30 + Keto)",
+      "source_url": "https://realsimplegood.com/easy-paleo-salmon-salad-bowls/",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "American",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 20,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 470,
+        "protein_g": 36,
+        "fat_g": 32,
+        "net_carbs_g": 5,
+        "total_carbs_g": 10,
+        "fiber_g": 5
+      },
+      "thai_easy": true,
+      "tags": [
+        "Salmon Bowls",
+        "Salmon Salad Bowls",
+        "Whole30 salmon bowls"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "8 cups romaine lettuce, chopped",
+        "4  salmon fillets ((of about even size))",
+        "1 tsp smoked paprika",
+        "1 tsp garlic powder",
+        "salt and pepper",
+        "Veggies ((whatever you have on hand - we used cucumber, carrots, tomatoes and kraut))",
+        "1  avocado, pitted and peeled",
+        "3 cloves garlic, peeled",
+        "1  lemon, juice of",
+        "1 tbsp dijon mustard",
+        "1 tsp ground black pepper",
+        "1 tsp apple cider vinegar",
+        "1/2 tsp sea salt",
+        "1/4 cup olive oil"
+      ],
+      "num_ingredients": 14
+    },
+    {
       "slug": "garlic-ginger-stir-fry-with-shrimp-and-cabbage",
       "title": "Garlic ginger stir-fry with shrimp and cabbage",
       "source_url": "https://www.dietdoctor.com/recipes/garlic-ginger-stir-fry-with-shrimp-and-cabbage",
@@ -385,6 +647,55 @@
         "ground black pepper and salt"
       ],
       "num_ingredients": 10
+    },
+    {
+      "slug": "ginger-lime-salmon-gluten-free-whole30-paleo-gaps-aip-keto",
+      "title": "Ginger-Lime Salmon (Gluten-free, Whole30, Paleo, GAPS, AIP, Keto)",
+      "source_url": "https://eatbeautiful.net/ginger-lime-salmon-keto-whole30-aip/",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "American, Asian",
+      "servings": 5,
+      "prep_minutes": 15,
+      "cook_minutes": 15,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 168,
+        "protein_g": 25,
+        "fat_g": 18,
+        "net_carbs_g": 3,
+        "total_carbs_g": 3,
+        "fiber_g": "?"
+      },
+      "thai_easy": true,
+      "tags": [
+        "aip",
+        "ginger",
+        "gluten-free",
+        "keto",
+        "lime",
+        "low carb",
+        "paleo",
+        "salmon",
+        "whole30"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "1-1/2 pounds salmon (, fresh or frozen, approximately ~ enough to feed 5 people)",
+        "1 bunch green onions",
+        "1/4 cup sesame oil (OR olive oil: *use olive oil for the AIP and Low-FODMAP versions)",
+        "2 to 3 inch nub fresh ginger (, grated)",
+        "2 cloves fresh garlic (crushed; only use 1 clove for Low-FODMAP)",
+        "2 Tablespoons coconut aminos",
+        "1 Tablespoon lime juice (, fresh, or lemon juice is fine)",
+        "1 teaspoon lime zest (from an organic lime (or lemon zest))",
+        "1 teaspoon raw honey (OR low carb liquid sweetener for Keto and Low Carb; omit for Low-FODMAP)",
+        "1/4 teaspoon sea salt",
+        "2 to 5  zucchini (depending on how many veggies you want or how many people you&#039;re serving; allow 1 zucchini per person)",
+        "1 bunch green onions&#039; greens (leftover from above ingredients (or use an extra bunch for Keto and Low Carb))"
+      ],
+      "num_ingredients": 12
     },
     {
       "slug": "high-protein-turkey-breakfast-burger",
@@ -2371,6 +2682,51 @@
       "num_ingredients": 9
     },
     {
+      "slug": "keto-salmon-patties-paleo-whole30",
+      "title": "Keto Salmon Patties (Paleo + Whole30)",
+      "source_url": "https://realsimplegood.com/keto-salmon-patties/",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "American",
+      "servings": 6,
+      "prep_minutes": 15,
+      "cook_minutes": 10,
+      "total_minutes": 25,
+      "macros": {
+        "calories": 485,
+        "protein_g": 29,
+        "fat_g": 40,
+        "net_carbs_g": 3,
+        "total_carbs_g": 4,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "best salmon patties",
+        "keto salmon patties",
+        "Salmon Patties"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "4 cans wild salmon, drained ((6 oz cans) )",
+        "2  eggs ((optional))",
+        "2 tbsp arrowroot flour",
+        "2 cloves garlic, minced ((or sub about 1 tbsp garlic oil))",
+        "2 tbsp parsley, finely diced",
+        "1  lemon, juice and zest",
+        "1 tsp sea salt",
+        "1 tsp ground black pepper",
+        "2 tbsp avocado oil",
+        "3/4 cup avocado oil",
+        "1  eggs",
+        "1/4 tsp sea salt",
+        "1/2 tsp mustard powder",
+        "1 tbsp hot sauce ((more or less to taste) )"
+      ],
+      "num_ingredients": 14
+    },
+    {
       "slug": "keto-seared-salmon-with-creamy-lemon-sauce",
       "title": "Keto seared salmon with creamy lemon sauce",
       "source_url": "https://www.dietdoctor.com/recipes/keto-seared-salmon-with-creamy-lemon-sauce",
@@ -2812,6 +3168,230 @@
       "num_ingredients": 7
     },
     {
+      "slug": "paleo-buffalo-chicken-casserole-with-ranch-and-cauliflower-rice-whole30-low-carb",
+      "title": "Paleo Buffalo Chicken Casserole with Ranch and Cauliflower Rice (Whole30, Low Carb)",
+      "source_url": "https://40aprons.com/paleo-buffalo-chicken-casserole-whole30/",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "American",
+      "servings": 4,
+      "prep_minutes": 5,
+      "cook_minutes": 30,
+      "total_minutes": 35,
+      "macros": {
+        "calories": 660,
+        "protein_g": 25,
+        "fat_g": 57,
+        "net_carbs_g": 9,
+        "total_carbs_g": 12,
+        "fiber_g": 3
+      },
+      "thai_easy": true,
+      "tags": [
+        "casserole"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream"
+      ],
+      "ingredients": [
+        "4 cups chicken (cooked, diced or shredded)",
+        "3 cups cauliflower rice (preferably pre-riced and frozen*)",
+        "1 cup green onions (sliced, plus more for garnish, about 4 total)",
+        "1/2 cup Whole30 mayonnaise",
+        "1/4 cup Whole30 ranch dressing (plus 2 tablespoons if necessary to coat chicken-rice mixture)",
+        "1/4 cup + 2 tablespoons coconut cream (only the solid white part from a can of coconut milk or cream)",
+        "1/2 cup hot sauce",
+        "1 teaspoon garlic powder",
+        "1/2-1 teaspoon salt",
+        "celery sticks",
+        "green onions (sliced)",
+        "fresh parsley (chopped)",
+        "ranch dressing"
+      ],
+      "num_ingredients": 13
+    },
+    {
+      "slug": "paleo-pork-chops-with-mushroom-sauce-whole30",
+      "title": "Paleo Pork Chops with Mushroom Sauce (Whole30)",
+      "source_url": "https://paleoglutenfreeguy.com/paleo-pork-chops-mushroom-sauce-whole30/",
+      "meal_type": "side",
+      "protein_type": "chicken",
+      "cuisine": "American",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 30,
+      "total_minutes": 45,
+      "macros": {
+        "calories": 302,
+        "protein_g": 32,
+        "fat_g": 16,
+        "net_carbs_g": 6,
+        "total_carbs_g": 7,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "keto pork chops",
+        "mushroom sauce",
+        "no cream",
+        "paleo pork chops",
+        "whole30 pork chops",
+        "without cream"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "4  boneless, thick-cut pork chops, room temperature",
+        "fine sea salt, plus \u00bd teaspoon for the sauce",
+        "freshly ground black pepper",
+        "1 tablespoon avocado oil or extra virgin olive oil",
+        "8 oz. sliced or chopped mushrooms, such as button, portobellos, cremini or a mix",
+        "1  large shallot, peeled and diced",
+        "3  garlic cloves, peeled and minced",
+        "1 teaspoon anchovy paste or tomato paste",
+        "\u00bd teaspoon dried thyme",
+        "\u00bd teaspoon dried rosemary",
+        "1 cup chicken broth",
+        "1 tablespoon arrowroot flour/starch",
+        "\u00bc cup full-fat coconut milk",
+        "2 teaspoons balsamic vinegar"
+      ],
+      "num_ingredients": 14
+    },
+    {
+      "slug": "salmon-taco-bowls-paleo-whole30",
+      "title": "Salmon Taco Bowls (Paleo, Whole30)",
+      "source_url": "https://paleoglutenfreeguy.com/salmon-taco-bowls-paleo-whole30/",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "American, Mexican",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 20,
+      "total_minutes": 35,
+      "macros": {
+        "calories": 736,
+        "protein_g": 35,
+        "fat_g": 62,
+        "net_carbs_g": 5,
+        "total_carbs_g": 7,
+        "fiber_g": 2
+      },
+      "thai_easy": true,
+      "tags": [
+        "healthy salmon recipes",
+        "salmon bowl",
+        "salmon taco bowl",
+        "taco bowl"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "4 (6 oz.) salmon fillets (with or without skin, room temperature)",
+        "2 teaspoons chili powder",
+        "2 teaspoons ground cumin",
+        "1 teaspoon dried oregano",
+        "1 teaspoon garlic powder",
+        "1 teaspoon ground coriander",
+        "1 teaspoon onion powder",
+        "\u00be teaspoon fine sea salt",
+        "\u00bd teaspoon chipotle flakes or ground chipotle powder",
+        "\u00bd teaspoon ground cayenne powder",
+        "2 tablespoons avocado oil, olive oil or melted coconut oil",
+        "1 cup avocado oil mayonnaise",
+        "1 cup salsa",
+        "avocado oil spray or olive oil spray",
+        "Veggies and toppings  ((see note below for ideas))"
+      ],
+      "num_ingredients": 15
+    },
+    {
+      "slug": "spicy-pork-bowls-paleo-whole30-low-carb",
+      "title": "Spicy Pork Bowls (Paleo, Whole30 + Low Carb)",
+      "source_url": "https://realsimplegood.com/spicy-pork-bowls/",
+      "meal_type": "dinner",
+      "protein_type": "pork",
+      "cuisine": "American, Asian",
+      "servings": 5,
+      "prep_minutes": 5,
+      "cook_minutes": 15,
+      "total_minutes": 20,
+      "macros": {
+        "calories": 581,
+        "protein_g": 35,
+        "fat_g": 42,
+        "net_carbs_g": 11,
+        "total_carbs_g": 16,
+        "fiber_g": 5
+      },
+      "thai_easy": true,
+      "tags": [
+        "pork bowls",
+        "spicy pork",
+        "spicy pork bowls"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "2 inches fresh ginger, grated on a microplane",
+        "6 cups greens ((we used mixed greens - spinach and kale are great too))",
+        "6 ribs celery, sliced on the diagonal",
+        "2  carrots, sliced thinly on the diagonal",
+        "1  bell pepper, thinly sliced ((we used a red bell pepper, but whatever color works))",
+        "1 tbsp toasted sesame oil",
+        "2 lbs ground pork",
+        "2 tsp crushed red pepper flakes",
+        "1 tsp garlic powder ((or sub 1 tbsp garlic oil))",
+        "1/2 tsp sea salt",
+        "1/4 cup coconut aminos",
+        "1/4 cup water",
+        "1 tbsp fish sauce",
+        "4 cups cauliflower rice ((or white rice if not doing Whole30 or Keto))",
+        "1/4 cup mayo",
+        "1 tbsp hot sauce ((adjust to taste))"
+      ],
+      "num_ingredients": 16
+    },
+    {
+      "slug": "teriyaki-salmon-whole30",
+      "title": "Teriyaki Salmon (Whole30)",
+      "source_url": "https://40aprons.com/teriyaki-salmon-whole30/",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "American, Japanese",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 10,
+      "total_minutes": 20,
+      "macros": {
+        "calories": 339,
+        "protein_g": 34,
+        "fat_g": 18,
+        "net_carbs_g": 7,
+        "total_carbs_g": 7,
+        "fiber_g": "?"
+      },
+      "thai_easy": true,
+      "tags": [],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "1 tablespoon avocado oil or refined coconut oil",
+        "4  salmon filets (about 4-6 ounces each)",
+        "1 clove garlic (minced)",
+        "1/4 teaspoon dried ginger",
+        "1/2 cup coconut aminos",
+        "1 tablespoon rice wine vinegar",
+        "1 tablespoon sesame oil",
+        "1 teaspoon arrowroot",
+        "1 tablespoon water",
+        "green onions for garnish (if desired)",
+        "sesame seeds for garnish (if desired)"
+      ],
+      "num_ingredients": 11
+    },
+    {
       "slug": "thai-chicken-with-satay-sauce-and-broccoli",
       "title": "Thai chicken with satay sauce and broccoli",
       "source_url": "https://www.dietdoctor.com/recipes/chicken-satay-sauce",
@@ -2856,6 +3436,264 @@
         "1/2 red chili pepper (optional)"
       ],
       "num_ingredients": 15
+    },
+    {
+      "slug": "thai-peanut-curry-with-chicken-keto",
+      "title": "Thai Peanut Curry with Chicken | Keto",
+      "source_url": "https://www.thismomsmenu.com/thai-peanut-chicken-keto-dairy-free/",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "Asian, Thai",
+      "servings": 5,
+      "prep_minutes": 5,
+      "cook_minutes": 15,
+      "total_minutes": 20,
+      "macros": {
+        "calories": 367,
+        "protein_g": 25,
+        "fat_g": 31,
+        "net_carbs_g": 3,
+        "total_carbs_g": 4,
+        "fiber_g": 1
+      },
+      "thai_easy": true,
+      "tags": [
+        "keto thai peanut curry with chicken"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "1 tbsp coconut oil",
+        "1 clove garlic (minced)",
+        "1 lb boneless skinless chicken breast (cut into bite sized pieces)",
+        "1 can coconut milk",
+        "2 tbsp red curry paste",
+        "3 tsp fish sauce",
+        "6 tbsp peanut butter",
+        "to taste liquid stevia",
+        "salt and pepper"
+      ],
+      "num_ingredients": 9
+    },
+    {
+      "slug": "whole30-bang-bang-shrimp-paleo-grain-free-nut-free",
+      "title": "Whole30 Bang Bang Shrimp (Paleo, Grain Free, Nut Free)",
+      "source_url": "https://40aprons.com/whole30-bang-bang-shrimp-paleo/",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "Thai",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 10,
+      "total_minutes": 20,
+      "macros": {
+        "calories": 434,
+        "protein_g": 28,
+        "fat_g": 22,
+        "net_carbs_g": 20,
+        "total_carbs_g": 28,
+        "fiber_g": 8
+      },
+      "thai_easy": true,
+      "tags": [
+        "nut free"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "1 pound shrimp (peeled and deveined)",
+        "1  egg (whisked well)",
+        "2/3 cup coconut flour",
+        "1/2 cup arrowroot powder",
+        "1/2 teaspoon salt",
+        "pepper (to taste)",
+        "coconut or avocado oil (for frying)",
+        "sliced green onions (green part only, for garnish, optional)",
+        "sesame seeds (for garnish, optional)",
+        "1/4 cup + 2 Tbsp.  Whole30 mayonnaise",
+        "2 1/2 tsp. sriracha or hot sauce",
+        "2 1/4 Tbsp. ketchup",
+        "1 1/2 tsp. coconut aminos",
+        "1  garlic clove (minced)",
+        "salt (to taste)"
+      ],
+      "num_ingredients": 15
+    },
+    {
+      "slug": "whole30-instant-pot-chicken-tortilla-less-soup-with-slow-cooker-option",
+      "title": "Whole30 Instant Pot Chicken Tortilla-Less Soup (with Slow Cooker Option)",
+      "source_url": "https://40aprons.com/whole30-instant-pot-chicken-tortilla-less-soup-paleo/",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "American, Mexican",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 45,
+      "total_minutes": 60,
+      "macros": {
+        "calories": 453,
+        "protein_g": 34,
+        "fat_g": 28,
+        "net_carbs_g": 15,
+        "total_carbs_g": 21,
+        "fiber_g": 6
+      },
+      "thai_easy": true,
+      "tags": [
+        "elimination diet",
+        "pressure cooker",
+        "winter meals"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "2 large boneless, skinless chicken breasts (equally thick, approximately 8-10 ounces each)",
+        "salt (to taste)",
+        "2 10-ounce cans diced tomatoes with green chiles",
+        "1 14.5-ounce can low-sodium chicken broth",
+        "1 cup chopped onion (approximately 1 medium onion; any color)",
+        "2 teaspoons garlic powder",
+        "1 teaspoon onion powder",
+        "1-3 teaspoons chipotle pepper powder (see Notes)",
+        "1 teaspoon cumin",
+        "2 teaspoons chili powder",
+        "1 teaspoons dried oregano",
+        "1 teaspoon smoked paprika",
+        "2 medium zucchini (approximately 6-8 ounces each; chopped or cut into \u00bd-inch half moons)",
+        "1 14-ounce can unsweetened, full-fat coconut milk (whisked until smooth, see Notes)",
+        "fresh avocado slices",
+        "thinly sliced red onions",
+        "chopped fresh cilantro",
+        "fresh lime juice"
+      ],
+      "num_ingredients": 18
+    },
+    {
+      "slug": "whole30-keto-pork-chops-with-bacon-mushroom-sauce",
+      "title": "Whole30 + Keto Pork Chops with Bacon Mushroom Sauce",
+      "source_url": "https://www.tasteslovely.com/whole30-keto-pork-chops-with-bacon-mushroom-sauce/",
+      "meal_type": "side",
+      "protein_type": "chicken",
+      "cuisine": "American",
+      "servings": 4,
+      "prep_minutes": 10,
+      "cook_minutes": 20,
+      "total_minutes": 30,
+      "macros": {
+        "calories": 462,
+        "protein_g": 57.4,
+        "fat_g": 21.7,
+        "net_carbs_g": 5.6,
+        "total_carbs_g": 7,
+        "fiber_g": 1.4
+      },
+      "thai_easy": true,
+      "tags": [
+        "Keto Bacon Mushroom Sauce",
+        "keto pork chops",
+        "Low Carb Pork Chops",
+        "Whole30 Bacon Mushroom Sauce",
+        "Whole30 Pork Chops"
+      ],
+      "contains_dairy": true,
+      "dairy_ingredients": [
+        "cream"
+      ],
+      "ingredients": [
+        "4 slices of bacon (sliced)",
+        "4 8-ounce pork chops (I get my hormone + antibiotic free pork chops from ButcherBox, which I highly recommend!)",
+        "2 teaspoons salt",
+        "2 teaspoons pepper",
+        "1/2  yellow onion (chopped)",
+        "8 ounces mushrooms (sliced)",
+        "2 cloves of garlic (grated or finely minced)",
+        "1 cup chicken stock",
+        "1 teaspoon arrowroot powder",
+        "2 teaspoons fresh thyme leaves",
+        "zest from 1 lemon",
+        "2 tablespoons cashew cream (&lt;- link to homemade, could substitute Nutpods Original Flavor)"
+      ],
+      "num_ingredients": 12
+    },
+    {
+      "slug": "whole30-keto-salmon-with-lemon-garlic-aioli",
+      "title": "Whole30 + Keto Salmon with Lemon Garlic Aioli",
+      "source_url": "https://www.tasteslovely.com/salmon-with-lemon-garlic-aioli-paleo-whole30-keto/",
+      "meal_type": "dinner",
+      "protein_type": "seafood",
+      "cuisine": "American",
+      "servings": 4,
+      "prep_minutes": 5,
+      "cook_minutes": 7,
+      "total_minutes": 12,
+      "macros": {
+        "calories": 299,
+        "protein_g": 37,
+        "fat_g": 14.2,
+        "net_carbs_g": 3.5,
+        "total_carbs_g": 4.1,
+        "fiber_g": 0.6
+      },
+      "thai_easy": true,
+      "tags": [
+        "Keto Salmon with Lemon Garlic Aioli",
+        "Whole30 Salmon with Lemon Garlic Aioli"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "4 6-ounce wild caught salmon filets (skin on or skinless)",
+        "1 teaspoon salt and pepper",
+        "1 tablespoon olive oil",
+        "1/3 cup mayonnaise",
+        "zest of 1 lemon",
+        "2 teaspoons fresh lemon juice",
+        "1  garlic clove (grated or finely minced)",
+        "1/4 teaspoon salt &amp; pepper (or more to taste)"
+      ],
+      "num_ingredients": 8
+    },
+    {
+      "slug": "whole30-marry-me-chicken",
+      "title": "Whole30 Marry Me Chicken",
+      "source_url": "https://40aprons.com/whole30-marry-me-chicken/",
+      "meal_type": "dinner",
+      "protein_type": "chicken",
+      "cuisine": "American",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 35,
+      "total_minutes": 50,
+      "macros": {
+        "calories": 321,
+        "protein_g": 35,
+        "fat_g": 15,
+        "net_carbs_g": 14,
+        "total_carbs_g": 29,
+        "fiber_g": 15
+      },
+      "thai_easy": true,
+      "tags": [
+        "one-pan meal"
+      ],
+      "contains_dairy": false,
+      "dairy_ingredients": [],
+      "ingredients": [
+        "4  large boneless skinless chicken breasts (approximately 2 pounds)",
+        "salt (to taste)",
+        "freshly ground black pepper (to taste)",
+        "2 tablespoons avocado oil",
+        "1 \u00bd tablespoons minced fresh garlic (approximately 3 large cloves)",
+        "1 teaspoon Italian seasoning",
+        "\u00bc cup chicken broth",
+        "1 \u00bd cups unsweetened full-fat coconut milk (at room temperature - or coconut cream, or plain Nutpods; see Notes)",
+        "2 tablespoons nutritional yeast",
+        "\u00bd cup sun-dried tomatoes (see Notes)",
+        "\u00bd to 1 teaspoon salt (more or less to taste)",
+        "\u00bc teaspoon crushed red pepper flakes",
+        "2 tablespoons fresh basil (chiffonaded for garnish (see Notes))"
+      ],
+      "num_ingredients": 13
     }
   ]
 }
