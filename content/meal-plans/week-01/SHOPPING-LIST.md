@@ -1,12 +1,13 @@
-# Weekly Shopping List — Makro
+# Weekly Shopping List — Makro / รายการซื้อของประจำสัปดาห์ — แม็คโคร
 
-**For:** Week 1 meal plan (one person, 7 days, 2 meals/day + Mon 1 meal)
-**Shop on:** Saturday
-**Store:** Makro / แม็คโคร (wholesale — buy larger packs where noted)
+**For / สำหรับ:** Week 1 meal plan (one person, 7 days, 2 meals/day + Mon 1 meal) / แผนมื้ออาหารสัปดาห์ที่ 1 (คนเดียว 7 วัน 2 มื้อ/วัน + จันทร์ 1 มื้อ)
+**Shop on / วันซื้อของ:** Saturday / วันเสาร์
+**Store / ร้าน:** Makro / แม็คโคร (wholesale — buy larger packs where noted / ร้านค้าส่ง — ซื้อแพ็คใหญ่ตามที่ระบุ)
 
 Quantities assume cooking for one person. If Maleewan is joining, double most proteins and veg.
+ปริมาณสำหรับหนึ่งคน ถ้ามาลีวรรณร่วมด้วย ให้เพิ่มเนื้อและผักประมาณสองเท่า
 
-**Recipes this list covers:** Cuban pork, Whole30 instant-pot chicken soup, Asian chicken coleslaw, salmon taco bowls, baked salmon w/ lemon-garlic, sesame salmon + Thai curry cabbage, salmon lemon-garlic aioli, Asian beef salad, Thai peanut chicken curry, Kerala chicken curry, egg roll in a bowl.
+**Recipes this list covers / สูตรที่รายการนี้ครอบคลุม:** Cuban pork / หมูคิวบัน, Whole30 instant-pot chicken soup / ซุปไก่ Whole30, Asian chicken coleslaw / ไก่เอเชียกับสลัดกะหล่ำ, salmon taco bowls / ข้าวทาโก้แซลมอน, baked salmon w/ lemon-garlic / แซลมอนอบมะนาวกระเทียม, sesame salmon + Thai curry cabbage / แซลมอนงากับกะหล่ำปลีแกงไทย, salmon lemon-garlic aioli / แซลมอนไอโอลี, Asian beef salad / สลัดเนื้อเอเชีย, Thai peanut chicken curry / แกงถั่วลิสงไก่, Kerala chicken curry / แกงไก่เกรละ, egg roll in a bowl / เอ้กโรลในชาม
 
 ---
 
@@ -188,7 +189,7 @@ Quantities assume cooking for one person. If Maleewan is joining, double most pr
 
 ---
 
-## ⚠️ Avoid at Makro (common traps)
+## ⚠️ Avoid at Makro / สิ่งที่ควรเลี่ยงที่แม็คโคร (กับดักที่พบบ่อย)
 
 - **Ranch / Caesar / Thousand Island dressings** — full of sugar, vegetable oil
 - **Pre-packaged "keto" snacks** — usually marketing; read labels
@@ -200,11 +201,11 @@ Quantities assume cooking for one person. If Maleewan is joining, double most pr
 
 ---
 
-## Estimated cost
+## Estimated cost / ราคาประมาณ
 
 Prices verified against Makro Thailand (Apr 2026). Local proteins and veg are much cheaper than Western grocery estimates — imported items (salmon, macadamia, olive oil) are the real cost drivers.
 
-### Big-ticket items (itemized)
+### Big-ticket items (itemized) / รายการราคาสูง (แบ่งรายการ)
 
 | Item | Qty | Unit price | Line cost |
 |---|---|---|---|
@@ -227,7 +228,7 @@ Prices verified against Makro Thailand (Apr 2026). Local proteins and veg are mu
 
 **Big-ticket subtotal: ~฿3,570**
 
-### Rest of list (estimated)
+### Rest of list (estimated) / รายการอื่น (ประมาณ)
 
 - Other veg & herbs (cabbages, broccoli, lemongrass, limes, etc.): **~฿400**
 - Spices, pastes, condiments (one-off purchases, last many weeks): **~฿500**
@@ -235,14 +236,14 @@ Prices verified against Makro Thailand (Apr 2026). Local proteins and veg are mu
 - Supplements (magnesium, potassium chloride, baking soda): **~฿400** (mostly a one-time buy — amortize over 2-3 months)
 - Backup/snacks (pork rinds, dark chocolate, olives, bone broth): **~฿350**
 
-### Realistic totals
+### Realistic totals / ยอดรวมตามจริง
 
 - **Week 1 out-of-pocket (including one-off pantry buys): ~฿5,500–6,000**
 - **Ongoing weekly cost after pantry is stocked: ~฿3,500–4,500**
 
 Pantry items like spices, oils, curry pastes, and supplements last 4-12 weeks — so week 2+ is significantly cheaper. The real recurring cost is the proteins, eggs, coconut products, and fresh veg, which comes to roughly **฿2,500–3,500/week** for the meat+seafood+eggs+veg+coconut block.
 
-### Comparison — if you skip salmon
+### Comparison — if you skip salmon / เปรียบเทียบ — ถ้าไม่กินแซลมอน
 
 Salmon is ~฿610 for the week. Swap both salmon days for chicken or local fish (pla kapong) and you save ~฿450. The trade-off is less variety and less omega-3; the Asian beef salad day covers some of that if you use oily canned mackerel as a sub. Substituting white fish (e.g., cod/pla kapong) for salmon lands at ~฿250/kg — cutting the protein line in half.
 
