@@ -1,0 +1,102 @@
+{
+  "name": "Diligence Fitness Rewards",
+  "description": "Self-hosted fitness rewards platform with points-based behavioral economy. Your fitness data stays on your hardware. AI agents can log activities, query progress, manage meal plans, and configure device integrations via MCP.",
+  "url": "{BASE_URL}/mcp",
+  "provider": {
+    "organization": "DiligenceWorks Pte. Ltd.",
+    "url": "https://diligenceworks.online"
+  },
+  "version": "1.0.0",
+  "documentationUrl": "https://github.com/diligenceworks/diligence",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "authentication": {
+    "schemes": ["apiKey"],
+    "credentials": null
+  },
+  "defaultInputModes": ["text/plain", "application/json"],
+  "defaultOutputModes": ["application/json"],
+  "skills": [
+    {
+      "id": "context-status",
+      "name": "Context & Status",
+      "description": "Get full user profile with motivation type (BREQ-2), active program, points status, rewards, and integration connections. Includes get_context (full brief), get_today (daily points/gate), and get_week (weekly summary).",
+      "tags": ["fitness", "status", "profile", "motivation"],
+      "examples": [
+        "How am I doing today?",
+        "What's my weekly progress?",
+        "Show me my fitness dashboard"
+      ]
+    },
+    {
+      "id": "activity-logging",
+      "name": "Activity Logging",
+      "description": "Record workouts, runs, walks, cycling, yoga, or any physical activity. Awards points based on activity type and duration. Supports structured program workouts via program_day parameter.",
+      "tags": ["fitness", "tracking", "points", "workout"],
+      "examples": [
+        "I just did a 30-minute run",
+        "Log my StrongLifts Workout B today",
+        "I did 45 minutes of yoga this morning"
+      ]
+    },
+    {
+      "id": "nutrition-tracking",
+      "name": "Food & Nutrition",
+      "description": "Log food intake with calorie and macro tracking. Search Open Food Facts (4M+ products) and USDA FoodData Central (400K+ research-grade items). Awards points for consistent food logging.",
+      "tags": ["nutrition", "food", "tracking", "barcode", "search"],
+      "examples": [
+        "I had 2 eggs and toast for breakfast",
+        "Search for chicken breast nutrition",
+        "Log a salad for lunch, about 400 calories"
+      ]
+    },
+    {
+      "id": "program-schedule",
+      "name": "Program Schedule",
+      "description": "View today's scheduled workout from the active program including exercises, sets, reps, and weight progression. Shows upcoming workouts and overall program completion percentage.",
+      "tags": ["program", "schedule", "workout", "planning"],
+      "examples": [
+        "What's my workout today?",
+        "Show me this week's program schedule",
+        "How far through my program am I?"
+      ]
+    },
+    {
+      "id": "rewards",
+      "name": "Rewards",
+      "description": "View available rewards with point costs and spend earned points. Rewards are user-configurable (gaming time, screen time, treats, etc.). Points gate must be passed before redemption.",
+      "tags": ["rewards", "points", "spending", "gamification"],
+      "examples": [
+        "What rewards can I unlock?",
+        "Spend points on 30 minutes of gaming",
+        "Do I have enough points for a movie?"
+      ]
+    },
+    {
+      "id": "meal-planning",
+      "name": "Meal Planning",
+      "description": "Create, view, and track AI-generated meal plans. The agent generates plan content; the app stores and tracks compliance. Includes load_meal_plan, get_meal_plan, update_meal_compliance, and get_plan_progress.",
+      "tags": ["nutrition", "meal-plan", "diet", "compliance"],
+      "examples": [
+        "Create a 7-day keto meal plan",
+        "What am I supposed to eat today?",
+        "I followed my breakfast plan",
+        "How's my meal plan compliance?"
+      ]
+    },
+    {
+      "id": "device-integration",
+      "name": "Device Integration",
+      "description": "Configure connections to fitness devices and services (Strava, Polar, Garmin, Fitbit, WHOOP, Oura, Withings). Write-only credential storage — agent can set but never read credentials back.",
+      "tags": ["integration", "strava", "garmin", "fitbit", "sync"],
+      "examples": [
+        "Connect my Strava account",
+        "What integrations are available?",
+        "I want to set up my Garmin"
+      ]
+    }
+  ]
+}

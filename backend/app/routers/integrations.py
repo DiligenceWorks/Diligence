@@ -153,3 +153,117 @@ async def disconnect(
     if token:
         await db.delete(token)
     return {"status": "disconnected", "provider": provider}
+
+
+# --- Dynamic Integration Config (v3) ---
+
+from pydantic import BaseModel
+from app.models.integration_config import IntegrationConfig
+from app.services.provider_registry import PROVIDER_REGISTRY
+from app.services.crypto import encrypt_value, decrypt_value
+from app.config import settings
+
+
+class ConfigureRequest(BaseModel):
+    provider: str
+    credentials: dict[str, str]
+
+
+@router.get("/status")
+async def full_integration_status(
+    user: Annotated[User, Depends(get_current_user)],
+    db: Annotated[AsyncSession, Depends(get_db)],
+):
+    """Return connection status for all providers. Never returns actual credentials."""
+    # OAuth tokens (Strava, Polar)
+    oauth_result = await db.execute(select(OAuthToken).where(OAuthToken.user_id == user.id))
+    oauth_tokens = {t.provider: True for t in oauth_result.scalars().all()}
+
+    # Dynamic config entries
+    config_result = await db.execute(
+        select(IntegrationConfig.provider)
+        .where(IntegrationConfig.user_id == user.id)
+        .distinct()
+    )
+    configured_providers = {row[0] for row in config_result.all()}
+
+    # Also check env vars for backward compatibility
+    env_providers = set()
+    if settings.strava_client_id:
+        env_providers.add("strava")
+    if settings.polar_client_id:
+        env_providers.add("polar")
+    if settings.telegram_bot_token:
+        env_providers.add("telegram")
+    if settings.groq_api_key:
+        env_providers.add("groq")
+
+    status = {}
+    for key, info in PROVIDER_REGISTRY.items():
+        if key in oauth_tokens:
+            status[key] = "connected"
+        elif key in configured_providers or key in env_providers:
+            status[key] = "configured"
+        else:
+            status[key] = "not_configured"
+
+    return status
+
+
+@router.get("/providers")
+async def list_providers():
+    """Return the provider registry with setup instructions."""
+    result = {}
+    for key, info in PROVIDER_REGISTRY.items():
+        result[key] = {
+            "name": info["name"],
+            "type": info["type"],
+            "fields": info["fields"],
+            "help_url": info.get("help_url", ""),
+            "help_text": info.get("help_text", "").replace("{BASE_URL}", settings.base_url),
+        }
+    return result
+
+
+@router.post("/configure")
+async def configure_integration(
+    body: ConfigureRequest,
+    user: Annotated[User, Depends(get_current_user)],
+    db: Annotated[AsyncSession, Depends(get_db)],
+):
+    """Store encrypted integration credentials. Write-only — values can never be read back."""
+    if body.provider not in PROVIDER_REGISTRY:
+        raise HTTPException(400, f"Unknown provider: {body.provider}")
+
+    info = PROVIDER_REGISTRY[body.provider]
+    expected_fields = set(info["fields"])
+    provided_fields = set(body.credentials.keys())
+
+    missing = expected_fields - provided_fields
+    if missing:
+        raise HTTPException(400, f"Missing required fields: {', '.join(missing)}")
+
+    for key, value in body.credentials.items():
+        encrypted = encrypt_value(settings.secret_key, value)
+
+        # Upsert
+        existing = await db.execute(
+            select(IntegrationConfig).where(
+                IntegrationConfig.user_id == user.id,
+                IntegrationConfig.provider == body.provider,
+                IntegrationConfig.config_key == key,
+            )
+        )
+        row = existing.scalar_one_or_none()
+        if row:
+            row.config_value = encrypted
+            row.updated_at = datetime.now(timezone.utc)
+        else:
+            db.add(IntegrationConfig(
+                user_id=user.id,
+                provider=body.provider,
+                config_key=key,
+                config_value=encrypted,
+            ))
+
+    return {"status": "configured", "provider": body.provider}

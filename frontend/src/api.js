@@ -122,6 +122,23 @@ export const api = {
   polarSync: () => request('/integrations/polar/sync', { method: 'POST' }),
   disconnect: (provider) => request(`/integrations/${provider}`, { method: 'DELETE' }),
 
+
+  // Meal Plans (v3)
+  listMealPlans: () => request('/meal-plans'),
+  createMealPlan: (data) => request('/meal-plans', { method: 'POST', body: JSON.stringify(data) }),
+  getMealPlanToday: () => request('/meal-plans/today'),
+  getMealPlan: (id) => request('/meal-plans/' + id),
+  updateMealPlanStatus: (id, status) =>
+    request('/meal-plans/' + id, { method: 'PATCH', body: JSON.stringify({ status }) }),
+  logMealCompliance: (data) =>
+    request('/meal-plans/compliance', { method: 'POST', body: JSON.stringify(data) }),
+  getMealPlanProgress: (id) => request('/meal-plans/' + id + '/progress'),
+
+  // Dynamic Integrations (v3)
+  fullIntegrationStatus: () => request('/integrations/status'),
+  listProviders: () => request('/integrations/providers'),
+  configureIntegration: (provider, credentials) =>
+    request('/integrations/configure', { method: 'POST', body: JSON.stringify({ provider, credentials }) }),
   // Resources
   getResourceRecommendations: () => request('/onboarding/recommendations'),
 };
