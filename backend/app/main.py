@@ -249,6 +249,8 @@ async def run_migrations():
 
         await conn.execute(text("""
             CREATE INDEX IF NOT EXISTS idx_meal_plan_items_day ON meal_plan_items(plan_id, day_number);
+        """))
+        await conn.execute(text("""
             CREATE INDEX IF NOT EXISTS idx_meal_compliance_date ON meal_compliance(user_id, compliance_date);
         """))
 
