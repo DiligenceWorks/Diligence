@@ -137,6 +137,8 @@ async def run_migrations():
         """))
 
         # v3: Seed keto point rules (fast_completed, keto_day, meal_logged)
+        # NOTE: Keto rules below are from v2. v3+ migrations (is_admin, integration_configs,
+        # meal plans) are added after this block.
         await conn.execute(text("""
             DO $$ BEGIN
                 INSERT INTO point_rules (id, user_id, category, points, unit, is_active)
@@ -152,6 +154,118 @@ async def run_migrations():
                 WHERE NOT EXISTS (
                     SELECT 1 FROM point_rules pr
                     WHERE pr.user_id = u.id AND pr.category = 'keto_compliant_day'
+                );
+            EXCEPTION WHEN undefined_table THEN NULL;
+            END $$;
+        """))
+
+        # v4: Add is_admin column to users
+        await conn.execute(text("""
+            DO $$ BEGIN
+                ALTER TABLE users ADD COLUMN IF NOT EXISTS is_admin BOOLEAN DEFAULT FALSE;
+            EXCEPTION WHEN undefined_table THEN NULL;
+            END $$;
+        """))
+
+        # v4.1: Grant admin to first registered user if no admin exists
+        await conn.execute(text("""
+            DO $$ BEGIN
+                IF NOT EXISTS (SELECT 1 FROM users WHERE is_admin = TRUE) THEN
+                    UPDATE users SET is_admin = TRUE
+                    WHERE id = (SELECT id FROM users ORDER BY created_at ASC LIMIT 1);
+                END IF;
+            EXCEPTION WHEN undefined_table THEN NULL;
+            WHEN undefined_column THEN NULL;
+            END $$;
+        """))
+
+        # v5: Create integration_configs table
+        await conn.execute(text("""
+            CREATE TABLE IF NOT EXISTS integration_configs (
+                id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+                user_id         UUID NOT NULL REFERENCES users(id),
+                provider        VARCHAR(50) NOT NULL,
+                config_key      VARCHAR(100) NOT NULL,
+                config_value    TEXT NOT NULL,
+                created_at      TIMESTAMPTZ DEFAULT NOW(),
+                updated_at      TIMESTAMPTZ DEFAULT NOW(),
+                UNIQUE(user_id, provider, config_key)
+            );
+        """))
+
+        # v6: Create meal plan tables
+        await conn.execute(text("""
+            CREATE TABLE IF NOT EXISTS meal_plans (
+                id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+                user_id         UUID NOT NULL REFERENCES users(id),
+                name            VARCHAR(200) NOT NULL,
+                diet_type       VARCHAR(50),
+                daily_calories  INTEGER,
+                daily_protein_g INTEGER,
+                daily_carbs_g   INTEGER,
+                daily_fat_g     INTEGER,
+                restrictions    JSONB DEFAULT '[]',
+                duration_days   INTEGER NOT NULL,
+                start_date      DATE NOT NULL,
+                status          VARCHAR(20) DEFAULT 'active',
+                created_at      TIMESTAMPTZ DEFAULT NOW()
+            );
+        """))
+
+        await conn.execute(text("""
+            CREATE TABLE IF NOT EXISTS meal_plan_items (
+                id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+                plan_id         UUID NOT NULL REFERENCES meal_plans(id) ON DELETE CASCADE,
+                day_number      INTEGER NOT NULL,
+                meal_type       VARCHAR(20) NOT NULL,
+                food_name       VARCHAR(300) NOT NULL,
+                description     TEXT,
+                calories        INTEGER,
+                protein_g       DECIMAL(6,1),
+                carbs_g         DECIMAL(6,1),
+                fat_g           DECIMAL(6,1),
+                fiber_g         DECIMAL(6,1),
+                serving_size    VARCHAR(100),
+                sort_order      INTEGER DEFAULT 0,
+                created_at      TIMESTAMPTZ DEFAULT NOW()
+            );
+        """))
+
+        await conn.execute(text("""
+            CREATE TABLE IF NOT EXISTS meal_compliance (
+                id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+                user_id         UUID NOT NULL REFERENCES users(id),
+                plan_id         UUID NOT NULL REFERENCES meal_plans(id),
+                plan_item_id    UUID,
+                compliance_date DATE NOT NULL,
+                status          VARCHAR(20) NOT NULL,
+                substitution    TEXT,
+                food_log_id     UUID,
+                created_at      TIMESTAMPTZ DEFAULT NOW()
+            );
+        """))
+
+        await conn.execute(text("""
+            CREATE INDEX IF NOT EXISTS idx_meal_plan_items_day ON meal_plan_items(plan_id, day_number);
+            CREATE INDEX IF NOT EXISTS idx_meal_compliance_date ON meal_compliance(user_id, compliance_date);
+        """))
+
+        # v7: Seed meal plan point rules
+        await conn.execute(text("""
+            DO $$ BEGIN
+                INSERT INTO point_rules (id, user_id, category, points, unit, is_active)
+                SELECT gen_random_uuid(), u.id, 'meal_plan_followed', 40, 'per_event', TRUE
+                FROM users u
+                WHERE NOT EXISTS (
+                    SELECT 1 FROM point_rules pr
+                    WHERE pr.user_id = u.id AND pr.category = 'meal_plan_followed'
+                );
+                INSERT INTO point_rules (id, user_id, category, points, unit, is_active)
+                SELECT gen_random_uuid(), u.id, 'meal_plan_partial', 20, 'per_event', TRUE
+                FROM users u
+                WHERE NOT EXISTS (
+                    SELECT 1 FROM point_rules pr
+                    WHERE pr.user_id = u.id AND pr.category = 'meal_plan_partial'
                 );
             EXCEPTION WHEN undefined_table THEN NULL;
             END $$;

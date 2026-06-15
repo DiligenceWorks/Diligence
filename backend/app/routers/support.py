@@ -24,7 +24,7 @@ from app.config import settings
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/support", tags=["support"])
 
-ADMIN_USERNAME = "scot"
+# Admin check uses is_admin column on User model (first registered user gets admin=True)
 MAX_MESSAGES_PER_DAY = 10
 
 
@@ -105,7 +105,7 @@ def format_telegram_message(user_name: str, message: str, context: dict) -> str:
         lines.append(f"Last workout: {last}")
 
     lines.append(f"\n💬 \"{message}\"")
-    lines.append(f"\n👉 https://fitness.littlefake.com/support/admin")
+    lines.append(f"\n👉 {settings.base_url}/support/admin")
 
     return "\n".join(lines)
 

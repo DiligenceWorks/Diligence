@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     telegram_chat_id: str = ""
 
     # App
-    base_url: str = "https://fitness.littlefake.com"
+    base_url: str = "http://localhost"
     timezone: str = "Asia/Bangkok"
 
     model_config = {"env_file": ".env", "extra": "ignore"}

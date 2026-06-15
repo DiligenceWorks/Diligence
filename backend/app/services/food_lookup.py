@@ -5,7 +5,7 @@ import httpx
 from app.schemas.food import FoodSearchResult
 
 OFF_BASE = "https://world.openfoodfacts.org"
-USER_AGENT = "FitnessRewards/1.0 (fitness.littlefake.com)"
+USER_AGENT = "Diligence/1.0"
 
 
 async def lookup_barcode(barcode: str) -> FoodSearchResult | None:
