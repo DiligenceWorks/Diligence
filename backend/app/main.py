@@ -63,7 +63,7 @@ async def lifespan(app: FastAPI):
     logger.info("Fitness Rewards backend shutting down")
 
 
-app = FastAPI(title="Fitness Rewards", version="0.3.0", lifespan=lifespan)
+app = FastAPI(title="Fitness Rewards", version="1.0.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -84,6 +84,7 @@ from app.routers.programs import router as programs_router
 from app.routers.catalog import router as catalog_router
 from app.routers.support import router as support_router
 from app.routers.nutrition import router as nutrition_router
+from app.routers.meal_plans import router as meal_plans_router
 
 app.include_router(auth_router)
 app.include_router(onboarding_router)
@@ -96,11 +97,12 @@ app.include_router(catalog_router)
 app.include_router(support_router)
 app.include_router(programs_router)
 app.include_router(nutrition_router)
+app.include_router(meal_plans_router)
 
 
 @app.get("/api/health")
 async def health():
-    return {"status": "ok", "version": "0.3.0"}
+    return {"status": "ok", "version": "1.0.0"}
 
 
 

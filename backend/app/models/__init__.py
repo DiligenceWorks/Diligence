@@ -10,6 +10,8 @@ from app.models.resource import Resource
 from app.models.catalog import ProgramCatalog, CatalogWorkout, CrawlQueue, WorkoutLog
 from app.models.support import SupportThread, SupportMessage
 from app.models.nutrition import NutritionGoal, Fast, ElectrolyteLog
+from app.models.integration_config import IntegrationConfig
+from app.models.meal_plan import MealPlan, MealPlanItem, MealCompliance
 
 __all__ = [
     "User", "UserProfile", "Program", "ActivityLog", "FoodLog",
@@ -18,4 +20,5 @@ __all__ = [
     "ProgramCatalog", "CatalogWorkout", "CrawlQueue", "WorkoutLog",
     "SupportThread", "SupportMessage",
     "NutritionGoal", "Fast", "ElectrolyteLog",
+    "IntegrationConfig", "MealPlan", "MealPlanItem", "MealCompliance",
 ]

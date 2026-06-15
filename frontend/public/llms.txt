@@ -1,0 +1,31 @@
+# Diligence — Self-Hosted Fitness Rewards Platform
+
+> Data sovereignty for people. Self-hosted fitness tracker with a points-based
+> behavioral economy and an MCP connector for AI agent integration.
+> MIT-licensed. Deploy with a single `docker compose up -d`.
+
+Diligence is a self-hosted fitness web app built around a points-based reward
+system. Complete fitness activities and food logging to earn points, spend
+points to unlock configurable real-world rewards. Science-based onboarding
+(PAR-Q+, TTM stages of change, BREQ-2 motivation assessment).
+
+## For AI Agents
+- MCP Server: /mcp (Streamable HTTP/SSE, 14 tools)
+- Agent Card: /.well-known/agent-card.json
+- Skills: /.well-known/skills/diligence-fitness/SKILL.md
+
+## MCP Tools
+- get_context, get_today, get_week (status)
+- log_activity, log_food, search_food (tracking)
+- get_program_schedule (programs)
+- redeem_reward (rewards)
+- load_meal_plan, get_meal_plan, update_meal_compliance, get_plan_progress (meal plans)
+- configure_integration, get_integration_status (device sync)
+
+## Technical
+- Source: https://github.com/diligenceworks/diligence (MIT)
+- Stack: FastAPI + PostgreSQL + React/Vite + FastMCP
+
+## About
+Built by DiligenceWorks (https://diligenceworks.online) — adversarial AI
+deal-diligence platform for institutional investors.
