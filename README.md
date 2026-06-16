@@ -8,20 +8,27 @@ Built by [DiligenceWorks](https://diligenceworks.online).
 
 ### Prerequisites
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Windows, macOS, or Linux)
-- That's it. No Python, Node.js, or database install needed.
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) — that's it. No Python, Node.js, or database install needed.
+- Docker Desktop runs natively on **Windows 10/11**, **macOS**, and **Linux**.
 
-### Install
+---
 
-**macOS / Linux:**
-```bash
-git clone https://github.com/diligenceworks/diligence
-cd diligence
-./setup.sh
-docker compose up -d
-```
+### Windows 11 Setup
 
-**Windows (PowerShell):**
+**1. Install Docker Desktop**
+
+Download from [docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop/).
+
+During installation, the installer presents a checkbox: **"Use WSL 2 instead of Hyper-V (recommended)"**. This is checked by default.
+
+- **WSL 2 backend (default):** Works on all Windows editions including Home. Lower resource usage, better performance. Requires WSL 2 to be installed first — open PowerShell as Administrator and run `wsl --install`, then reboot.
+- **Hyper-V backend:** If WSL 2 causes issues (black screen on reboot, kernel errors, or containers won't start), uncheck the WSL 2 box during installation to use Hyper-V instead. Requires Windows Pro, Enterprise, or Education.
+
+**Important:** Hardware virtualization must be enabled in your BIOS/UEFI settings (Intel VT-x or AMD-V). This is the most common cause of "Docker won't start" issues. Check your laptop/PC manufacturer's documentation for how to access BIOS settings (usually F2, F12, or Del during boot).
+
+**2. Clone and run**
+
+Open PowerShell:
 ```powershell
 git clone https://github.com/diligenceworks/diligence
 cd diligence
@@ -29,14 +36,56 @@ powershell -ExecutionPolicy Bypass -File setup.ps1
 docker compose up -d
 ```
 
-**Windows (no script — manual):**
+Or without the script:
 ```powershell
 git clone https://github.com/diligenceworks/diligence
 cd diligence
 copy .env.example .env
-# Edit .env and set SECRET_KEY to any random string (e.g. mash the keyboard)
+# Edit .env and set SECRET_KEY to any random string
 docker compose up -d
 ```
+
+---
+
+### macOS Setup
+
+**1. Install Docker Desktop**
+
+Download from [docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop/). Make sure you pick the right installer for your chip:
+
+- **Apple Silicon** (M1, M2, M3, M4) — download the Apple Silicon .dmg
+- **Intel** — download the Intel .dmg
+
+To check: Apple menu → About This Mac. Look for "Chip" (Apple Silicon) or "Processor" (Intel).
+
+Drag Docker.app to Applications and launch it. Requires macOS 13 Ventura or later.
+
+Alternatively, install via Homebrew: `brew install --cask docker`
+
+**2. Clone and run**
+
+Open Terminal:
+```bash
+git clone https://github.com/diligenceworks/diligence
+cd diligence
+./setup.sh
+docker compose up -d
+```
+
+---
+
+### Linux Setup
+
+Install Docker Engine and Docker Compose via your distro's package manager, or install Docker Desktop for Linux. Then:
+
+```bash
+git clone https://github.com/diligenceworks/diligence
+cd diligence
+./setup.sh
+docker compose up -d
+```
+
+---
 
 Open http://localhost and create your account. First user gets admin.
 
