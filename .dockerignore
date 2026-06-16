@@ -1,0 +1,7 @@
+.git
+.env
+content/
+*.md
+LICENSE
+setup.sh
+setup.ps1
