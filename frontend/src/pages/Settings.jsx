@@ -60,6 +60,75 @@ export default function Settings() {
         </div>
       )}
 
+      {/* Quick Links */}
+      <div className="card">
+        <div className="section-label">Features</div>
+        <div
+          onClick={() => navigate('/meal-plan')}
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '14px 0', borderBottom: '1px solid var(--divider)', cursor: 'pointer',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span style={{ fontSize: '1.2rem' }}>🍽️</span>
+            <div>
+              <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Meal Plans</div>
+              <div style={{ fontSize: '0.78rem', color: 'var(--text-3)', fontWeight: 500 }}>AI-generated plans with compliance tracking</div>
+            </div>
+          </div>
+          <span style={{ color: 'var(--text-3)', fontSize: '1.1rem' }}>›</span>
+        </div>
+        <div
+          onClick={() => navigate('/settings/integrations')}
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '14px 0', borderBottom: '1px solid var(--divider)', cursor: 'pointer',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span style={{ fontSize: '1.2rem' }}>🔗</span>
+            <div>
+              <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>All Integrations</div>
+              <div style={{ fontSize: '0.78rem', color: 'var(--text-3)', fontWeight: 500 }}>Strava, Polar, Garmin, Fitbit, USDA, and more</div>
+            </div>
+          </div>
+          <span style={{ color: 'var(--text-3)', fontSize: '1.1rem' }}>›</span>
+        </div>
+        <div
+          onClick={() => navigate('/rewards')}
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '14px 0', borderBottom: '1px solid var(--divider)', cursor: 'pointer',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span style={{ fontSize: '1.2rem' }}>🎮</span>
+            <div>
+              <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Rewards</div>
+              <div style={{ fontSize: '0.78rem', color: 'var(--text-3)', fontWeight: 500 }}>Configure and redeem your rewards</div>
+            </div>
+          </div>
+          <span style={{ color: 'var(--text-3)', fontSize: '1.1rem' }}>›</span>
+        </div>
+        <div
+          onClick={() => navigate('/week')}
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '14px 0', cursor: 'pointer',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span style={{ fontSize: '1.2rem' }}>📊</span>
+            <div>
+              <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Week View</div>
+              <div style={{ fontSize: '0.78rem', color: 'var(--text-3)', fontWeight: 500 }}>Weekly progress and day-by-day breakdown</div>
+            </div>
+          </div>
+          <span style={{ color: 'var(--text-3)', fontSize: '1.1rem' }}>›</span>
+        </div>
+      </div>
+
       {/* Point Rules */}
       <div className="card">
         <div className="section-label">Point Rules</div>
@@ -119,6 +188,12 @@ export default function Settings() {
             </div>
           )
         })}
+        <div
+          onClick={() => navigate('/settings/integrations')}
+          style={{ padding: '12px 0', textAlign: 'center', cursor: 'pointer', color: 'var(--accent)', fontSize: '0.88rem', fontWeight: 600 }}
+        >
+          Configure all 11 providers →
+        </div>
       </div>
 
       <button className="btn-danger btn-full" style={{ marginTop: '10px' }} onClick={() => { clearToken(); navigate('/login') }}>
