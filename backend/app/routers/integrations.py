@@ -39,7 +39,10 @@ async def integration_status(
 # --- Strava ---
 @router.get("/strava/auth")
 async def strava_auth(user: Annotated[User, Depends(get_current_user)]):
-    return {"auth_url": get_strava_auth_url(str(user.id))}
+    from app.utils.auth import create_access_token
+    from datetime import timedelta
+    state_token = create_access_token(str(user.id), expires_delta=timedelta(minutes=10))
+    return {"auth_url": get_strava_auth_url(state_token)}
 
 
 @router.get("/strava/callback")
@@ -48,7 +51,14 @@ async def strava_callback(
     state: str = Query(...),
     db: AsyncSession = Depends(get_db),
 ):
-    user_id = uuid_mod.UUID(state)
+    from jose import JWTError, jwt as jose_jwt
+    from app.config import get_settings
+    _settings = get_settings()
+    try:
+        payload = jose_jwt.decode(state, _settings.secret_key, algorithms=[_settings.algorithm])
+        user_id = uuid_mod.UUID(payload["sub"])
+    except (JWTError, KeyError, ValueError):
+        raise HTTPException(status_code=400, detail="Invalid or expired OAuth state")
     data = await exchange_strava_code(code)
 
     # Upsert token
@@ -91,7 +101,10 @@ async def strava_sync(
 # --- Polar ---
 @router.get("/polar/auth")
 async def polar_auth(user: Annotated[User, Depends(get_current_user)]):
-    return {"auth_url": get_polar_auth_url(str(user.id))}
+    from app.utils.auth import create_access_token
+    from datetime import timedelta
+    state_token = create_access_token(str(user.id), expires_delta=timedelta(minutes=10))
+    return {"auth_url": get_polar_auth_url(state_token)}
 
 
 @router.get("/polar/callback")
@@ -100,7 +113,14 @@ async def polar_callback(
     state: str = Query(...),
     db: AsyncSession = Depends(get_db),
 ):
-    user_id = uuid_mod.UUID(state)
+    from jose import JWTError, jwt as jose_jwt
+    from app.config import get_settings
+    _settings = get_settings()
+    try:
+        payload = jose_jwt.decode(state, _settings.secret_key, algorithms=[_settings.algorithm])
+        user_id = uuid_mod.UUID(payload["sub"])
+    except (JWTError, KeyError, ValueError):
+        raise HTTPException(status_code=400, detail="Invalid or expired OAuth state")
     data = await exchange_polar_code(code)
 
     # Register user with Polar

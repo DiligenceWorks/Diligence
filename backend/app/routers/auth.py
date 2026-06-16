@@ -1,11 +1,10 @@
 from __future__ import annotations
 
 import logging
-import traceback
 from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.responses import JSONResponse
-from sqlalchemy import select
+from sqlalchemy import select, func
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.database import get_db
@@ -26,11 +25,16 @@ async def register(req: RegisterRequest, db: Annotated[AsyncSession, Depends(get
         if existing.scalar_one_or_none():
             raise HTTPException(status_code=400, detail="Username already taken")
 
+        # Grant admin to first user
+        admin_count = await db.execute(select(func.count(User.id)).where(User.is_admin == True))
+        is_first_user = (admin_count.scalar() or 0) == 0
+
         user = User(
             username=req.username,
             display_name=req.display_name,
             password_hash=hash_password(req.password),
             email=req.email,
+            is_admin=is_first_user,
         )
         db.add(user)
         await db.flush()
@@ -52,9 +56,8 @@ async def register(req: RegisterRequest, db: Annotated[AsyncSession, Depends(get
     except HTTPException:
         raise
     except Exception as e:
-        tb = traceback.format_exc()
-        logger.error(f"Registration failed: {e}\n{tb}")
-        return JSONResponse(status_code=500, content={"detail": str(e), "traceback": tb})
+        logger.error(f"Registration failed: {e}", exc_info=True)
+        return JSONResponse(status_code=500, content={"detail": "Internal server error"})
 
 
 @router.post("/login")
@@ -69,9 +72,8 @@ async def login(req: LoginRequest, db: Annotated[AsyncSession, Depends(get_db)])
     except HTTPException:
         raise
     except Exception as e:
-        tb = traceback.format_exc()
-        logger.error(f"Login failed: {e}\n{tb}")
-        return JSONResponse(status_code=500, content={"detail": str(e), "traceback": tb})
+        logger.error(f"Login failed: {e}", exc_info=True)
+        return JSONResponse(status_code=500, content={"detail": "Internal server error"})
 
 
 @router.get("/me")
@@ -82,4 +84,5 @@ async def get_me(user: Annotated[User, Depends(get_current_user)]):
         "display_name": user.display_name,
         "email": user.email,
         "timezone": user.timezone,
+        "is_admin": getattr(user, "is_admin", False),
     }

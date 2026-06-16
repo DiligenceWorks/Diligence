@@ -13,7 +13,7 @@ from app.config import get_settings
 from app.database import get_db
 
 settings = get_settings()
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/login", auto_error=False)
 
 
 def hash_password(password: str) -> str:
@@ -31,7 +31,7 @@ def create_access_token(user_id: str, expires_delta: timedelta | None = None) ->
 
 
 async def get_current_user(
-    token: Annotated[str, Depends(oauth2_scheme)],
+    token: Annotated[str | None, Depends(oauth2_scheme)],
     db: Annotated[AsyncSession, Depends(get_db)],
 ):
     credentials_exception = HTTPException(
@@ -39,6 +39,30 @@ async def get_current_user(
         detail="Invalid authentication credentials",
         headers={"WWW-Authenticate": "Bearer"},
     )
+
+    if not token:
+        raise credentials_exception
+
+    from app.models.user import User
+
+    # Check if this is an API token (MCP connector auth)
+    if settings.api_token and token == settings.api_token:
+        # Map to the first admin user
+        result = await db.execute(
+            select(User).where(User.is_admin == True).order_by(User.created_at.asc()).limit(1)
+        )
+        user = result.scalar_one_or_none()
+        if user is None:
+            # Fall back to first user if no admin exists yet
+            result = await db.execute(
+                select(User).order_by(User.created_at.asc()).limit(1)
+            )
+            user = result.scalar_one_or_none()
+        if user is None:
+            raise credentials_exception
+        return user
+
+    # Standard JWT validation
     try:
         payload = jwt.decode(token, settings.secret_key, algorithms=[settings.algorithm])
         user_id: str = payload.get("sub")
@@ -47,7 +71,6 @@ async def get_current_user(
     except JWTError:
         raise credentials_exception
 
-    from app.models.user import User
     result = await db.execute(select(User).where(User.id == uuid.UUID(user_id)))
     user = result.scalar_one_or_none()
     if user is None:

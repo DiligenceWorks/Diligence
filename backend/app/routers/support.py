@@ -24,7 +24,6 @@ from app.config import settings
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/support", tags=["support"])
 
-# Admin check uses is_admin column on User model (first registered user gets admin=True)
 MAX_MESSAGES_PER_DAY = 10
 
 
@@ -279,8 +278,8 @@ async def get_unread_count(
 # ── Admin Endpoints ────────────────────────────────────────────────────────
 
 def require_admin(user: User):
-    """Check that the user is the admin."""
-    if user.username != ADMIN_USERNAME:
+    """Check that the user has admin privileges."""
+    if not getattr(user, "is_admin", False):
         raise HTTPException(status_code=403, detail="Admin access required")
 
 

@@ -12,6 +12,7 @@ from datetime import date
 from mcp.server.fastmcp import FastMCP
 
 FITNESS_API_URL = os.getenv("FITNESS_API_URL", "http://backend:8000")
+API_TOKEN = os.getenv("API_TOKEN", "")
 
 mcp = FastMCP("Diligence Fitness", port=3001)
 
@@ -21,8 +22,12 @@ _client: httpx.AsyncClient | None = None
 async def api(method: str, path: str, **kwargs) -> dict:
     global _client
     if _client is None:
-        _client = httpx.AsyncClient(base_url=FITNESS_API_URL, timeout=30)
-    # TODO: add service account API key auth header
+        headers = {}
+        if API_TOKEN:
+            headers["Authorization"] = f"Bearer {API_TOKEN}"
+        _client = httpx.AsyncClient(
+            base_url=FITNESS_API_URL, timeout=30, headers=headers
+        )
     resp = await getattr(_client, method)(f"/api{path}", **kwargs)
     resp.raise_for_status()
     return resp.json()

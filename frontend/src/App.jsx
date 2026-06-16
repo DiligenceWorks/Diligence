@@ -31,10 +31,9 @@ function HelpButton() {
 
   // Don't show on login/onboarding/support pages
   const hidden = ['/login', '/onboarding', '/support'].some(p => location.pathname.startsWith(p))
-  if (hidden) return null
 
   useEffect(() => {
-    if (!hasToken()) return
+    if (hidden || !hasToken()) return
     api.getUnreadCount()
       .then(d => setUnread(d.unread || 0))
       .catch(() => {})
@@ -45,7 +44,9 @@ function HelpButton() {
         .catch(() => {})
     }, 60000)
     return () => clearInterval(interval)
-  }, [location.pathname])
+  }, [location.pathname, hidden])
+
+  if (hidden) return null
 
   return (
     <button
@@ -117,6 +118,9 @@ export default function App() {
         <Route path="/support" element={<ProtectedRoute><Support /></ProtectedRoute>} />
         <Route path="/support/admin" element={<ProtectedRoute><SupportAdmin /></ProtectedRoute>} />
         <Route path="/support/admin/:threadId" element={<ProtectedRoute><SupportAdmin /></ProtectedRoute>} />
+        <Route path="/welcome" element={<Welcome />} />
+        <Route path="/settings/integrations" element={<ProtectedRoute><SettingsIntegrations /></ProtectedRoute>} />
+        <Route path="/meal-plan" element={<ProtectedRoute><MealPlan /></ProtectedRoute>} />
       </Routes>
       {hasToken() && <NavBar />}
     </>
