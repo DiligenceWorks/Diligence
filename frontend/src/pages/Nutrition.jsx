@@ -145,7 +145,7 @@ export default function Nutrition() {
       <div className={`gate-banner ${c.compliant_day ? 'gate-earned' : 'gate-locked'}`}>
         <div className="section-label" style={{ marginBottom: '4px' }}>Today's Keto Day</div>
         <div style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '1.4rem',
-          color: c.compliant_day ? 'var(--green)' : 'var(--orange)' }}>
+          color: c.compliant_day ? 'var(--green)' : 'var(--accent)' }}>
           {c.compliant_day ? '✓ Compliant' : '⏳ In progress'}
         </div>
         <div style={{ fontSize: '0.82rem', color: 'var(--text-2)', marginTop: '6px' }}>
@@ -196,7 +196,7 @@ export default function Nutrition() {
       <div className="card">
         <div className="section-label">Today's Macros</div>
         <MacroBar label="Net carbs" value={m.net_carbs_g} target={t.net_carbs_cap} unit="g" inverse />
-        <MacroBar label="Protein" value={m.protein_g} target={t.protein_g} unit="g" color="#FF5722" />
+        <MacroBar label="Protein" value={m.protein_g} target={t.protein_g} unit="g" color="var(--accent)" />
         <MacroBar label="Fat" value={m.fat_g} target={t.fat_g} unit="g" color="#FFA726" />
         <MacroBar label="Calories" value={m.calories} target={t.calories} unit="kcal" color="#2979FF" />
         <button className="btn-outline btn-full btn-sm" onClick={() => navigate('/food')}

@@ -95,7 +95,7 @@ export default function Support() {
               borderRadius: m.sender === 'user'
                 ? 'var(--r) var(--r) 4px var(--r)'
                 : 'var(--r) var(--r) var(--r) 4px',
-              background: m.sender === 'user' ? 'var(--orange)' : 'var(--card)',
+              background: m.sender === 'user' ? 'var(--accent)' : 'var(--card)',
               color: m.sender === 'user' ? '#fff' : 'var(--text)',
               boxShadow: 'var(--shadow-1)',
               fontSize: '0.88rem',
@@ -116,7 +116,7 @@ export default function Support() {
         {confirmation && (
           <div style={{
             textAlign: 'center', fontSize: '0.8rem', color: 'var(--green-dark)',
-            padding: '8px', background: 'var(--green-ghost)', borderRadius: 'var(--r-sm)',
+            padding: '8px', background: 'var(--green-bg)', borderRadius: 'var(--r-sm)',
           }}>
             {confirmation}
           </div>
@@ -146,11 +146,11 @@ export default function Support() {
           type="submit"
           disabled={!input.trim() || sending}
           style={{
-            background: sending ? 'var(--text-3)' : 'var(--orange)',
+            background: sending ? 'var(--text-3)' : 'var(--accent)',
             color: '#fff', borderRadius: 'var(--r-full)',
             width: '44px', height: '44px', padding: 0,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '1.1rem', boxShadow: 'var(--shadow-orange)',
+            fontSize: '1.1rem', boxShadow: 'var(--shadow-accent)',
             opacity: !input.trim() ? 0.5 : 1,
           }}
         >

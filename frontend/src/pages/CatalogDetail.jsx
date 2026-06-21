@@ -4,8 +4,8 @@ import { api } from '../api'
 
 const DIFFICULTY_COLORS = {
   beginner: 'var(--green)',
-  intermediate: 'var(--blue)',
-  advanced: 'var(--purple)',
+  intermediate: 'var(--accent)',
+  advanced: 'var(--accent-light)',
 }
 
 const CATEGORY_ICONS = {
@@ -17,8 +17,8 @@ const CATEGORY_ICONS = {
 
 const STATUS_LABELS = {
   pending: { label: 'Queued', color: 'var(--amber)' },
-  crawling: { label: 'Fetching...', color: 'var(--blue)' },
-  extracting: { label: 'Analyzing...', color: 'var(--purple)' },
+  crawling: { label: 'Fetching...', color: 'var(--accent)' },
+  extracting: { label: 'Analyzing...', color: 'var(--accent-light)' },
   ready: { label: 'Ready', color: 'var(--green)' },
   failed: { label: 'Failed', color: 'var(--red)' },
 }
@@ -72,7 +72,7 @@ export default function CatalogDetail() {
       <div style={{ padding: '2rem', textAlign: 'center' }}>
         <p style={{ color: 'var(--text-2)', marginBottom: '1rem' }}>Program not found.</p>
         <button onClick={() => navigate('/programs')} style={{
-          background: 'var(--blue)', color: '#fff', padding: '10px 20px',
+          background: 'var(--accent)', color: '#fff', padding: '10px 20px',
         }}>← Back to Programs</button>
       </div>
     )
@@ -144,7 +144,7 @@ export default function CatalogDetail() {
             rel="noopener noreferrer"
             style={{
               display: 'inline-block', marginTop: '14px', fontSize: '0.78rem',
-              color: 'var(--blue)', textDecoration: 'none',
+              color: 'var(--accent)', textDecoration: 'none',
             }}
           >
             🔗 Original source ↗
@@ -157,7 +157,7 @@ export default function CatalogDetail() {
         <div style={{
           padding: '12px 16px', borderRadius: 'var(--r-sm)', marginBottom: '1rem',
           fontSize: '0.85rem', fontWeight: 600,
-          background: message.type === 'error' ? 'var(--red-ghost)' : 'var(--green-ghost)',
+          background: message.type === 'error' ? 'var(--red-ghost)' : 'var(--green-bg)',
           color: message.type === 'error' ? 'var(--red)' : 'var(--green-dark)',
         }}>
           {message.text}
@@ -183,9 +183,9 @@ export default function CatalogDetail() {
         <button
           onClick={() => navigate(`/programs/${activeRecord.id}`)}
           style={{
-            width: '100%', background: 'var(--orange)', color: '#fff',
+            width: '100%', background: 'var(--accent)', color: '#fff',
             padding: '14px', fontSize: '0.95rem', fontWeight: 800,
-            marginBottom: '1.25rem', boxShadow: 'var(--shadow-orange)',
+            marginBottom: '1.25rem', boxShadow: 'var(--shadow-accent)',
           }}
         >
           ✓ Active — Open Your Program
@@ -194,8 +194,8 @@ export default function CatalogDetail() {
 
       {program.crawl_status !== 'ready' && (
         <div style={{
-          padding: '14px', borderRadius: 'var(--r)', background: 'var(--blue-ghost)',
-          color: 'var(--blue)', fontSize: '0.85rem', marginBottom: '1.25rem', textAlign: 'center',
+          padding: '14px', borderRadius: 'var(--r)', background: 'var(--accent-bg)',
+          color: 'var(--accent)', fontSize: '0.85rem', marginBottom: '1.25rem', textAlign: 'center',
         }}>
           {program.crawl_status === 'failed'
             ? `Crawl failed: ${program.crawl_error || 'unknown error'}`
@@ -210,7 +210,7 @@ export default function CatalogDetail() {
           marginBottom: '1.25rem', boxShadow: 'var(--shadow-1)',
         }}>
           <div style={{
-            fontSize: '0.72rem', fontWeight: 700, color: 'var(--orange)',
+            fontSize: '0.72rem', fontWeight: 700, color: 'var(--accent)',
             textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px',
           }}>📈 Progression</div>
           <p style={{ fontSize: '0.85rem', color: 'var(--text-2)', lineHeight: 1.5 }}>

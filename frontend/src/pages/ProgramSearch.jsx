@@ -4,8 +4,8 @@ import { api } from '../api'
 
 const DIFFICULTY_COLORS = {
   beginner: 'var(--green)',
-  intermediate: 'var(--blue)',
-  advanced: 'var(--purple)',
+  intermediate: 'var(--accent)',
+  advanced: 'var(--accent-light)',
 }
 
 const CATEGORY_ICONS = {
@@ -17,8 +17,8 @@ const CATEGORY_ICONS = {
 
 const STATUS_LABELS = {
   pending: { label: 'Queued', color: 'var(--amber)' },
-  crawling: { label: 'Fetching...', color: 'var(--blue)' },
-  extracting: { label: 'Analyzing...', color: 'var(--purple)' },
+  crawling: { label: 'Fetching...', color: 'var(--accent)' },
+  extracting: { label: 'Analyzing...', color: 'var(--accent-light)' },
   ready: { label: 'Ready', color: 'var(--green)' },
   failed: { label: 'Failed', color: 'var(--red)' },
 }
@@ -117,7 +117,7 @@ export default function ProgramSearch() {
           }}
         />
         <button type="submit" style={{
-          background: 'var(--blue)', color: '#fff', padding: '12px 18px',
+          background: 'var(--accent)', color: '#fff', padding: '12px 18px',
           boxShadow: 'var(--shadow-1)',
         }}>Search</button>
       </form>
@@ -126,9 +126,9 @@ export default function ProgramSearch() {
         onClick={handleResearch}
         disabled={researching || !query.trim()}
         style={{
-          width: '100%', background: researching ? 'var(--text-3)' : 'var(--orange)',
+          width: '100%', background: researching ? 'var(--text-3)' : 'var(--accent)',
           color: '#fff', padding: '14px', marginBottom: '1rem',
-          boxShadow: researching ? 'none' : 'var(--shadow-orange)',
+          boxShadow: researching ? 'none' : 'var(--shadow-accent)',
           opacity: !query.trim() ? 0.5 : 1,
         }}
       >
@@ -140,8 +140,8 @@ export default function ProgramSearch() {
         <div style={{
           padding: '12px 16px', borderRadius: 'var(--r-sm)', marginBottom: '1rem',
           fontSize: '0.85rem', fontWeight: 600,
-          background: message.type === 'error' ? 'var(--red-ghost)' : message.type === 'success' ? 'var(--green-ghost)' : 'var(--blue-ghost)',
-          color: message.type === 'error' ? 'var(--red)' : message.type === 'success' ? 'var(--green-dark)' : 'var(--blue)',
+          background: message.type === 'error' ? 'var(--red-ghost)' : message.type === 'success' ? 'var(--green-bg)' : 'var(--accent-bg)',
+          color: message.type === 'error' ? 'var(--red)' : message.type === 'success' ? 'var(--green-dark)' : 'var(--accent)',
         }}>
           {message.text}
         </div>
@@ -160,12 +160,12 @@ export default function ProgramSearch() {
               style={{
                 background: 'var(--card)', borderRadius: 'var(--r)', padding: '16px',
                 marginBottom: '0.75rem', boxShadow: 'var(--shadow-1)', cursor: 'pointer',
-                border: '2px solid var(--orange-glow)',
+                border: '2px solid var(--accent-glow)',
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <strong style={{ fontFamily: 'var(--font-display)', fontSize: '1rem' }}>{p.name}</strong>
-                <span style={{ fontSize: '0.8rem', color: 'var(--orange)', fontWeight: 700 }}>
+                <span style={{ fontSize: '0.8rem', color: 'var(--accent)', fontWeight: 700 }}>
                   Day {p.current_day}/{p.total_days}
                 </span>
               </div>
@@ -173,7 +173,7 @@ export default function ProgramSearch() {
                 marginTop: '8px', height: '6px', borderRadius: '3px', background: 'var(--divider)',
               }}>
                 <div style={{
-                  height: '100%', borderRadius: '3px', background: 'var(--orange)',
+                  height: '100%', borderRadius: '3px', background: 'var(--accent)',
                   width: `${Math.min(100, (p.current_day / p.total_days) * 100)}%`,
                   transition: 'width 0.3s ease',
                 }} />
@@ -272,7 +272,7 @@ export default function ProgramSearch() {
                 onClick={() => navigate(`/catalog/${p.id}`)}
                 style={{
                   marginTop: adopted ? '4px' : '8px', width: '100%', background: 'transparent',
-                  color: 'var(--blue)', padding: '8px', fontSize: '0.82rem',
+                  color: 'var(--accent)', padding: '8px', fontSize: '0.82rem',
                   border: '1px solid var(--divider)',
                 }}
               >

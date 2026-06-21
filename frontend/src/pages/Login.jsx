@@ -31,7 +31,7 @@ export default function Login() {
       minHeight: '100dvh',
       display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
       padding: '24px',
-      background: 'linear-gradient(170deg, #FF8A65 0%, #FF5722 30%, #E64A19 60%, #1B1B2F 100%)',
+      background: 'linear-gradient(170deg, var(--accent-light) 0%, var(--accent) 30%, var(--accent-dark) 60%, var(--text) 100%)',
     }}>
       <div style={{ width: '100%', maxWidth: '380px' }}>
         {/* Brand */}
@@ -61,9 +61,9 @@ export default function Login() {
                 style={{
                   borderRadius: 'var(--r-sm)', padding: '10px',
                   fontWeight: 700, fontSize: '0.85rem',
-                  background: mode === m ? 'var(--orange)' : 'transparent',
+                  background: mode === m ? 'var(--accent)' : 'transparent',
                   color: mode === m ? '#fff' : 'var(--text-2)',
-                  boxShadow: mode === m ? 'var(--shadow-orange)' : 'none',
+                  boxShadow: mode === m ? 'var(--shadow-accent)' : 'none',
                 }}>
                 {m === 'login' ? 'Sign In' : 'Sign Up'}
               </button>

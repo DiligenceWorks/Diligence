@@ -63,13 +63,13 @@ export default function ProgramDetail() {
         <div style={{ display: 'flex', gap: '1.5rem', marginTop: '10px', fontSize: '0.82rem', color: 'var(--text-2)' }}>
           <span>Week {schedule.current_week}</span>
           <span>{progress?.completed_workouts || 0}/{progress?.total_workouts || 0} workouts</span>
-          <span style={{ color: 'var(--orange)', fontWeight: 700 }}>{pct}%</span>
+          <span style={{ color: 'var(--accent)', fontWeight: 700 }}>{pct}%</span>
         </div>
         {/* Progress bar */}
         <div style={{ marginTop: '12px', height: '8px', borderRadius: '4px', background: 'var(--divider)' }}>
           <div style={{
             height: '100%', borderRadius: '4px',
-            background: pct >= 100 ? 'var(--green)' : 'var(--orange)',
+            background: pct >= 100 ? 'var(--green)' : 'var(--accent)',
             width: `${Math.min(100, pct)}%`, transition: 'width 0.4s ease',
           }} />
         </div>
@@ -86,7 +86,7 @@ export default function ProgramDetail() {
       {/* Completion celebration */}
       {completionResult && (
         <div style={{
-          background: 'var(--green-ghost)', borderRadius: 'var(--r)', padding: '16px',
+          background: 'var(--green-bg)', borderRadius: 'var(--r)', padding: '16px',
           marginBottom: '1rem', textAlign: 'center',
         }}>
           <div style={{ fontSize: '1.8rem', marginBottom: '4px' }}>🎉</div>
@@ -110,10 +110,10 @@ export default function ProgramDetail() {
         <div style={{
           background: 'var(--card)', borderRadius: 'var(--r)', padding: '16px',
           marginBottom: '1.5rem', boxShadow: 'var(--shadow-2)',
-          border: '2px solid var(--orange-glow)',
+          border: '2px solid var(--accent-glow)',
         }}>
           <div style={{
-            fontSize: '0.72rem', fontWeight: 700, color: 'var(--orange)',
+            fontSize: '0.72rem', fontWeight: 700, color: 'var(--accent)',
             textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '6px',
           }}>Today's Workout</div>
           <strong style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem' }}>
@@ -155,7 +155,7 @@ export default function ProgramDetail() {
             Week {week}
             {week === schedule.current_week && (
               <span style={{
-                fontSize: '0.65rem', background: 'var(--orange)', color: '#fff',
+                fontSize: '0.65rem', background: 'var(--accent)', color: '#fff',
                 padding: '2px 8px', borderRadius: 'var(--r-full)',
               }}>Current</span>
             )}
@@ -185,7 +185,7 @@ export default function ProgramDetail() {
                   <button
                     onClick={() => setShowComplete(w)}
                     style={{
-                      background: 'var(--green-ghost)', color: 'var(--green-dark)',
+                      background: 'var(--green-bg)', color: 'var(--green-dark)',
                       padding: '6px 12px', fontSize: '0.75rem', fontWeight: 700,
                     }}
                   >
@@ -223,7 +223,7 @@ export default function ProgramDetail() {
             {showComplete.notes && (
               <p style={{
                 marginTop: '12px', fontSize: '0.8rem', color: 'var(--text-2)',
-                background: 'var(--blue-ghost)', padding: '10px 12px', borderRadius: 'var(--r-sm)',
+                background: 'var(--accent-bg)', padding: '10px 12px', borderRadius: 'var(--r-sm)',
               }}>
                 💡 {showComplete.notes}
               </p>
@@ -269,7 +269,7 @@ function ExerciseRow({ exercise, detailed }) {
           </div>
         )}
         {detailed && exercise.weight_instruction && (
-          <div style={{ fontSize: '0.75rem', color: 'var(--blue)', marginTop: '2px' }}>
+          <div style={{ fontSize: '0.75rem', color: 'var(--accent)', marginTop: '2px' }}>
             🏋️ {exercise.weight_instruction}
           </div>
         )}

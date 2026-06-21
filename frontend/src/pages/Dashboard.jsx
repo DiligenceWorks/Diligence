@@ -76,8 +76,8 @@ export default function Dashboard() {
   const polarConnected = integrations?.polar?.connected
 
   const activities = [
-    { key: 'workout', label: 'Workout', icon: '💪', pts: 50, color: '#FF5722', tip: 'Any exercise session — running, weights, yoga, etc. Logged manually or synced from Strava/Polar.' },
-    { key: 'food_log', label: 'Food logged', icon: '🥗', pts: 30, color: '#4CAF50', tip: 'Log what you eat. Barcode scan or manual entry. Building food awareness is a key habit.' },
+    { key: 'workout', label: 'Workout', icon: '💪', pts: 50, color: 'var(--accent)', tip: 'Any exercise session — running, weights, yoga, etc. Logged manually or synced from Strava/Polar.' },
+    { key: 'food_log', label: 'Food logged', icon: '🥗', pts: 30, color: 'var(--green)', tip: 'Log what you eat. Barcode scan or manual entry. Building food awareness is a key habit.' },
     { key: 'steps_target', label: 'Steps target', icon: '👟', pts: 20, color: '#2979FF', tip: 'Hit your daily step goal. Steps are the foundation of an active lifestyle.' },
     { key: 'screen_free', label: 'Screen-free', icon: '📖', pts: '20/hr', color: '#7C4DFF', tip: 'Time away from screens — reading, walking, hobbies. Points scale with hours logged.' },
     { key: 'daily_checkin', label: 'Check-in', icon: '✅', pts: 10, color: '#00BCD4', tip: 'Just show up and check in. The easiest points — consistency matters more than intensity.' },
@@ -90,7 +90,7 @@ export default function Dashboard() {
         <div
           onClick={() => status.program_id && navigate(`/programs/${status.program_id}`)}
           style={{
-            background: 'var(--blue-ghost)', borderRadius: 'var(--r)', padding: '12px 16px',
+            background: 'var(--accent-bg)', borderRadius: 'var(--r)', padding: '12px 16px',
             marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '12px',
             border: '1px solid rgba(41,121,255,0.1)',
             cursor: status.program_id ? 'pointer' : 'default',
@@ -98,15 +98,15 @@ export default function Dashboard() {
         >
           <div style={{ fontSize: '1.1rem' }}>📋</div>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--blue)' }}>{status.program_name}</div>
+            <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--accent)' }}>{status.program_name}</div>
             <div className="progress-bar" style={{ height: '5px', marginTop: '4px' }}>
               <div className="progress-bar-fill" style={{
                 width: `${Math.round((status.program_day / status.program_total_days) * 100)}%`,
-                background: 'var(--blue)',
+                background: 'var(--accent)',
               }} />
             </div>
           </div>
-          <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.85rem', color: 'var(--blue)', whiteSpace: 'nowrap' }}>
+          <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.85rem', color: 'var(--accent)', whiteSpace: 'nowrap' }}>
             {status.program_day}/{status.program_total_days}
           </div>
         </div>
@@ -120,7 +120,7 @@ export default function Dashboard() {
           </Tip>
         </div>
         <div className="gate-pts">
-          <span style={{ color: status.gate_passed ? 'var(--green)' : 'var(--orange)' }}>
+          <span style={{ color: status.gate_passed ? 'var(--green)' : 'var(--accent)' }}>
             {status.points_earned}
           </span>
           <span style={{ fontFamily: 'var(--font)', fontSize: '1rem', fontWeight: 600, color: 'var(--text-3)' }}>
@@ -132,7 +132,7 @@ export default function Dashboard() {
             width: `${pct}%`,
             background: status.gate_passed
               ? 'linear-gradient(90deg, #00C853, #69F0AE)'
-              : `linear-gradient(90deg, #FF5722, #FF8A65)`,
+              : `linear-gradient(90deg, var(--accent), var(--accent-light))`,
           }} />
         </div>
         <div style={{ marginTop: '12px', fontSize: '0.88rem', fontWeight: 700 }}>
@@ -178,7 +178,7 @@ export default function Dashboard() {
       </div>
 
       {/* === Week Progress === */}
-      <div className="card" style={{ background: 'var(--purple-ghost)' }}>
+      <div className="card" style={{ background: 'var(--accent-bg)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
           <div className="section-label" style={{ margin: 0 }}>
             <Tip text={`Earn ${status.weekly_target} total points across the week for a bonus. Consistent daily effort beats one big day.`}>
@@ -202,7 +202,7 @@ export default function Dashboard() {
 
       {/* === Rewards === */}
       {status.gate_passed && status.rewards_available.length > 0 && (
-        <div className="card" style={{ background: 'var(--green-ghost)', border: '2px solid rgba(0,200,83,0.15)' }}>
+        <div className="card" style={{ background: 'var(--green-bg)', border: '2px solid rgba(0,200,83,0.15)' }}>
           <div className="section-label" style={{ color: 'var(--green-dark)' }}>🎮 Rewards Available</div>
           {status.rewards_available.map(r => (
             <div className="reward-card" key={r.id}>

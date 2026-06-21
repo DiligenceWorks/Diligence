@@ -89,7 +89,7 @@ export default function LogFood() {
     <div className="page">
       <h1 className="page-title">Food Log</h1>
 
-      {success && <div style={{ padding: '12px', background: 'var(--green-ghost)', borderRadius: 'var(--radius-sm)', color: 'var(--green-dark)', textAlign: 'center', marginBottom: '12px', fontWeight: 600 }}>{success}</div>}
+      {success && <div style={{ padding: '12px', background: 'var(--green-bg)', borderRadius: 'var(--radius-sm)', color: 'var(--green-dark)', textAlign: 'center', marginBottom: '12px', fontWeight: 600 }}>{success}</div>}
 
       {/* Tab bar */}
       <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>

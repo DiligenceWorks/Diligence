@@ -75,9 +75,9 @@ export default function MealPlan() {
                 <div key={meal.id} style={{
                   background: 'var(--surface-2)', borderRadius: 'var(--r-md)', padding: 16,
                   marginBottom: 10,
-                  borderLeft: itemStatus === 'followed' ? '4px solid #4CAF50' :
-                    itemStatus === 'skipped' ? '4px solid #F44336' :
-                    itemStatus === 'substituted' ? '4px solid #FF9800' : '4px solid transparent',
+                  borderLeft: itemStatus === 'followed' ? '4px solid var(--green)' :
+                    itemStatus === 'skipped' ? '4px solid var(--red)' :
+                    itemStatus === 'substituted' ? '4px solid var(--amber)' : '4px solid transparent',
                 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                     <div>
@@ -141,8 +141,8 @@ export default function MealPlan() {
               </div>
               <span style={{
                 fontSize: '0.75rem', padding: '2px 8px', borderRadius: 12,
-                background: p.status === 'active' ? '#4CAF5022' : '#9E9E9E22',
-                color: p.status === 'active' ? '#4CAF50' : '#9E9E9E',
+                background: p.status === 'active' ? 'var(--green)22' : 'var(--text-3)22',
+                color: p.status === 'active' ? 'var(--green)' : 'var(--text-3)',
                 fontWeight: 600,
               }}>
                 {p.status}

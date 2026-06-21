@@ -56,7 +56,7 @@ function AdminThreadList() {
           style={{
             background: 'var(--card)', borderRadius: 'var(--r)', padding: '14px 16px',
             marginBottom: '0.6rem', boxShadow: 'var(--shadow-1)', cursor: 'pointer',
-            border: t.unread_admin > 0 ? '2px solid var(--orange-glow)' : '1px solid var(--card-border)',
+            border: t.unread_admin > 0 ? '2px solid var(--accent-glow)' : '1px solid var(--card-border)',
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -66,7 +66,7 @@ function AdminThreadList() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               {t.unread_admin > 0 && (
                 <span style={{
-                  background: 'var(--orange)', color: '#fff', fontSize: '0.65rem', fontWeight: 800,
+                  background: 'var(--accent)', color: '#fff', fontSize: '0.65rem', fontWeight: 800,
                   width: '20px', height: '20px', borderRadius: '50%',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>{t.unread_admin}</span>
@@ -168,7 +168,7 @@ function AdminThread({ threadId }) {
             )}
             <span style={{
               ...ctxTag,
-              background: ctx.gate_passed ? 'var(--green-ghost)' : 'var(--red-ghost)',
+              background: ctx.gate_passed ? 'var(--green-bg)' : 'var(--red-ghost)',
               color: ctx.gate_passed ? 'var(--green-dark)' : 'var(--red)',
             }}>
               {ctx.points_today}/{ctx.daily_target} pts {ctx.gate_passed ? '✓' : '✗'}
@@ -193,7 +193,7 @@ function AdminThread({ threadId }) {
               borderRadius: m.sender === 'admin'
                 ? 'var(--r) var(--r) 4px var(--r)'
                 : 'var(--r) var(--r) var(--r) 4px',
-              background: m.sender === 'admin' ? 'var(--blue)' : 'var(--card)',
+              background: m.sender === 'admin' ? 'var(--accent)' : 'var(--card)',
               color: m.sender === 'admin' ? '#fff' : 'var(--text)',
               boxShadow: 'var(--shadow-1)',
               fontSize: '0.88rem',
@@ -233,7 +233,7 @@ function AdminThread({ threadId }) {
           type="submit"
           disabled={!input.trim() || sending}
           style={{
-            background: sending ? 'var(--text-3)' : 'var(--blue)',
+            background: sending ? 'var(--text-3)' : 'var(--accent)',
             color: '#fff', borderRadius: 'var(--r-full)',
             width: '44px', height: '44px', padding: 0,
             display: 'flex', alignItems: 'center', justifyContent: 'center',

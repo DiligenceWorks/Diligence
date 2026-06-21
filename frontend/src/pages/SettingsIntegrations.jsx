@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import { api } from '../api'
 
 const STATUS_COLORS = {
-  connected: '#4CAF50',
-  configured: '#FF9800',
-  not_configured: '#9E9E9E',
+  connected: 'var(--green)',
+  configured: 'var(--amber)',
+  not_configured: 'var(--text-3)',
 }
 
 const STATUS_LABELS = {

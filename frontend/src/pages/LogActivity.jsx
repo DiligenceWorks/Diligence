@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { api } from '../api'
 
 const CATEGORIES = [
-  { value: 'workout', label: 'Workout', icon: '💪', desc: 'Any exercise session', color: '#FF5722' },
+  { value: 'workout', label: 'Workout', icon: '💪', desc: 'Any exercise session', color: 'var(--accent)' },
   { value: 'steps_target', label: 'Steps', icon: '👟', desc: 'Hit your daily goal', color: '#2979FF' },
   { value: 'screen_free', label: 'Screen-Free', icon: '📖', desc: 'Reading, outdoors', color: '#7C4DFF' },
   { value: 'daily_checkin', label: 'Check-in', icon: '✅', desc: 'Just show up', color: '#00BCD4' },
@@ -100,7 +100,7 @@ export default function LogActivity() {
       {success && (
         <div style={{
           textAlign: 'center', padding: '24px', marginBottom: '14px',
-          background: 'var(--green-ghost)', borderRadius: 'var(--r-lg)', border: '2px solid rgba(0,200,83,0.15)',
+          background: 'var(--green-bg)', borderRadius: 'var(--r-lg)', border: '2px solid rgba(0,200,83,0.15)',
         }}>
           <div style={{ fontSize: '2rem', marginBottom: '4px' }}>🎉</div>
           <div style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '1.3rem', color: 'var(--green-dark)' }}>{success}</div>
@@ -129,20 +129,20 @@ export default function LogActivity() {
           <div
             onClick={() => navigate(`/programs/${activeProgram.id}`)}
             style={{
-              background: 'var(--blue-ghost)', borderRadius: 'var(--r-sm)', padding: '10px 14px',
+              background: 'var(--accent-bg)', borderRadius: 'var(--r-sm)', padding: '10px 14px',
               marginBottom: '12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               cursor: 'pointer', border: '1px solid rgba(41,121,255,0.15)',
             }}
           >
             <div>
-              <div style={{ fontSize: '0.7rem', fontWeight: 700, color: 'var(--blue)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <div style={{ fontSize: '0.7rem', fontWeight: 700, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                 Active Program
               </div>
               <div style={{ fontWeight: 800, fontSize: '0.92rem', color: 'var(--text-1)' }}>
                 {activeProgram.name}
               </div>
             </div>
-            <div style={{ fontSize: '0.78rem', color: 'var(--blue)', fontWeight: 700 }}>
+            <div style={{ fontSize: '0.78rem', color: 'var(--accent)', fontWeight: 700 }}>
               Week {activeProgram.current_week || 1} →
             </div>
           </div>
@@ -176,7 +176,7 @@ export default function LogActivity() {
 
           {!todayWorkout && upcomingWorkouts.length === 0 && (
             <div style={{
-              padding: '14px', borderRadius: 'var(--r-sm)', background: 'var(--green-ghost)',
+              padding: '14px', borderRadius: 'var(--r-sm)', background: 'var(--green-bg)',
               color: 'var(--green-dark)', fontSize: '0.85rem', textAlign: 'center', fontWeight: 600,
             }}>
               ✓ All workouts for this week are complete. Log a freeform workout below or rest up.
@@ -223,11 +223,11 @@ function ProgramWorkoutCard({ workout, featured, completing, onComplete }) {
     <div style={{
       background: 'var(--card)', borderRadius: 'var(--r)', padding: '14px',
       marginBottom: '10px', boxShadow: 'var(--shadow-1)',
-      border: featured ? '2px solid var(--orange-glow)' : '1px solid var(--divider)',
+      border: featured ? '2px solid var(--accent-glow)' : '1px solid var(--divider)',
     }}>
       {featured && (
         <div style={{
-          fontSize: '0.65rem', fontWeight: 800, color: 'var(--orange)',
+          fontSize: '0.65rem', fontWeight: 800, color: 'var(--accent)',
           textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px',
         }}>
           ⭐ Today

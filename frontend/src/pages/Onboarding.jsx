@@ -198,7 +198,7 @@ export default function Onboarding() {
   return (
     <div className="page" style={{ paddingTop: '40px' }}>
       <div className="progress-bar" style={{ marginBottom: '24px' }}>
-        <div className="progress-bar-fill" style={{ width: `${progress}%`, background: 'var(--orange)' }} />
+        <div className="progress-bar-fill" style={{ width: `${progress}%`, background: 'var(--accent)' }} />
       </div>
 
       {/* Step 0: Goal */}

@@ -47,7 +47,7 @@ export default function Settings() {
         <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
           <div style={{
             width: '48px', height: '48px', borderRadius: '14px',
-            background: 'linear-gradient(135deg, #FF5722, #FF8A65)',
+            background: 'linear-gradient(135deg, var(--accent), var(--accent-light))',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             color: '#fff', fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '1.2rem',
           }}>

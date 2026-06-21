@@ -24,7 +24,7 @@ export default function WeekView() {
       <h1 className="page-title">This Week</h1>
 
       {/* Summary hero */}
-      <div className="card" style={{ textAlign: 'center', background: 'var(--purple-ghost)' }}>
+      <div className="card" style={{ textAlign: 'center', background: 'var(--accent-bg)' }}>
         <div className="section-label">Weekly Total</div>
         <div style={{ fontFamily: 'var(--font-display)', fontSize: '2.6rem', fontWeight: 900, letterSpacing: '-0.03em' }}>
           {week.total_points_earned}
@@ -68,7 +68,7 @@ export default function WeekView() {
             }}>
               <div style={{
                 width: '38px', fontWeight: isToday ? 800 : 600, fontSize: '0.85rem',
-                color: isToday ? 'var(--orange)' : 'var(--text)',
+                color: isToday ? 'var(--accent)' : 'var(--text)',
               }}>
                 {days[i]}
               </div>
