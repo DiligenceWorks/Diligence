@@ -96,6 +96,7 @@ from app.routers.catalog import router as catalog_router
 from app.routers.support import router as support_router
 from app.routers.nutrition import router as nutrition_router
 from app.routers.meal_plans import router as meal_plans_router
+from app.routers.ai_chat import router as ai_chat_router
 
 app.include_router(auth_router)
 app.include_router(onboarding_router)
@@ -109,6 +110,7 @@ app.include_router(support_router)
 app.include_router(programs_router)
 app.include_router(nutrition_router)
 app.include_router(meal_plans_router)
+app.include_router(ai_chat_router)
 
 
 @app.get("/api/health")
