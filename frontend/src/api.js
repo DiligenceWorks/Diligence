@@ -139,6 +139,10 @@ export const api = {
   listProviders: () => request('/integrations/providers'),
   configureIntegration: (provider, credentials) =>
     request('/integrations/configure', { method: 'POST', body: JSON.stringify({ provider, credentials }) }),
+  // AI Coaching
+  getAIStatus: () => request('/ai/status'),
+  // Note: chatWithAI uses fetch directly in ChatCoach.jsx for SSE streaming
+
   // Resources
   getResourceRecommendations: () => request('/onboarding/recommendations'),
 };

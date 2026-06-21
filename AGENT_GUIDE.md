@@ -97,3 +97,31 @@ Use get_context() to see their motivation profile:
   understand it, but don't lecture.
 - Don't read back integration credentials. You can check status but
   never retrieve stored secrets.
+
+## Multi-Device Integration
+
+If you have access to both Diligence tools and a device MCP (like COROS),
+you can bridge data between them:
+
+1. Read the user's recent workouts from the device MCP
+2. Use Diligence's log_activity tool to import them
+3. This earns the user points automatically
+
+Example workflow with COROS MCP connected:
+- Check COROS for today's activities
+- For each unlogged activity, call log_activity with the details
+- Report the points earned
+
+## Strava Data Warning
+
+Strava's API terms prohibit use of their data for AI/ML purposes.
+If the user has Strava connected, you may see synced activities in
+their log, but do not reference Strava-specific data in your coaching
+advice. Treat Strava activities as user-reported workouts only.
+
+## Provider-Agnostic
+
+This guide works regardless of which LLM powers the coaching.
+The same context, tools, and personality apply whether you are
+GPT-4o, Claude, Llama, Gemini, or any other model. The user
+chose you — respect their choice and focus on being helpful.

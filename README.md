@@ -108,34 +108,65 @@ You should see 4 containers, all healthy: `frontend`, `backend`, `mcp-connector`
 - **Program tracking** — 90-day structured programs (StrongLifts, Darebee, etc.) with day-by-day progression.
 - **Configurable rewards** — you define what's worth earning. Gaming time, screen time, treats — your rules.
 
-## Connecting an AI Agent
+## Built-in AI Coach
 
-Point your agent's MCP config at:
+Diligence includes a built-in AI coaching chat. Configure any LLM provider in **Settings → Integrations**, then open the **Coach** tab.
 
-| Environment | URL |
-|-------------|-----|
-| Local (development) | `http://localhost:3001/sse` |
-| Behind reverse proxy | `https://your-domain/mcp` |
+Supported providers (one API key, that's it):
 
-Works with Claude Desktop, Cursor, Windsurf, and any MCP-compatible agent.
+| Provider | Free tier | What you get |
+|----------|-----------|-------------|
+| **OpenRouter** | 26 free models | 300+ models from every major provider, one key |
+| **Hugging Face** | Yes | Thousands of open-source models |
+| **Groq** | Yes | Ultra-fast Llama inference |
+| **Ollama** | Local, free | Run any model on your own machine |
+| **OpenAI** | No | GPT-4o, GPT-4o-mini |
+| **Claude** | No | Claude Sonnet 4.6, Opus 4.8 |
+| **Gemini** | Yes | Gemini 2.0 Flash, 2.5 Pro |
+| **Custom** | — | Any OpenAI-compatible endpoint (vLLM, TGI, LiteLLM) |
 
-Copy the contents of [AGENT_GUIDE.md](AGENT_GUIDE.md) into your agent's system instructions for motivation-aware coaching.
+The AI coach has access to your profile, points, program schedule, and motivation type. It can log workouts, search food, and create meal plans through the chat.
 
-### Claude Desktop example
+### Connecting external AI agents (MCP)
 
-Add to your `claude_desktop_config.json`:
+The MCP connector at port 3001 works with any MCP-compatible agent. The built-in chat and external agents coexist — use whichever fits your workflow.
 
+**Claude Desktop** — add to `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "diligence": {
-      "url": "http://localhost:3001/sse"
-    }
+    "diligence": { "url": "http://localhost:3001/sse" }
   }
 }
 ```
 
-Then paste the contents of `AGENT_GUIDE.md` into your Claude Desktop project instructions.
+**Claude Code** (CLI):
+```bash
+claude mcp add diligence --transport sse http://localhost:3001/sse
+```
+
+**Cursor** — add to `.cursor/mcp.json`:
+```json
+{
+  "mcpServers": {
+    "diligence": { "url": "http://localhost:3001/sse" }
+  }
+}
+```
+
+**Windsurf** — add to MCP settings, same format as Cursor.
+
+**COROS watch owners** — add both Diligence and COROS MCP servers to your agent. The agent bridges your watch data with your fitness log:
+```json
+{
+  "mcpServers": {
+    "diligence": { "url": "http://localhost:3001/sse" },
+    "coros": { "url": "https://your-coros-mcp-url/sse" }
+  }
+}
+```
+
+Copy the contents of [AGENT_GUIDE.md](AGENT_GUIDE.md) into your agent's system instructions for motivation-aware coaching.
 
 ## Configuring Integrations
 
