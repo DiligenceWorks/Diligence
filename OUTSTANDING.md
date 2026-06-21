@@ -46,7 +46,7 @@
 | Task | Blocker | Effort once unblocked |
 |------|---------|----------------------|
 | `garmin_sync.py` — Garmin Connect sync service | Apply at developer.garmin.com using DiligenceWorks Pte. Ltd. ~2 business days approval | 2-3 hours |
-| `whoop_sync.py` — WHOOP sync service | Register at developer.whoop.com. Requires WHOOP device ownership | 2-3 hours |
+| `whoop_sync.py` — WHOOP sync service | **Deprioritized.** Requires WHOOP device to register developer app. Build against API docs; first WHOOP-owning user validates. | 2-3 hours |
 | `oura_sync.py` — Oura Ring sync service | Register at cloud.ouraring.com. Self-serve, immediate | 2-3 hours |
 | COROS partner API application | Apply at support.coros.com. Timeline unclear | MCP bridge already designed, no backend code needed |
 
