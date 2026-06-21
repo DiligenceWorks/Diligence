@@ -1,4 +1,8 @@
 # Diligence — Windows Setup
+# Generate API_TOKEN for MCP connector auth
+$apiToken = -join ((48..57) + (65..90) + (97..122) | Get-Random -Count 32 | ForEach-Object {[char]$_})
+(Get-Content .env) -replace '^API_TOKEN=.*', "API_TOKEN=$apiToken" | Set-Content .env
+
 Write-Host "`n`e[36m💪 Diligence — Setup`e[0m`n"
 
 if (Test-Path .env) {

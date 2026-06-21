@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import sys
 import logging
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
@@ -27,6 +28,13 @@ async def lifespan(app: FastAPI):
                 logger.error("Could not initialize database after 10 attempts — starting without tables")
 
 
+    # SEC-05: Fail fast if SECRET_KEY not configured
+    from app.config import get_settings
+    _s = get_settings()
+    if _s.secret_key == "change-me-in-production":
+        logger.error("CRITICAL: SECRET_KEY not set. Run ./setup.sh or set SECRET_KEY in .env")
+        sys.exit(1)
+
     # Run lightweight migrations for schema changes
     try:
         await run_migrations()
@@ -41,14 +49,17 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.warning(f"Resource seeding failed (non-fatal): {e}")
 
-    # Start background crawl queue scheduler
+    # Start background crawl queue scheduler (gated on CRAWL_ENABLED)
     crawl_task = None
-    try:
-        from app.services.crawl_scheduler import crawl_queue_loop
-        crawl_task = asyncio.create_task(crawl_queue_loop())
-        logger.info("Crawl queue scheduler started")
-    except Exception as e:
-        logger.warning(f"Crawl scheduler failed to start (non-fatal): {e}")
+    if _s.crawl_enabled:
+        try:
+            from app.services.crawl_scheduler import crawl_queue_loop
+            crawl_task = asyncio.create_task(crawl_queue_loop())
+            logger.info("Crawl queue scheduler started")
+        except Exception as e:
+            logger.warning(f"Crawl scheduler failed to start (non-fatal): {e}")
+    else:
+        logger.info("Crawl scheduler disabled (set CRAWL_ENABLED=true to enable)")
 
     logger.info("Fitness Rewards backend started")
     yield
@@ -68,7 +79,7 @@ app = FastAPI(title="Fitness Rewards", version="1.0.0", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False  # Bearer tokens don't need credentials mode,
     allow_methods=["*"],
     allow_headers=["*"],
 )

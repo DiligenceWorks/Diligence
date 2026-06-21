@@ -13,6 +13,7 @@ from app.config import get_settings
 from app.database import get_db
 
 settings = get_settings()
+ALGORITHM = "HS256"  # Hardcoded — not configurable for security
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/login", auto_error=False)
 
 
@@ -27,7 +28,7 @@ def verify_password(plain: str, hashed: str) -> bool:
 def create_access_token(user_id: str, expires_delta: timedelta | None = None) -> str:
     expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=settings.access_token_expire_minutes))
     payload = {"sub": user_id, "exp": expire}
-    return jwt.encode(payload, settings.secret_key, algorithm=settings.algorithm)
+    return jwt.encode(payload, settings.secret_key, algorithm=ALGORITHM)
 
 
 async def get_current_user(
