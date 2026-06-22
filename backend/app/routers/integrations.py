@@ -55,7 +55,7 @@ async def strava_callback(
     from app.config import get_settings
     _settings = get_settings()
     try:
-        payload = jose_jwt.decode(state, _settings.secret_key, algorithms=[_settings.algorithm])
+        payload = jose_jwt.decode(state, _settings.secret_key, algorithms=["HS256"])
         user_id = uuid_mod.UUID(payload["sub"])
     except (JWTError, KeyError, ValueError):
         raise HTTPException(status_code=400, detail="Invalid or expired OAuth state")
@@ -117,7 +117,7 @@ async def polar_callback(
     from app.config import get_settings
     _settings = get_settings()
     try:
-        payload = jose_jwt.decode(state, _settings.secret_key, algorithms=[_settings.algorithm])
+        payload = jose_jwt.decode(state, _settings.secret_key, algorithms=["HS256"])
         user_id = uuid_mod.UUID(payload["sub"])
     except (JWTError, KeyError, ValueError):
         raise HTTPException(status_code=400, detail="Invalid or expired OAuth state")
