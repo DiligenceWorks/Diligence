@@ -54,7 +54,7 @@ async def ai_status(
     db: AsyncSession = Depends(get_db),
 ):
     """Check which AI provider is configured."""
-    provider = await ai_provider.get_active_ai_provider(db)
+    provider = await ai_provider.get_active_ai_provider(db, user_id=user.id)
     if provider:
         return {
             "configured": True,

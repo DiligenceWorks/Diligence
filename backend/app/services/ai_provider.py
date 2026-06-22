@@ -55,20 +55,32 @@ RULES:
 - Never fabricate data — only reference what's in the context."""
 
 
-async def get_active_ai_provider(db: AsyncSession) -> dict | None:
-    """Find the first configured AI provider."""
-    result = await db.execute(
-        select(IntegrationConfig).where(
-            IntegrationConfig.provider.in_(list(AI_PRESETS.keys()))
-        )
+async def get_active_ai_provider(db: AsyncSession, user_id=None) -> dict | None:
+    """Find the first configured AI provider for the given user."""
+    query = select(IntegrationConfig).where(
+        IntegrationConfig.provider.in_(list(AI_PRESETS.keys()))
     )
-    configs = result.scalars().all()
+    if user_id is not None:
+        query = query.where(IntegrationConfig.user_id == user_id)
 
-    for config in configs:
-        provider_name = config.provider
+    result = await db.execute(query)
+    rows = result.scalars().all()
+
+    # Group rows by provider: {"gemini": {"api_key": "decrypted_value"}}
+    providers: dict[str, dict[str, str]] = {}
+    for row in rows:
+        if row.provider not in providers:
+            providers[row.provider] = {}
         try:
-            creds = json.loads(decrypt_value(config.encrypted_value, settings.secret_key))
+            providers[row.provider][row.config_key] = decrypt_value(
+                settings.secret_key, row.config_value
+            )
         except Exception:
+            continue
+
+    # Return the first provider that has at least one credential
+    for provider_name, creds in providers.items():
+        if not creds:
             continue
 
         preset = AI_PRESETS.get(provider_name, AI_PRESETS["custom_ai"])
@@ -127,7 +139,7 @@ async def chat(
     db: AsyncSession,
 ) -> AsyncGenerator[str, None]:
     """Route chat to the configured AI provider with streaming."""
-    provider = await get_active_ai_provider(db)
+    provider = await get_active_ai_provider(db, user_id=user_id)
     if not provider:
         yield "No AI provider configured. Go to Settings → Integrations to connect one (OpenAI, OpenRouter, Ollama, etc.)."
         return
