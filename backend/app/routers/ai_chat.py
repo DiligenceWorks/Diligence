@@ -13,7 +13,7 @@ from app.models.user import User
 from app.services import ai_provider
 
 logger = logging.getLogger(__name__)
-router = APIRouter(prefix="/ai", tags=["AI Coaching"])
+router = APIRouter(prefix="/api/ai", tags=["AI Coaching"])
 
 
 @router.post("/chat")
