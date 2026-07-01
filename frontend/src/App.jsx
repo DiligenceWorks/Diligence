@@ -19,6 +19,7 @@ import CatalogDetail from './pages/CatalogDetail'
 import Support from './pages/Support'
 import SupportAdmin from './pages/SupportAdmin'
 import ChatCoach from './pages/ChatCoach'
+import AgentConnect from './pages/AgentConnect'
 
 function ProtectedRoute({ children }) {
   if (!hasToken()) return <Navigate to="/login" />
@@ -95,6 +96,9 @@ function NavBar() {
       <NavLink to="/chat" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
         <span className="nav-icon">🧠</span> Coach
       </NavLink>
+      <NavLink to="/agent" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+        <span className="nav-icon">🔌</span> Agent
+      </NavLink>
     </nav>
   )
 }
@@ -123,6 +127,7 @@ export default function App() {
         <Route path="/settings/integrations" element={<ProtectedRoute><SettingsIntegrations /></ProtectedRoute>} />
         <Route path="/meal-plan" element={<ProtectedRoute><MealPlan /></ProtectedRoute>} />
         <Route path="/chat" element={<ProtectedRoute><ChatCoach /></ProtectedRoute>} />
+        <Route path="/agent" element={<ProtectedRoute><AgentConnect /></ProtectedRoute>} />
       </Routes>
       {hasToken() && <NavBar />}
     </>

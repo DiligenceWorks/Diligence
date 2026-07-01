@@ -145,6 +145,9 @@ export const api = {
 
   // Resources
   getResourceRecommendations: () => request('/onboarding/recommendations'),
+
+  // Agent
+  agentConfig: () => request('/agent/config'),
 };
 
 export function setToken(token) {

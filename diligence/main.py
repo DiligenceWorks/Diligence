@@ -98,6 +98,7 @@ from diligence.routers.support import router as support_router
 from diligence.routers.nutrition import router as nutrition_router
 from diligence.routers.meal_plans import router as meal_plans_router
 from diligence.routers.ai_chat import router as ai_chat_router
+from diligence.routers.agent import router as agent_router
 
 app.include_router(auth_router)
 app.include_router(onboarding_router)
@@ -112,6 +113,7 @@ app.include_router(programs_router)
 app.include_router(nutrition_router)
 app.include_router(meal_plans_router)
 app.include_router(ai_chat_router)
+app.include_router(agent_router)
 
 
 @app.get("/api/health")

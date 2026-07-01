@@ -233,7 +233,7 @@ input::placeholder, textarea::placeholder { color: var(--text-3); font-weight: 4
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.03em;
-  padding: 6px 14px;
+  padding: 6px 10px;
   text-decoration: none;
   transition: color 0.15s;
   border-radius: var(--r-sm);
