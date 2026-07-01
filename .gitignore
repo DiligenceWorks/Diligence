@@ -1,12 +1,31 @@
+# Environment
+.env
+*.env.local
+
+# Python
 __pycache__/
 *.py[cod]
 *.egg-info/
-.env
-.venv/
-node_modules/
 dist/
-.DS_Store
-*.log
+build/
+*.egg
 
-# Excluded from open-source (scraped third-party content)
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Data
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Content (scraped recipes — not for distribution)
 content/

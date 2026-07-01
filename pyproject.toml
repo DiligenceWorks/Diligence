@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diligence"
+version = "2.0.0"
+description = "Self-hosted fitness rewards platform with AI agent integration"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [
+    {name = "DiligenceWorks Pte. Ltd.", email = "hello@diligenceworks.online"},
+]
+keywords = ["fitness", "self-hosted", "mcp", "ai-agent", "rewards"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
+]
+
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "sqlalchemy[asyncio]>=2.0.30",
+    "aiosqlite>=0.20.0",
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.7.0",
+    "python-jose[cryptography]>=3.3.0",
+    "bcrypt>=4.2.0",
+    "httpx>=0.27.0",
+    "python-multipart>=0.0.18",
+]
+
+[project.optional-dependencies]
+postgres = [
+    "asyncpg>=0.30.0",
+]
+mcp = [
+    "mcp[cli]>=1.0.0",
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.8.0",
+]
+
+[project.scripts]
+diligence = "diligence.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/DiligenceWorks/Diligence"
+Documentation = "https://github.com/DiligenceWorks/Diligence#readme"
+Repository = "https://github.com/DiligenceWorks/Diligence"
+Issues = "https://github.com/DiligenceWorks/Diligence/issues"
+
+[tool.setuptools.packages.find]
+include = ["diligence*"]
+
+[tool.setuptools.package-data]
+diligence = ["frontend/**/*"]

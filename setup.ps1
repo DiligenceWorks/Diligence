@@ -1,32 +1,71 @@
-# Diligence — Windows Setup
+# Diligence Setup — Windows
+Write-Host ""
+Write-Host "  Diligence Setup"
+Write-Host ""
 
-Write-Host "`n`e[36m💪 Diligence — Setup`e[0m`n"
+function New-RandomHex { -join ((1..32) | ForEach-Object { '{0:x2}' -f (Get-Random -Max 256) }) }
 
-if (Test-Path .env) {
-    Write-Host "`e[33m.env already exists. Delete it first to regenerate.`e[0m"
-    exit 1
+$Secret = New-RandomHex
+$Token = New-RandomHex
+
+# Detect mode — Docker if docker compose is available and docker-compose.yml exists
+$DockerAvailable = $false
+try { docker compose version 2>$null | Out-Null; $DockerAvailable = $true } catch {}
+
+if ($DockerAvailable -and (Test-Path "docker-compose.yml")) {
+    Write-Host "  Mode: Docker (PostgreSQL)"
+    Write-Host ""
+
+    if (Test-Path ".env") {
+        Write-Host "  .env already exists. Delete it first to regenerate."
+        exit 1
+    }
+
+    Copy-Item ".env.example" ".env"
+    (Get-Content ".env") -replace '^SECRET_KEY=.*', "SECRET_KEY=$Secret" `
+                         -replace '^API_TOKEN=.*', "API_TOKEN=$Token" `
+                         -replace '^DATABASE_URL=.*', 'DATABASE_URL=postgresql+asyncpg://fitness@fitness-db:5432/fitness_rewards' `
+                         -replace '^BASE_URL=.*', 'BASE_URL=http://localhost' |
+        Set-Content ".env"
+
+    Write-Host "  .env created"
+    Write-Host ""
+    Write-Host "  Next steps:"
+    Write-Host "    docker compose up -d"
+    Write-Host "    Open http://localhost"
+
+} else {
+    Write-Host "  Mode: Local (SQLite)"
+    Write-Host ""
+
+    $DataDir = Join-Path $env:USERPROFILE ".diligence"
+    if (-not (Test-Path $DataDir)) { New-Item -ItemType Directory -Path $DataDir | Out-Null }
+    $EnvFile = Join-Path $DataDir ".env"
+
+    if (Test-Path $EnvFile) {
+        Write-Host "  Config already exists at $EnvFile"
+        Write-Host "  Delete it to regenerate."
+        exit 1
+    }
+
+    @"
+SECRET_KEY=$Secret
+API_TOKEN=$Token
+BASE_URL=http://localhost:8000
+DATA_DIR=$DataDir
+"@ | Set-Content $EnvFile
+
+    Write-Host "  Config created at $EnvFile"
+    Write-Host ""
+    Write-Host "  Next steps:"
+    Write-Host "    pip install ."
+    Write-Host "    diligence"
+    Write-Host ""
+    Write-Host "  Data stored in: $DataDir"
 }
 
-# Generate random SECRET_KEY (64 hex chars)
-$bytes = New-Object byte[] 32
-[System.Security.Cryptography.RandomNumberGenerator]::Fill($bytes)
-$secret = ($bytes | ForEach-Object { $_.ToString("x2") }) -join ""
-
-# Generate random API_TOKEN (32 alphanumeric chars)
-$apiToken = -join ((48..57) + (65..90) + (97..122) | Get-Random -Count 32 | ForEach-Object {[char]$_})
-
-# Create .env from template and replace both keys
-Copy-Item .env.example .env
-(Get-Content .env) -replace "^SECRET_KEY=.*", "SECRET_KEY=$secret" -replace "^API_TOKEN=.*", "API_TOKEN=$apiToken" | Set-Content .env
-
-Write-Host "`e[32m✅ .env created with random SECRET_KEY and API_TOKEN`e[0m"
 Write-Host ""
-Write-Host "Next steps:"
-Write-Host "  docker compose up -d"
-Write-Host "  Open http://localhost"
-Write-Host "  Register your account"
-Write-Host "  Configure integrations via Settings or your AI agent"
+Write-Host "  MCP agent connection:"
+Write-Host "    URL: http://localhost:3001/sse"
+Write-Host "    Header: Authorization: Bearer $Token"
 Write-Host ""
-Write-Host "MCP agent connection:"
-Write-Host "  URL: http://localhost:3001/sse"
-Write-Host "  Header: Authorization: Bearer $apiToken"
