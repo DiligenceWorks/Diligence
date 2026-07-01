@@ -31,6 +31,10 @@ def main():
         help="Disable the MCP connector",
     )
     parser.add_argument(
+        "--mcp-port", type=int, default=3001,
+        help="Port for MCP SSE server (default: 3001)",
+    )
+    parser.add_argument(
         "--data-dir", type=str, default=None,
         help="Data directory (default: ~/.diligence)",
     )
@@ -43,6 +47,7 @@ def main():
 
     # Auto-generate secrets on first run
     env_file = data_dir / ".env"
+    api_token = ""
     if not env_file.exists():
         secret_key = secrets.token_hex(32)
         api_token = secrets.token_hex(32)
@@ -53,7 +58,6 @@ def main():
             f"DATA_DIR={data_dir}\n"
         )
         print(f"Created config at {env_file}")
-        print(f"MCP token: {api_token}")
 
     # Point pydantic-settings at the env file
     os.environ.setdefault("DATA_DIR", str(data_dir))
@@ -65,9 +69,24 @@ def main():
             if line and not line.startswith("#") and "=" in line:
                 key, _, value = line.partition("=")
                 os.environ.setdefault(key.strip(), value.strip())
+                if key.strip() == "API_TOKEN":
+                    api_token = value.strip()
 
     if args.no_mcp:
         os.environ["MCP_ENABLED"] = "false"
+
+    # Start MCP server in background
+    mcp_started = False
+    if not args.no_mcp:
+        try:
+            from diligence.mcp import start_mcp_background
+            mcp_started = start_mcp_background(
+                api_url=f"http://localhost:{args.port}",
+                api_token=api_token,
+                port=args.mcp_port,
+            )
+        except ImportError:
+            pass
 
     # Open browser after a short delay
     url = f"http://localhost:{args.port}"
@@ -83,6 +102,10 @@ def main():
 
     print(f"\n  Diligence running at {url}")
     print(f"  Data: {data_dir}")
+    if mcp_started:
+        print(f"  MCP:  http://localhost:{args.mcp_port}/sse")
+    elif not args.no_mcp:
+        print(f"  MCP:  not available (install with: pip install diligence[mcp])")
     print(f"  Press Ctrl+C to stop\n")
 
     # Run uvicorn

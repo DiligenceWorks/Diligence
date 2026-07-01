@@ -13,11 +13,14 @@ async def agent_config(user=Depends(get_current_user)):
     """Return MCP connection details for the authenticated user."""
     settings = get_settings()
 
-    # Determine MCP URL based on deployment mode
     base = settings.base_url.rstrip("/")
+
     if settings.is_sqlite:
-        # pip install path — MCP served from same process
-        mcp_url = f"{base}/mcp/sse"
+        # pip install path — MCP runs on separate port (same machine)
+        from urllib.parse import urlparse
+        parsed = urlparse(base)
+        host = parsed.hostname or "localhost"
+        mcp_url = f"http://{host}:{settings.mcp_port}/sse"
     else:
         # Docker path — MCP on separate container port 3001
         from urllib.parse import urlparse
