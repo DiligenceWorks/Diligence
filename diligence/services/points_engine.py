@@ -81,7 +81,7 @@ async def get_available_rewards(db: AsyncSession, user_id: uuid.UUID) -> list[di
     ]
 
 
-async def get_active_program(db: AsyncSession, user_id: uuid.UUID) -> dict | None:
+async def get_active_program(db: AsyncSession, user_id: uuid.UUID, tz_str: str = "UTC") -> dict | None:
     result = await db.execute(
         select(Program)
         .where(Program.user_id == user_id, Program.status == "active")
@@ -90,7 +90,7 @@ async def get_active_program(db: AsyncSession, user_id: uuid.UUID) -> dict | Non
     program = result.scalar_one_or_none()
     if not program:
         return None
-    today = date.today()
+    today = today_for_user(tz_str)
     day_num = (today - program.start_date).days + 1
     total = (program.end_date - program.start_date).days + 1
     return {
@@ -104,8 +104,8 @@ async def get_active_program(db: AsyncSession, user_id: uuid.UUID) -> dict | Non
     }
 
 
-async def get_today_status(db: AsyncSession, user_id: uuid.UUID) -> dict:
-    today = date.today()
+async def get_today_status(db: AsyncSession, user_id: uuid.UUID, tz_str: str = "UTC") -> dict:
+    today = today_for_user(tz_str)
     earned = await get_daily_points_earned(db, user_id, today)
     target = await get_daily_target(db, user_id)
     daily_min = target.daily_minimum_pts if target else 80
@@ -189,9 +189,9 @@ async def log_activity_with_points(
 
 async def redeem_reward(
     db: AsyncSession, user_id: uuid.UUID, reward_id: uuid.UUID, redemption_date: date | None = None
-) -> dict:
+, tz_str: str = "UTC") -> dict:
     """Attempt to redeem a reward. Returns success/failure with details."""
-    d = redemption_date or date.today()
+    d = redemption_date or today_for_user(tz_str)
     earned = await get_daily_points_earned(db, user_id, d)
     target = await get_daily_target(db, user_id)
     daily_min = target.daily_minimum_pts if target else 80

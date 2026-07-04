@@ -30,7 +30,7 @@ export const api = {
   login: (username, password) =>
     request('/auth/login', { method: 'POST', body: JSON.stringify({ username, password }) }),
   register: (username, password, display_name) =>
-    request('/auth/register', { method: 'POST', body: JSON.stringify({ username, password, display_name }) }),
+    request('/auth/register', { method: 'POST', body: JSON.stringify({ username, password, display_name, timezone: Intl.DateTimeFormat().resolvedOptions().timeZone }) }),
   me: () => request('/auth/me'),
 
   // Onboarding

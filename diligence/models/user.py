@@ -17,7 +17,7 @@ class User(Base):
     email: Mapped[str | None] = mapped_column(String(255), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
-    timezone: Mapped[str] = mapped_column(String(50), default="Asia/Bangkok")
+    timezone: Mapped[str] = mapped_column(String(50), default="UTC")
     is_admin: Mapped[bool] = mapped_column(Boolean, default=False)
 
     # Relationships

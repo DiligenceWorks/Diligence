@@ -14,6 +14,7 @@ from diligence.models.reward import Reward
 from diligence.schemas.points import PointRuleUpdate, DailyTargetUpdate
 from diligence.schemas.reward import RewardCreate, RewardRedeemRequest
 from diligence.utils.auth import get_current_user
+from diligence.utils.dates import today_for_user
 from diligence.services.points_engine import get_today_status, get_weekly_summary, redeem_reward
 
 router = APIRouter(prefix="/api/points", tags=["points"])
@@ -24,7 +25,7 @@ async def today_status(
     user: Annotated[User, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(get_db)],
 ):
-    return await get_today_status(db, user.id)
+    return await get_today_status(db, user.id, tz_str=user.timezone)
 
 
 @router.get("/week")
@@ -33,7 +34,7 @@ async def week_summary(
     db: Annotated[AsyncSession, Depends(get_db)],
     start: date | None = None,
 ):
-    d = start or date.today()
+    d = start or today_for_user(user.timezone)
     return await get_weekly_summary(db, user.id, d)
 
 
@@ -143,7 +144,7 @@ async def redeem(
     user: Annotated[User, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(get_db)],
 ):
-    result = await redeem_reward(db, user.id, uuid_mod.UUID(reward_id), req.redemption_date)
+    result = await redeem_reward(db, user.id, uuid_mod.UUID(reward_id), req.redemption_date, tz_str=user.timezone)
     if not result["success"]:
         raise HTTPException(status_code=400, detail=result["reason"])
     return result

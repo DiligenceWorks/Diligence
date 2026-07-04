@@ -12,6 +12,7 @@ from diligence.models.user import User
 from diligence.models.program import Program
 from diligence.models.activity import ActivityLog
 from diligence.utils.auth import get_current_user
+from diligence.utils.dates import today_for_user
 from pydantic import BaseModel
 
 router = APIRouter(prefix="/api/programs", tags=["programs"])
@@ -37,7 +38,7 @@ async def list_programs(
     programs = result.scalars().all()
     out = []
     for p in programs:
-        today = date.today()
+        today = today_for_user(user.timezone)
         day_num = (today - p.start_date).days + 1
         total = (p.end_date - p.start_date).days + 1
         out.append({
@@ -90,7 +91,7 @@ async def get_program(
     )
     logged = days_logged.scalar() or 0
 
-    today = date.today()
+    today = today_for_user(user.timezone)
     day_num = (today - p.start_date).days + 1
     total = (p.end_date - p.start_date).days + 1
 

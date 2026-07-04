@@ -34,6 +34,7 @@ async def register(req: RegisterRequest, db: Annotated[AsyncSession, Depends(get
             display_name=req.display_name,
             password_hash=hash_password(req.password),
             email=req.email,
+            timezone=req.timezone or "UTC",
             is_admin=is_first_user,
         )
         db.add(user)

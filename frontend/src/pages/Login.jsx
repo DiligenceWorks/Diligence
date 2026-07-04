@@ -36,12 +36,12 @@ export default function Login() {
       <div style={{ width: '100%', maxWidth: '380px' }}>
         {/* Brand */}
         <div style={{ textAlign: 'center', marginBottom: '32px', color: '#fff' }}>
-          <div style={{ fontSize: '3.2rem', marginBottom: '8px', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.2))' }}>🔥</div>
+          <div style={{ fontSize: '3.2rem', marginBottom: '8px', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.2))' }}>💪</div>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, letterSpacing: '-0.03em' }}>
-            Fitness Rewards
+            Diligence
           </h1>
           <p style={{ opacity: 0.8, marginTop: '4px', fontSize: '0.95rem', fontWeight: 500 }}>
-            Earn your rewards. Every single day.
+            Your fitness. Your data. Your rewards.
           </p>
         </div>
 

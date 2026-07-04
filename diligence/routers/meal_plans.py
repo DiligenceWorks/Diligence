@@ -14,6 +14,7 @@ from diligence.database import get_db
 from diligence.models.user import User
 from diligence.models.meal_plan import MealPlan, MealPlanItem, MealCompliance
 from diligence.utils.auth import get_current_user
+from diligence.utils.dates import today_for_user
 
 router = APIRouter(prefix="/api/meal-plans", tags=["meal-plans"])
 
@@ -94,7 +95,7 @@ async def create_meal_plan(
         daily_fat_g=body.daily_fat_g,
         restrictions=body.restrictions,
         duration_days=body.duration_days,
-        start_date=body.start_date or date.today(),
+        start_date=body.start_date or today_for_user(user.timezone),
     )
     db.add(plan)
     await db.flush()
@@ -131,7 +132,7 @@ async def get_today_meals(
     if not plan:
         return {"active_plan": None}
 
-    day_num = (date.today() - plan.start_date).days + 1
+    day_num = (today_for_user(user.timezone) - plan.start_date).days + 1
     if day_num < 1 or day_num > plan.duration_days:
         return {"active_plan": plan.name, "day": day_num, "meals": [], "message": "No meals planned for today"}
 
@@ -217,7 +218,7 @@ async def log_compliance(
         user_id=user.id,
         plan_id=plan.id,
         plan_item_id=uuid_mod.UUID(body.plan_item_id) if body.plan_item_id else None,
-        compliance_date=body.compliance_date or date.today(),
+        compliance_date=body.compliance_date or today_for_user(user.timezone),
         status=body.status,
         substitution=body.substitution,
     )
@@ -250,7 +251,7 @@ async def get_plan_progress(
     substituted = sum(1 for e in entries if e.status == "substituted")
     skipped = sum(1 for e in entries if e.status == "skipped")
 
-    days_elapsed = (date.today() - plan.start_date).days + 1
+    days_elapsed = (today_for_user(user.timezone) - plan.start_date).days + 1
     compliance_pct = (followed + substituted) / total * 100 if total > 0 else 0
 
     return {

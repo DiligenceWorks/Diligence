@@ -40,7 +40,7 @@ class Settings(BaseSettings):
 
     # App
     base_url: str = "http://localhost:8000"
-    timezone: str = "Asia/Bangkok"
+    timezone: str = "UTC"
     data_dir: str = str(_default_data_dir())
 
     # MCP

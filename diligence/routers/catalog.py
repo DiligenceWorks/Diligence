@@ -18,6 +18,7 @@ from diligence.models.catalog import ProgramCatalog, CatalogWorkout, CrawlQueue,
 from diligence.services.program_research import slugify, find_urls_for_program
 from diligence.services.points_engine import log_activity_with_points
 from diligence.utils.auth import get_current_user
+from diligence.utils.dates import today_for_user
 
 router = APIRouter(prefix="/api/programs", tags=["programs-v2"])
 
@@ -337,7 +338,7 @@ async def get_program_schedule(
     )
 
     # Calculate current real week from start date
-    today = date.today()
+    today = today_for_user(user.timezone)
     days_elapsed = max(0, (today - program.start_date).days)
     current_week = min(total_weeks, (days_elapsed // 7) + 1)
 
@@ -491,7 +492,7 @@ async def complete_workout(
         db=db,
         user_id=user.id,
         category="workout",
-        activity_date=date.today(),
+        activity_date=today_for_user(user.timezone),
         title=f"{program.name}: Wk{real_week} {workout.workout_name or f'Day {workout.day_number}'}",
         description=f"Completed program workout ({len(workout.exercises)} exercises)",
         source="program",
@@ -556,7 +557,7 @@ async def check_weekly_bonus(
             db=db,
             user_id=user.id,
             category="bonus",
-            activity_date=date.today(),
+            activity_date=today_for_user(user.timezone),
             title=f"{program.name}: Week {real_week} Complete!",
             source="program",
             program_id=program.id,
@@ -599,7 +600,7 @@ async def check_completion_bonus(
             db=db,
             user_id=user.id,
             category="bonus",
-            activity_date=date.today(),
+            activity_date=today_for_user(user.timezone),
             title=f"{program.name}: Program Complete!",
             source="program",
             program_id=program.id,
@@ -654,7 +655,7 @@ async def get_program_progress(
     )
     total_points = result.scalar() or 0
 
-    today = date.today()
+    today = today_for_user(user.timezone)
     days_elapsed = max(0, (today - program.start_date).days)
     current_week = min(total_weeks, (days_elapsed // 7) + 1)
 

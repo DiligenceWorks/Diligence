@@ -12,6 +12,7 @@ from diligence.models.user import User
 from diligence.models.food import FoodLog
 from diligence.schemas.food import FoodCreate, FoodSearchResult
 from diligence.utils.auth import get_current_user
+from diligence.utils.dates import today_for_user
 from diligence.services.food_lookup import lookup_barcode, search_food
 
 router = APIRouter(prefix="/api/food", tags=["food"])
@@ -49,7 +50,7 @@ async def list_food(
         if item.calories:
             total_cals += float(item.calories) * float(item.servings or 1)
 
-    return {"date": (food_date or date.today()).isoformat(), "meals": meals, "total_calories": round(total_cals, 1)}
+    return {"date": (food_date or today_for_user(user.timezone)).isoformat(), "meals": meals, "total_calories": round(total_cals, 1)}
 
 
 @router.post("")

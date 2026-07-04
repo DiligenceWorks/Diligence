@@ -3,6 +3,7 @@ from __future__ import annotations
 """Polar AccessLink API client for activity sync."""
 import uuid
 from datetime import datetime, timezone
+from diligence.utils.dates import today_for_user
 import httpx
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -108,7 +109,7 @@ async def sync_polar_activities(db: AsyncSession, user_id: uuid.UUID) -> list[di
                 activity_date = datetime.fromisoformat(start).date()
             except (ValueError, TypeError):
                 from datetime import date
-                activity_date = date.today()
+                activity_date = today_for_user()
 
             # Parse duration ISO 8601 (e.g., PT1H30M)
             duration_str = ex.get("duration", "")

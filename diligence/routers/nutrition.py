@@ -19,6 +19,7 @@ from diligence.schemas.nutrition import (
 )
 from diligence.utils.auth import get_current_user
 from diligence.services.points_engine import log_activity_with_points
+from diligence.utils.dates import today_for_user, now_for_user, day_start_utc
 
 router = APIRouter(prefix="/api/nutrition", tags=["nutrition"])
 
@@ -87,7 +88,7 @@ async def get_today(
 ):
     """Today's macros vs target, eating-window state, active fast, compliance."""
     goal = await _get_or_create_goal(db, user.id)
-    today = date.today()
+    today = today_for_user(user.timezone)
 
     # Sum today's food
     result = await db.execute(
@@ -103,8 +104,8 @@ async def get_today(
     cals, prot, carbs, fat, fiber = float(cals), float(prot), float(carbs), float(fat), float(fiber)
     net_carbs = max(0.0, carbs - fiber)
 
-    # Eating window (local time, using goal timezone_str — simplified: assume server in UTC, user sends local)
-    now_local = datetime.now(timezone.utc) + timedelta(hours=7)  # Asia/Bangkok offset hack
+    # Eating window (user's local time)
+    now_local = now_for_user(user.timezone)
     hour = now_local.hour
     in_window = goal.eating_window_start_hour <= hour < goal.eating_window_end_hour
     window_str = f"{goal.eating_window_start_hour:02d}:00–{goal.eating_window_end_hour:02d}:00"
@@ -352,7 +353,7 @@ async def get_electrolytes_today(
     user: Annotated[User, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(get_db)],
 ):
-    today_start = datetime.combine(date.today(), datetime.min.time()).replace(tzinfo=timezone.utc)
+    today_start = day_start_utc(user.timezone)
     result = await db.execute(
         select(
             func.coalesce(func.sum(ElectrolyteLog.sodium_mg), 0),

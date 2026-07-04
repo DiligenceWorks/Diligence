@@ -19,6 +19,7 @@ from diligence.models.support import SupportThread, SupportMessage
 from diligence.models.activity import ActivityLog
 from diligence.services.points_engine import get_active_program, get_today_status
 from diligence.utils.auth import get_current_user
+from diligence.utils.dates import day_start_utc
 from diligence.config import settings
 
 logger = logging.getLogger(__name__)
@@ -45,7 +46,7 @@ async def gather_user_context(db: AsyncSession, user: User) -> dict:
     }
 
     try:
-        program = await get_active_program(db, user.id)
+        program = await get_active_program(db, user.id, tz_str=user.timezone)
         if program:
             context["program_name"] = program.get("name")
             context["program_day"] = program.get("day")
@@ -57,7 +58,7 @@ async def gather_user_context(db: AsyncSession, user: User) -> dict:
         pass
 
     try:
-        status = await get_today_status(db, user.id)
+        status = await get_today_status(db, user.id, tz_str=user.timezone)
         context["points_today"] = status.get("points_earned", 0)
         context["daily_target"] = status.get("daily_minimum", 80)
         context["gate_passed"] = status.get("gate_passed", False)
@@ -219,7 +220,7 @@ async def send_message(
         raise HTTPException(status_code=400, detail="Message too long (max 2000 characters)")
 
     # Rate limit check
-    today_start = datetime.combine(date.today(), datetime.min.time(), tzinfo=timezone.utc)
+    today_start = day_start_utc(user.timezone)
     thread = await get_or_create_thread(db, user.id)
 
     result = await db.execute(

@@ -32,7 +32,7 @@ class NutritionGoal(Base):
     default_fast_hours: Mapped[int] = mapped_column(Integer, default=16)        # 16:8
 
     diet_style: Mapped[str] = mapped_column(String(30), default="strict_keto")
-    timezone_str: Mapped[str] = mapped_column(String(50), default="Asia/Bangkok")
+    timezone_str: Mapped[str] = mapped_column(String(50), default="UTC")
 
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
