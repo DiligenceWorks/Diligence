@@ -10,7 +10,7 @@ from diligence.models.activity import ActivityLog
 from diligence.models.points import PointRule, DailyTarget
 from diligence.models.reward import Reward, RewardRedemption
 from diligence.models.program import Program
-from diligence.utils.dates import get_week_boundaries
+from diligence.utils.dates import get_week_boundaries, today_for_user, day_start_utc
 
 
 async def get_daily_points_earned(db: AsyncSession, user_id: uuid.UUID, d: date) -> int:
