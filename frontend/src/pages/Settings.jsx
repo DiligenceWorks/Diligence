@@ -212,6 +212,59 @@ export default function Settings() {
         </div>
       </div>
 
+      {/* Help & Support */}
+      <div className="card">
+        <div className="section-label">Help & Support</div>
+        <div
+          onClick={() => window.open('https://github.com/DiligenceWorks/Diligence/issues', '_blank')}
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '14px 0', borderBottom: '1px solid var(--divider)', cursor: 'pointer',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span style={{ fontSize: '1.2rem' }}>🐛</span>
+            <div>
+              <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Report a Bug</div>
+              <div style={{ fontSize: '0.78rem', color: 'var(--text-3)', fontWeight: 500 }}>Open an issue on GitHub</div>
+            </div>
+          </div>
+          <span style={{ color: 'var(--text-3)', fontSize: '1.1rem' }}>›</span>
+        </div>
+        <div
+          onClick={() => window.open('https://github.com/DiligenceWorks/Diligence/discussions', '_blank')}
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '14px 0', borderBottom: '1px solid var(--divider)', cursor: 'pointer',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span style={{ fontSize: '1.2rem' }}>💬</span>
+            <div>
+              <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Ask a Question</div>
+              <div style={{ fontSize: '0.78rem', color: 'var(--text-3)', fontWeight: 500 }}>GitHub Discussions</div>
+            </div>
+          </div>
+          <span style={{ color: 'var(--text-3)', fontSize: '1.1rem' }}>›</span>
+        </div>
+        <div
+          onClick={() => window.open('https://github.com/DiligenceWorks/Diligence', '_blank')}
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '14px 0', cursor: 'pointer',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span style={{ fontSize: '1.2rem' }}>⭐</span>
+            <div>
+              <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Star on GitHub</div>
+              <div style={{ fontSize: '0.78rem', color: 'var(--text-3)', fontWeight: 500 }}>DiligenceWorks/Diligence</div>
+            </div>
+          </div>
+          <span style={{ color: 'var(--text-3)', fontSize: '1.1rem' }}>›</span>
+        </div>
+      </div>
+
       <button className="btn-danger btn-full" style={{ marginTop: '10px' }} onClick={() => { clearToken(); navigate('/login') }}>
         Sign Out
       </button>
