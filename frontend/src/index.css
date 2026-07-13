@@ -41,6 +41,12 @@
   --r-lg: 12px;
   --r-full: 999px;
 
+  /* Backwards-compat aliases */
+  --surface: var(--card);
+  --surface-2: var(--card);
+  --border: var(--card-border);
+  --r-md: var(--r);
+
   --font: 'Instrument Sans', -apple-system, sans-serif;
   --font-display: 'Instrument Sans', -apple-system, sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
