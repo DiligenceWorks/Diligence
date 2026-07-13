@@ -69,6 +69,12 @@ export default function AgentConnect() {
 
   return (
     <div className="page">
+      <a href="/settings/integrations" style={{
+        fontSize: '0.82rem', color: 'var(--accent)', textDecoration: 'none',
+        display: 'inline-block', marginBottom: '12px',
+      }}>
+        ← Back to Integrations
+      </a>
       <div style={{ marginBottom: '20px' }}>
         <h1 style={{
           fontFamily: 'var(--font-display)', fontWeight: 800,

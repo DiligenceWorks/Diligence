@@ -235,12 +235,23 @@ async def list_providers():
     """Return the provider registry with setup instructions."""
     result = {}
     for key, info in PROVIDER_REGISTRY.items():
+        # Determine sync status for device providers
+        if info.get("type") == "mcp_bridge":
+            sync_status = "mcp_bridge"
+        elif info.get("category") == "device" and not info.get("sync_service"):
+            sync_status = "coming_soon"
+        else:
+            sync_status = "active"
+
         result[key] = {
             "name": info["name"],
             "type": info["type"],
+            "category": info.get("category", "other"),
             "fields": info["fields"],
             "help_url": info.get("help_url", ""),
             "help_text": info.get("help_text", "").replace("{BASE_URL}", settings.base_url),
+            "warning": info.get("warning", ""),
+            "sync_status": sync_status,
         }
     return result
 

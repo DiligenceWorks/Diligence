@@ -107,6 +107,18 @@ export default function App() {
   return (
     <>
       {hasToken() && <HelpButton />}
+      {hasToken() && (
+        <NavLink to="/settings" style={{
+          position: 'fixed', top: '12px', right: '52px', zIndex: 90,
+          width: '36px', height: '36px', borderRadius: '50%',
+          background: 'var(--card)', border: '1px solid var(--card-border)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          textDecoration: 'none', fontSize: '1.1rem', boxShadow: 'var(--shadow-1)',
+          color: 'var(--text-3)',
+        }}>
+          ⚙️
+        </NavLink>
+      )}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/onboarding" element={<ProtectedRoute><Onboarding /></ProtectedRoute>} />

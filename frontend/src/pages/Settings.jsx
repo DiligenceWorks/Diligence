@@ -127,6 +127,22 @@ export default function Settings() {
           </div>
           <span style={{ color: 'var(--text-3)', fontSize: '1.1rem' }}>›</span>
         </div>
+        <div
+          onClick={() => navigate('/agent')}
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '14px 0', cursor: 'pointer',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span style={{ fontSize: '1.2rem' }}>🤖</span>
+            <div>
+              <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Connect AI Agent</div>
+              <div style={{ fontSize: '0.78rem', color: 'var(--text-3)', fontWeight: 500 }}>Claude Desktop, Cursor, Claude Code setup</div>
+            </div>
+          </div>
+          <span style={{ color: 'var(--text-3)', fontSize: '1.1rem' }}>›</span>
+        </div>
       </div>
 
       {/* Point Rules */}
@@ -192,7 +208,7 @@ export default function Settings() {
           onClick={() => navigate('/settings/integrations')}
           style={{ padding: '12px 0', textAlign: 'center', cursor: 'pointer', color: 'var(--accent)', fontSize: '0.88rem', fontWeight: 600 }}
         >
-          Configure all 11 providers →
+          All integrations →
         </div>
       </div>
 

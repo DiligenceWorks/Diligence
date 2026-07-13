@@ -94,17 +94,22 @@ export default function ChatCoach() {
         <h1 className="page-title">AI Coach</h1>
         <div className="card" style={{ textAlign: 'center', padding: '32px 20px' }}>
           <div style={{ fontSize: '2rem', marginBottom: '12px' }}>🤖</div>
-          <h3 style={{ marginBottom: '8px' }}>No AI provider connected</h3>
-          <p style={{ color: 'var(--text-2)', fontSize: '0.9rem', marginBottom: '16px' }}>
-            Connect OpenAI, OpenRouter, Claude, Ollama, or any other provider to start chatting with your AI fitness coach.
+          <h3 style={{ marginBottom: '8px' }}>Set up your AI coach</h3>
+          <p style={{ color: 'var(--text-2)', fontSize: '0.9rem', marginBottom: '20px' }}>
+            Connect an AI provider to chat with your fitness coach right here. OpenRouter, Groq, and Hugging Face all have free tiers.
           </p>
-          <a href="/settings/integrations" className="btn-primary" style={{
+          <a href="/settings/integrations#ai-coaching" className="btn-primary" style={{
             display: 'inline-block', padding: '12px 24px', borderRadius: 'var(--r)',
             background: 'var(--accent)', color: 'var(--text-inv)', textDecoration: 'none',
             fontWeight: 600, fontSize: '0.88rem',
           }}>
-            Configure AI Provider
+            Set up AI Provider
           </a>
+          <p style={{ marginTop: '16px', fontSize: '0.78rem', color: 'var(--text-3)' }}>
+            Advanced: <a href="/agent" style={{ color: 'var(--text-3)', textDecoration: 'underline' }}>
+              connect Claude Desktop, Cursor, or Claude Code via MCP
+            </a>
+          </p>
         </div>
       </div>
     )

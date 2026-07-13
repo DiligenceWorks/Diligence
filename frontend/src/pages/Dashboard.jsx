@@ -32,6 +32,7 @@ function Tip({ text, children }) {
 export default function Dashboard() {
   const [status, setStatus] = useState(null)
   const [integrations, setIntegrations] = useState(null)
+  const [aiStatus, setAiStatus] = useState(null)
   const [loading, setLoading] = useState(true)
   const [syncing, setSyncing] = useState(null)
   const navigate = useNavigate()
@@ -39,9 +40,10 @@ export default function Dashboard() {
   useEffect(() => { loadAll() }, [])
   async function loadAll() {
     try {
-      const [s, intg] = await Promise.all([api.today(), api.integrationStatus()])
+      const [s, intg, ai] = await Promise.all([api.today(), api.integrationStatus(), api.getAIStatus().catch(() => ({ configured: false }))])
       setStatus(s)
       setIntegrations(intg)
+      setAiStatus(ai)
     } catch (err) { console.error(err) }
     finally { setLoading(false) }
   }
@@ -83,8 +85,77 @@ export default function Dashboard() {
     { key: 'daily_checkin', label: 'Check-in', icon: '✅', pts: 10, color: '#00BCD4', tip: 'Just show up and check in. The easiest points — consistency matters more than intensity.' },
   ]
 
+  // Getting-started checklist — shows until dismissed
+  const [showChecklist, setShowChecklist] = useState(() => {
+    return localStorage.getItem('diligence_setup_dismissed') !== 'true'
+  })
+
+  const setupItems = [
+    { done: true, label: 'Create account', link: null },
+    { done: !!status.program_name, label: 'Join a program', link: '/programs' },
+    { done: aiStatus?.configured, label: 'Connect an AI coach', link: '/settings/integrations#ai-coaching' },
+    { done: Object.values(integrations || {}).some(v => v?.connected), label: 'Connect a fitness device', link: '/settings/integrations#fitness-devices' },
+    { done: false, label: 'Set up rewards', link: '/rewards' },
+  ]
+  const completedCount = setupItems.filter(i => i.done).length
+  const allDone = completedCount === setupItems.length
+
   return (
     <div className="page">
+      {/* Getting started checklist */}
+      {showChecklist && !allDone && (
+        <div style={{
+          background: 'var(--card)', borderRadius: 'var(--r)', padding: '16px 18px',
+          marginBottom: '14px', border: '1px solid var(--card-border)',
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+            <div style={{
+              fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase',
+              letterSpacing: '0.08em', color: 'var(--accent)', fontFamily: 'var(--font-mono)',
+            }}>
+              Getting Started
+            </div>
+            <button onClick={() => { setShowChecklist(false); localStorage.setItem('diligence_setup_dismissed', 'true') }}
+              style={{ background: 'none', border: 'none', color: 'var(--text-3)', cursor: 'pointer', fontSize: '1rem', padding: 0 }}>
+              ✕
+            </button>
+          </div>
+          {setupItems.map((item, i) => (
+            <div key={i}
+              onClick={() => item.link && !item.done && navigate(item.link)}
+              style={{
+                display: 'flex', alignItems: 'center', gap: '10px',
+                padding: '7px 0',
+                cursor: item.link && !item.done ? 'pointer' : 'default',
+              }}
+            >
+              <span style={{
+                width: '18px', height: '18px', borderRadius: '50%', display: 'flex',
+                alignItems: 'center', justifyContent: 'center', fontSize: '0.65rem', flexShrink: 0,
+                background: item.done ? 'var(--green)' : 'transparent',
+                border: item.done ? 'none' : '2px solid var(--card-border)',
+                color: item.done ? 'var(--text-inv)' : 'var(--text-3)',
+              }}>
+                {item.done ? '✓' : ''}
+              </span>
+              <span style={{
+                fontSize: '0.88rem', fontWeight: 500,
+                color: item.done ? 'var(--text-3)' : 'var(--text)',
+                textDecoration: item.done ? 'line-through' : 'none',
+              }}>
+                {item.label}
+              </span>
+              {item.link && !item.done && (
+                <span style={{ marginLeft: 'auto', color: 'var(--accent)', fontSize: '0.78rem', fontWeight: 600 }}>›</span>
+              )}
+            </div>
+          ))}
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-3)', marginTop: '8px', fontFamily: 'var(--font-mono)' }}>
+            {completedCount} of {setupItems.length} complete
+          </div>
+        </div>
+      )}
+
       {/* Program bar */}
       {status.program_name && (
         <div
