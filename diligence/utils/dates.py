@@ -40,3 +40,15 @@ def day_start_utc(tz_str: str = "UTC") -> datetime:
         tz = ZoneInfo("UTC")
     local_midnight = datetime(user_today.year, user_today.month, user_today.day, tzinfo=tz)
     return local_midnight.astimezone(ZoneInfo("UTC"))
+
+
+def get_week_boundaries(d: date | None = None, tz_str: str = "UTC") -> tuple[date, date]:
+    """Return (Monday, Sunday) of the week containing date d.
+
+    If d is None, uses today in the given timezone.
+    """
+    if d is None:
+        d = today_for_user(tz_str)
+    monday = d - __import__("datetime").timedelta(days=d.weekday())
+    sunday = monday + __import__("datetime").timedelta(days=6)
+    return monday, sunday
