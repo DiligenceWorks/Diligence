@@ -35,6 +35,7 @@ export default function Dashboard() {
   const [aiStatus, setAiStatus] = useState(null)
   const [loading, setLoading] = useState(true)
   const [syncing, setSyncing] = useState(null)
+  const [showChecklist, setShowChecklist] = useState(() => localStorage.getItem("diligence_setup_dismissed") !== "true")
   const navigate = useNavigate()
 
   useEffect(() => { loadAll() }, [])
@@ -84,11 +85,6 @@ export default function Dashboard() {
     { key: 'screen_free', label: 'Screen-free', icon: '📖', pts: '20/hr', color: '#7C4DFF', tip: 'Time away from screens — reading, walking, hobbies. Points scale with hours logged.' },
     { key: 'daily_checkin', label: 'Check-in', icon: '✅', pts: 10, color: '#00BCD4', tip: 'Just show up and check in. The easiest points — consistency matters more than intensity.' },
   ]
-
-  // Getting-started checklist — shows until dismissed
-  const [showChecklist, setShowChecklist] = useState(() => {
-    return localStorage.getItem('diligence_setup_dismissed') !== 'true'
-  })
 
   const setupItems = [
     { done: true, label: 'Create account', link: null },
