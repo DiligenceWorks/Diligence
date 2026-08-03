@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import json
 import httpx
-from mcp.server.fastmcp import FastMCP
+from fastmcp import FastMCP
 
 _client: httpx.AsyncClient | None = None
 
