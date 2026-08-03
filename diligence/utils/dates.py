@@ -9,22 +9,29 @@ from datetime import date, datetime, timezone
 from zoneinfo import ZoneInfo
 
 
+def _safe_tz(tz_str: str = "UTC"):
+    """Resolve a timezone string to a tzinfo, falling back to UTC.
+
+    Uses datetime.timezone.utc as the ultimate fallback in case
+    tzdata is not installed (common on Windows).
+    """
+    try:
+        return ZoneInfo(tz_str)
+    except Exception:
+        try:
+            return ZoneInfo("UTC")
+        except Exception:
+            return timezone.utc
+
+
 def today_for_user(tz_str: str = "UTC") -> date:
     """Return today's date in the user's timezone."""
-    try:
-        tz = ZoneInfo(tz_str)
-    except (KeyError, Exception):
-        tz = ZoneInfo("UTC")
-    return datetime.now(tz).date()
+    return datetime.now(_safe_tz(tz_str)).date()
 
 
 def now_for_user(tz_str: str = "UTC") -> datetime:
     """Return the current datetime in the user's timezone (tz-aware)."""
-    try:
-        tz = ZoneInfo(tz_str)
-    except (KeyError, Exception):
-        tz = ZoneInfo("UTC")
-    return datetime.now(tz)
+    return datetime.now(_safe_tz(tz_str))
 
 
 def day_start_utc(tz_str: str = "UTC") -> datetime:
@@ -34,12 +41,9 @@ def day_start_utc(tz_str: str = "UTC") -> datetime:
     to filter by the user's local day.
     """
     user_today = today_for_user(tz_str)
-    try:
-        tz = ZoneInfo(tz_str)
-    except (KeyError, Exception):
-        tz = ZoneInfo("UTC")
+    tz = _safe_tz(tz_str)
     local_midnight = datetime(user_today.year, user_today.month, user_today.day, tzinfo=tz)
-    return local_midnight.astimezone(ZoneInfo("UTC"))
+    return local_midnight.astimezone(timezone.utc)
 
 
 def get_week_boundaries(d: date | None = None, tz_str: str = "UTC") -> tuple[date, date]:
