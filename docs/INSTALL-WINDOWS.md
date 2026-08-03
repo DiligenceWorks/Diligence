@@ -21,9 +21,10 @@ Should show `Python 3.12.x` or similar.
 
 ---
 
-## 2. Install Node.js (required for Claude Desktop MCP)
+## 2. Install Node.js
 
-Download the LTS version from [nodejs.org](https://nodejs.org). Run the installer with defaults.
+Required for Gemini CLI and Claude Desktop MCP bridge. Download the LTS version
+from [nodejs.org](https://nodejs.org). Run the installer with defaults.
 
 Verify in a **new** PowerShell window:
 
@@ -31,7 +32,7 @@ Verify in a **new** PowerShell window:
 node --version
 ```
 
-Skip this step if you only plan to use the built-in AI Coach (see Step 7b).
+Skip this step if you only plan to use the built-in AI Coach (see Section 7d).
 
 ---
 
@@ -91,9 +92,10 @@ right-click the PowerShell title bar, select Properties, uncheck "QuickEdit Mode
 
 ---
 
-## 6. Create the MCP stdio launcher
+## 6. Prepare the MCP stdio launcher
 
-Create the file `mcp_stdio.py` in your Diligence-main folder:
+Some AI agents (Claude Desktop, ChatGPT Desktop) require stdio transport. Create the
+launcher script in your Diligence-main folder:
 
 ```powershell
 Set-Content "$env:USERPROFILE\Downloads\Diligence-main\mcp_stdio.py" @'
@@ -114,16 +116,92 @@ If it hangs with no output, that means success (stdio is waiting for input). Pre
 
 ---
 
-## 7a. Connect Claude Desktop (free, MCP agent)
+## 7. Connect an AI Agent
 
-### Install Claude Desktop
+Choose one or more of the following options. All are free.
 
-Download from [claude.ai/download](https://claude.ai/download) or install from the Microsoft Store.
-Sign in with a free Claude account.
+---
 
-### Configure MCP
+### 7a. Gemini CLI (recommended free option)
 
-Determine which install you have and set the config:
+**What:** Google's terminal AI agent. 1,000 free requests/day with Google sign-in.
+Supports stdio and SSE MCP directly — no bridge needed.
+
+**Requires:** Node.js (Step 2)
+
+**Install:**
+
+```powershell
+npm install -g @google/gemini-cli
+```
+
+**First run — authenticate with Google:**
+
+```powershell
+gemini
+```
+
+Follow the browser prompt to sign in with your Google account. This is a one-time setup.
+
+**Configure MCP:**
+
+Create or edit the settings file:
+
+```powershell
+mkdir "$env:USERPROFILE\.gemini" -ErrorAction SilentlyContinue
+Set-Content "$env:USERPROFILE\.gemini\settings.json" @'
+{
+  "mcpServers": {
+    "diligence": {
+      "command": "python",
+      "args": ["mcp_stdio.py"],
+      "cwd": "DILIGENCE_PATH"
+    }
+  }
+}
+'@
+```
+
+Replace `DILIGENCE_PATH` with your actual path, using double backslashes:
+`C:\\Users\\giord\\Downloads\\Diligence-main`
+
+**Alternatively**, Gemini CLI supports SSE directly (unlike Claude Desktop), so you
+can point it at the running MCP server without the stdio script:
+
+```json
+{
+  "mcpServers": {
+    "diligence": {
+      "url": "http://localhost:3001/sse"
+    }
+  }
+}
+```
+
+**Use:**
+
+1. Start Diligence in one terminal (`python -m diligence`)
+2. Open a second terminal and run `gemini`
+3. Type: "What's my fitness status today?"
+
+Gemini CLI will discover the Diligence MCP tools and use them to answer.
+
+---
+
+### 7b. Claude Desktop (free, MCP via stdio)
+
+**What:** Anthropic's desktop chat app. Free with a free Claude account.
+Only supports stdio MCP via config file (not SSE).
+
+**Requires:** Node.js (Step 2), free Claude account at [claude.ai](https://claude.ai)
+
+**Install:** Download from [claude.ai/download](https://claude.ai/download) or
+install from the Microsoft Store. Sign in with your free Claude account.
+
+**Configure MCP:**
+
+Claude Desktop reads its config from different paths depending on install method.
+Set both to be safe:
 
 **Standard install:**
 
@@ -158,32 +236,88 @@ Set-Content "$env:LOCALAPPDATA\Packages\Claude_pzs8sxrjxfjjc\LocalCache\Roaming\
 '@
 ```
 
-Replace `DILIGENCE_PATH` with the actual path, e.g. `C:\\Users\\giord\\Downloads\\Diligence-main`.
-Note the double backslashes in JSON.
+Replace `DILIGENCE_PATH` with your actual path using double backslashes:
+`C:\\Users\\giord\\Downloads\\Diligence-main`
 
-**If you are unsure which install you have**, set both configs — only the correct one will be read.
+**Important:** Do NOT use the "Add custom connector" button in Claude Desktop's UI.
+That is for remote MCP servers and may have plan restrictions. The config file
+approach above is for local MCP and works on the free plan.
 
-### Start and test
+**Use:**
 
-1. Start Diligence in a terminal (`python -m diligence`)
-2. Quit Claude Desktop fully (right-click system tray icon > Quit, or `Get-Process *claude* | Stop-Process -Force`)
+1. Start Diligence in one terminal (`python -m diligence`)
+2. Quit Claude Desktop fully (right-click system tray icon > Quit)
 3. Reopen Claude Desktop
-4. Look for a tools/hammer icon indicating MCP connected
+4. Look for a tools/hammer icon indicating MCP is connected
 5. Type: "What's my fitness status today?"
 
 ---
 
-## 7b. Alternative: Built-in AI Coach (no extra apps needed)
+### 7c. ChatGPT Desktop (paid plans only)
 
-If Claude Desktop MCP is not working or you prefer a simpler setup:
+**What:** OpenAI's desktop app. Supports local stdio MCP servers via config file.
 
-1. Get a free API key from one of these providers:
-   - **OpenRouter** (openrouter.ai/keys) — 26 free models, sign up with Google
-   - **Groq** (console.groq.com) — free tier, fast inference
-   - **Google AI Studio** (aistudio.google.com) — free Gemini API key
+**Requires:** ChatGPT Plus, Pro, or Team plan (not free). Developer Mode enabled.
+
+**Install:** Download from [openai.com/chatgpt/desktop](https://openai.com/chatgpt/desktop).
+
+**Configure MCP:**
+
+```powershell
+mkdir "$env:APPDATA\ChatGPT" -ErrorAction SilentlyContinue
+Set-Content "$env:APPDATA\ChatGPT\chatgpt_config.json" @'
+{
+  "mcpServers": {
+    "diligence": {
+      "command": "python",
+      "args": ["mcp_stdio.py"],
+      "cwd": "DILIGENCE_PATH"
+    }
+  }
+}
+'@
+```
+
+Replace `DILIGENCE_PATH` with your actual path using double backslashes.
+
+**Enable Developer Mode:** Settings > Developer Mode > ON
+
+**Use:**
+
+1. Start Diligence in one terminal
+2. Restart ChatGPT Desktop
+3. Type: "What's my fitness status today?"
+
+---
+
+### 7d. Built-in AI Coach (simplest — no extra apps needed)
+
+**What:** AI coaching chat built directly into the Diligence web app. No external
+tools, no config files, no MCP setup. Just needs a free API key.
+
+**Free API key providers:**
+
+| Provider | Free tier | Get key |
+|----------|-----------|---------|
+| OpenRouter | 26 free models | [openrouter.ai/keys](https://openrouter.ai/keys) |
+| Groq | Fast Llama inference | [console.groq.com/keys](https://console.groq.com/keys) |
+| Google AI Studio | Gemini Flash/Pro | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) |
+| Hugging Face | Thousands of models | [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens) |
+| Ollama | Run LLMs locally, no key needed | [ollama.com](https://ollama.com/) |
+
+**Setup:**
+
+1. Sign up at one of the providers above and copy your API key
 2. In the Diligence browser app, go to **Settings > Integrations > AI Coaching**
 3. Paste your API key and select a model
 4. Use the **Coach** tab in the bottom navigation
+
+**Ollama (fully offline):**
+
+If you want AI coaching without any internet dependency, install Ollama from
+[ollama.com](https://ollama.com/), pull a model (`ollama pull llama3.1`), and
+configure the Diligence AI Coaching integration to point at `http://localhost:11434`.
+No API key needed.
 
 ---
 
@@ -198,7 +332,8 @@ python -m diligence
 
 Open `http://localhost:8000` in your browser. The app runs until you press Ctrl+C.
 
-If using Claude Desktop, make sure Diligence is running first, then open Claude Desktop.
+If using an external AI agent (Gemini CLI, Claude Desktop, ChatGPT Desktop),
+make sure Diligence is running first, then open the agent.
 
 ---
 
@@ -224,10 +359,12 @@ Your data is stored in `~\.diligence\` and is preserved across updates.
 
 | Symptom | Cause | Fix |
 |---------|-------|-----|
-| Home/Keto pages show "failed to load" | Missing tzdata | `pip install tzdata` |
-| "No module named diligence" | Not in the right directory | `cd "$env:USERPROFILE\Downloads\Diligence-main"` |
+| Home/Keto pages "failed to load" | Missing tzdata | `pip install tzdata` |
+| "No module named diligence" | Wrong directory | `cd "$env:USERPROFILE\Downloads\Diligence-main"` |
 | "No module named uvicorn" | Dependencies not installed | `pip install ".[mcp]"` |
-| App stops when clicking terminal | PowerShell QuickEdit mode | Right-click title bar > Properties > uncheck QuickEdit |
-| Claude Desktop MCP "Server disconnected" | Wrong MCP package or transport | See Step 6 for stdio setup |
-| MCP "not valid configurations" | Config uses url instead of command | Use the stdio config format (Step 7a) |
-| Claude Desktop MCP "not available" | MCP extras not installed | `pip install ".[mcp]"` |
+| "No module named mcp.server.fastmcp" | Wrong MCP SDK version | `pip uninstall mcp -y && pip install "fastmcp>=3.0.0"` |
+| App stops when clicking terminal | PowerShell QuickEdit | Right-click title bar > Properties > uncheck QuickEdit |
+| Claude Desktop "not valid config" | Config uses `url` not `command` | Use the stdio config (Section 7b) |
+| Claude Desktop "Server disconnected" | MCP extras not installed | `pip install ".[mcp]"` and check for `MCP:` line |
+| Gemini CLI "no tools found" | Settings path wrong | Check `~/.gemini/settings.json` has correct `cwd` path |
+| MCP line shows "not available" | Missing MCP extras | `pip install ".[mcp]"` |
