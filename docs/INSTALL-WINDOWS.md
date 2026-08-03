@@ -149,34 +149,39 @@ Create or edit the settings file:
 
 ```powershell
 mkdir "$env:USERPROFILE\.gemini" -ErrorAction SilentlyContinue
-Set-Content "$env:USERPROFILE\.gemini\settings.json" @'
+$dp = ("$env:USERPROFILE\Downloads\Diligence-main") -replace '\\','\\\\'
+@"
 {
   "mcpServers": {
     "diligence": {
       "command": "python",
       "args": ["mcp_stdio.py"],
-      "cwd": "DILIGENCE_PATH"
+      "cwd": "$dp"
     }
   }
 }
-'@
+"@ | Set-Content "$env:USERPROFILE\.gemini\settings.json"
 ```
 
-Replace `DILIGENCE_PATH` with your actual path, using double backslashes:
-`C:\\Users\\giord\\Downloads\\Diligence-main`
-
 **Alternatively**, Gemini CLI supports SSE directly (unlike Claude Desktop), so you
-can point it at the running MCP server without the stdio script:
+can point it at the running MCP server without the stdio script. If your Diligence
+instance has API token auth enabled (check `http://localhost:8000/agent`), include
+the token in headers. Open the settings file in Notepad and paste:
 
 ```json
 {
   "mcpServers": {
     "diligence": {
-      "url": "http://localhost:3001/sse"
+      "url": "http://localhost:3001/sse",
+      "headers": {
+        "Authorization": "Bearer YOUR_TOKEN_FROM_AGENT_PAGE"
+      }
     }
   }
 }
 ```
+
+Omit the `headers` block if no token is shown on the Agent page.
 
 **Use:**
 
@@ -203,41 +208,30 @@ install from the Microsoft Store. Sign in with your free Claude account.
 Claude Desktop reads its config from different paths depending on install method.
 Set both to be safe:
 
-**Standard install:**
+Generate and save the config (this auto-resolves your Downloads path):
 
 ```powershell
+$dp = ("$env:USERPROFILE\Downloads\Diligence-main") -replace '\\','\\\\'
+$json = @"
+{
+  "mcpServers": {
+    "diligence": {
+      "command": "python",
+      "args": ["mcp_stdio.py"],
+      "cwd": "$dp"
+    }
+  }
+}
+"@
+
+# Standard install path
 mkdir "$env:APPDATA\Claude" -ErrorAction SilentlyContinue
-Set-Content "$env:APPDATA\Claude\claude_desktop_config.json" @'
-{
-  "mcpServers": {
-    "diligence": {
-      "command": "python",
-      "args": ["mcp_stdio.py"],
-      "cwd": "DILIGENCE_PATH"
-    }
-  }
-}
-'@
+$json | Set-Content "$env:APPDATA\Claude\claude_desktop_config.json"
+
+# Microsoft Store install path (set both to be safe)
+$storePath = "$env:LOCALAPPDATA\Packages\Claude_pzs8sxrjxfjjc\LocalCache\Roaming\Claude"
+if (Test-Path $storePath) { $json | Set-Content "$storePath\claude_desktop_config.json" }
 ```
-
-**Microsoft Store install:**
-
-```powershell
-Set-Content "$env:LOCALAPPDATA\Packages\Claude_pzs8sxrjxfjjc\LocalCache\Roaming\Claude\claude_desktop_config.json" @'
-{
-  "mcpServers": {
-    "diligence": {
-      "command": "python",
-      "args": ["mcp_stdio.py"],
-      "cwd": "DILIGENCE_PATH"
-    }
-  }
-}
-'@
-```
-
-Replace `DILIGENCE_PATH` with your actual path using double backslashes:
-`C:\\Users\\giord\\Downloads\\Diligence-main`
 
 **Important:** Do NOT use the "Add custom connector" button in Claude Desktop's UI.
 That is for remote MCP servers and may have plan restrictions. The config file
@@ -263,22 +257,11 @@ approach above is for local MCP and works on the free plan.
 
 **Configure MCP:**
 
-```powershell
-mkdir "$env:APPDATA\ChatGPT" -ErrorAction SilentlyContinue
-Set-Content "$env:APPDATA\ChatGPT\chatgpt_config.json" @'
-{
-  "mcpServers": {
-    "diligence": {
-      "command": "python",
-      "args": ["mcp_stdio.py"],
-      "cwd": "DILIGENCE_PATH"
-    }
-  }
-}
-'@
-```
-
-Replace `DILIGENCE_PATH` with your actual path using double backslashes.
+MCP configuration is shared between ChatGPT Desktop and OpenAI Codex CLI.
+The config file location may vary by version — check OpenAI's documentation
+for the current path. As of mid-2026, it is typically at
+`%APPDATA%\ChatGPT\chatgpt_config.json`. Use the same JSON format as
+Claude Desktop (Section 7b) with your Diligence path.
 
 **Enable Developer Mode:** Settings > Developer Mode > ON
 

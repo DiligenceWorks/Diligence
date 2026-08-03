@@ -36,8 +36,11 @@ Required for Gemini CLI. Skip if you only plan to use the built-in AI Coach
 (see Section 7d).
 
 ```bash
-# Debian/Ubuntu (via NodeSource)
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+# Debian/Ubuntu — simplest (Ubuntu 26.04 includes Node 22)
+sudo apt install -y nodejs npm
+
+# Or via NodeSource for a specific version
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt install -y nodejs
 
 # Fedora
@@ -47,7 +50,7 @@ sudo dnf install nodejs
 sudo pacman -S nodejs npm
 
 # Or via nvm (any distro)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 source ~/.bashrc
 nvm install --lts
 ```
@@ -205,7 +208,23 @@ cat > ~/.gemini/settings.json << 'EOF'
 EOF
 ```
 
-Alternatively, use the stdio launcher:
+If your Diligence instance has API token auth enabled (check the Agent page at
+`http://localhost:8000/agent`), add headers to the config:
+
+```json
+{
+  "mcpServers": {
+    "diligence": {
+      "url": "http://localhost:3001/sse",
+      "headers": {
+        "Authorization": "Bearer YOUR_TOKEN_FROM_AGENT_PAGE"
+      }
+    }
+  }
+}
+```
+
+Alternatively, use the stdio launcher (no token needed — it connects locally):
 
 ```json
 {
@@ -219,7 +238,7 @@ Alternatively, use the stdio launcher:
 }
 ```
 
-Replace `USERNAME` with your actual username.
+Replace `USERNAME` with your actual Linux username (run `whoami` to check).
 
 **Use:**
 
@@ -271,7 +290,7 @@ cat > ~/.config/Claude/claude_desktop_config.json << 'EOF'
 EOF
 ```
 
-Replace `USERNAME` with your actual username.
+Replace `USERNAME` with your actual Linux username (run `whoami` to check).
 
 If using a virtual environment, use the full path to the venv Python:
 
@@ -396,6 +415,12 @@ EOF
 
 sudo systemctl daemon-reload
 sudo systemctl enable --now diligence
+```
+
+If using a virtual environment, change `ExecStart` to:
+
+```
+ExecStart=/home/USERNAME/Downloads/Diligence-main/.venv/bin/python -m diligence
 ```
 
 Check status:
