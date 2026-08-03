@@ -218,6 +218,24 @@ async def run_migrations():
                 "ALTER TABLE users ADD COLUMN is_admin BOOLEAN DEFAULT FALSE"
             ))
 
+        # v4.2: Add timezone to users
+        if "users" in tables and "timezone" not in columns.get("users", []):
+            await conn.execute(text(
+                "ALTER TABLE users ADD COLUMN timezone VARCHAR(50) DEFAULT 'UTC'"
+            ))
+
+        # v4.3: Add diet_style and timezone_str to nutrition_goals
+        if "nutrition_goals" in tables:
+            ng_cols = columns.get("nutrition_goals", [])
+            if "diet_style" not in ng_cols:
+                await conn.execute(text(
+                    "ALTER TABLE nutrition_goals ADD COLUMN diet_style VARCHAR(30) DEFAULT 'strict_keto'"
+                ))
+            if "timezone_str" not in ng_cols:
+                await conn.execute(text(
+                    "ALTER TABLE nutrition_goals ADD COLUMN timezone_str VARCHAR(50) DEFAULT 'UTC'"
+                ))
+
         # v4.1: Grant admin to first registered user if none exists
         if "users" in tables and "is_admin" in columns.get("users", []):
             result = await conn.execute(text(
