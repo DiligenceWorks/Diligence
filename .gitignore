@@ -29,3 +29,7 @@ Thumbs.db
 
 # Content (scraped recipes — not for distribution)
 content/
+
+# Portable build artifacts
+portable/build/
+portable/dist/
